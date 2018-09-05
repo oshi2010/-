@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>gonglve</title>
+		<link rel="stylesheet" href="css/strategy.css" />
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" href="lib/1-iconfont/iconfont.css" />
+	</head>
+	<body>
+		<!--导航部分-->
+		<div id="header">
+			<div class="syyf-header ">
+				<div class="box fl">
+					<a href="index.html">
+						<img src="img/login.png" alt="诗与远方" title="诗与远方" />
+					</a>
+				</div>
+				<!--头部导航-->
+				<div class="header-list fl">
+					<a href="index.html" class="fl" >首页</a>
+					<a href="background.html" class="fl" >目的地</a>
+					<a href="strategy.html" class="fl active" >旅游攻略</a>
+					<a href="liberty.html"  class=" fl">商城
+						<i class="iconfont icon-xiala"></i>
+					</a>
+					<a href="#" class="fl" >酒店</a>
+					<a href="exchange.html" class="fl community-nav" >社区<i class="iconfont icon-xiala"></i></a>
+					<div class="community no" >
+                        <div class="panel-wrapper">
+                            <ul class="nav-list clearfix fl">
+                                <li class="h"><a href="exchange.html" target="_blank" title="问答" data-cs-p="wenda">问答<i class="iconfont icon-hot"></i></a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/things.php" target="_blank" title="诗与远方周边" data-cs-p="things">诗与远方周边<i class="iconfont icon-new"></i></a></li>
+                                <li><a href="jub.html" target="_blank" title="蜂首俱乐部" data-cs-p="club">俱乐部</a></li>
+                                <li><a href="travel.html" target="_blank" title="结伴" data-cs-p="together">结伴</a></li>
+                            </ul>
+                            <ul class="nav-list-sub clearfix fr">
+                                <li><a href="http://www.mafengwo.cn/group/" target="_blank" title="诗与远方旅行家" data-cs-p="group">小组论坛</a></li>
+                                <li><a href="http://www.mafengwo.cn/rudder/" target="_blank" title="分舵同城" data-cs-p="rudder">分舵同城</a></li>
+                                <li><a href="http://www.mafengwo.cn/auction/" target="_blank" title="诗与远方拍卖行" data-cs-p="paimai">诗与远方拍卖行</a></li>
+                                <li><a href="http://www.mafengwo.cn/postal/" target="_blank" title="游记纪念工厂" data-cs-p="postal">游记纪念工厂</a></li>
+                                <li><a href="detailed.html" target="_blank" title="照片PK" data-cs-p="photo_pk">照片PK</a></li>
+                                <li><a href="http://www.mafengwo.cn/focus/" target="_blank" title="真人兽" data-cs-p="focus">真人兽</a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/virtual_goods.php" target="_blank" title="道具商店" data-cs-p="virtual">道具商店</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+				<!--搜索-->
+				<div class="search ">
+					<div class="input-group " >
+						<input type="text" class="form-control"  @click="searA()" v-model="msgA"/>
+						<span class="input-group-addon iconfont icon-search"></span>
+						<div class="search-list">
+						</div>
+					</div>
+				</div>
+				<!--登录-->
+				<div class="login fr">
+					<a href="#" class="ico">
+						<span class="iconfont icon-xinlang1"></span>
+					</a>
+					<a href="#"  class="ico">	
+						<span class="iconfont icon-qq2"></span>
+					</a>
+					<a href="#"  class="ico">
+						<span class="iconfont icon-weixin1"></span></a>
+					<a href="login.html">
+					 	<span>登录</span>
+					</a>
+					<span>|</span>
+					<a href="register.html">
+						<span>注册</span>
+					</a>
+				</div>
+			</div>
+			<div class="shadow "></div>
+			<div class="content container" >
+				<div class="content-list fr">
+					<ul>
+						<li class="active " ><a id="a" href="liberty.html" id="a">跟团游</a></li>
+						<span>|</span>
+						<li><a href="localtion.html" id="a">当地游</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">国内机票</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">签证</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">全球wifi</a></li>
+						<span>|</span>
+						<li><a href="cruise.html" id="a">游轮</a></li>
+						<span>|</span>
+						<li><a href="insurance.html" id="a">旅游保险</a></li>
+					</ul>
+				</div>
+			</div>
+			<br />
+		</div>
+		<!--菜单左侧侧导航栏-->
+		<div class="middle">
+			<div class="navside">
+				<div class="all-classical">
+					<h4>全部分类</h4>
+				</div>
+				<ul class="all-list">
+					<li>
+						<h4>当季热推</h4>
+						<div class="menu-top">
+							<a href="#">桂林</a>
+							<a href="#">米兰</a>
+							<a href="#">伊犁</a>
+							<a href="#">洛杉矶</a>
+						</div>
+						<div class="menu-panel" style="display:none">
+							<dl class="dl-horizontal">
+								<dt>国内当季</dt>
+								<dd>
+									<div ><a href="#"> <span>台湾</span>&nbsp;&nbsp; 生活式旅行</a></div>
+									<div ><a href="#"> <span>青海湖</span>&nbsp;&nbsp; 高原神湖，天空之境</a></div>
+									<div ><a href="#"> <span>稻城亚丁</span>&nbsp;&nbsp; 山间清晨温柔的风</a></div>
+									<div ><a href="#"> <span>苏州</span> &nbsp;&nbsp;慢江南，品美韵</a></div>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>国外当季</dt>
+								<dd>
+									<div><a href="#"> <span>土耳其</span>&nbsp;&nbsp; 我与热气球有个约会</a></div>
+									<div><a href="#"> <span>芽庄</span>&nbsp;&nbsp; 慢节奏旅行</a></div>
+									<div><a href="#"> <span>京都</span>&nbsp;&nbsp; 日本文化的源点</a></div>
+									<div><a href="#"> <span>柬埔寨</span> &nbsp;&nbsp;《花样年华》拍摄地</a></div>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h4>主题推荐</h4>
+						<div class="menu-top">
+							<a href="#">海岛</a>
+							<a href="#">购物</a>
+							<a href="#">古镇</a>
+							<a href="#">免签/落地签</a>
+						</div>
+						<div class="menu-panel" style="display:none">
+							<dl class="dl-horizontal">
+								<dt>避暑胜地</dt>
+								<dd>
+									<a href="#" target="_blank">茶卡盐湖</a>
+                                    <a href="#" target="_blank">哈尔滨</a>
+                                    <a href="#" target="_blank">拉萨</a>
+                                    <a href="#" target="_blank">北戴河区</a>
+                                    <a href="#" target="_blank">大连</a>
+                                    <a href="#" target="_blank">九寨沟</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>古镇</dt>
+								<dd>
+									<a href="#" target="_blank">周庄</a>
+                                    <a href="#" target="_blank">乌镇</a>
+                                    <a href="#" target="_blank">西塘</a>
+                                    <a href="#" target="_blank">同里</a>
+                                    <a href="#" target="_blank">南浔古镇</a>
+                                    <a href="#" target="_blank">苏州甪直古镇旅游区</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>美食</dt>
+								<dd>
+									<a href="#" target="_blank">广州</a>
+                                    <a href="#" target="_blank">福州</a>
+                                    <a href="#" target="_blank">成都</a>
+                                    <a href="#" target="_blank">苏州</a>
+                                    <a href="#" target="_blank">南浔古镇</a>
+                                    <a href="#" target="_blank">西安</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>文艺</dt>
+								<dd>
+									<a href="#" target="_blank">鼓浪屿</a>
+                                    <a href="lijiang.html" target="_blank">丽江</a>
+                                    <a href="#" target="_blank">凤凰</a>
+                                    <a href="#" target="_blank">阳朔</a>
+                                    <a href="#" target="_blank">大理</a>
+                                    <a href="#" target="_blank">西安</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h4>国内目的地</h4>
+						<div class="menu-top">
+							<a href="#">成都</a>
+							<a href="#">天目湖</a>
+							<a href="#">普者黑</a>
+							<a href="#">扬州</a>
+						</div>
+						<div class="menu-panel" style="display:none">
+							<dl class="dl-horizontal">
+								<dt>热门城市</dt>
+								<dd>
+									<a href="#" target="_blank">北京</a>
+                                    <a href="#" target="_blank">上海</a>
+                                    <a href="#" target="_blank">广州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-chengdu279.html" target="_blank">成都</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-chongqing277.html" target="_blank">重庆</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tianjin2.html" target="_blank">天津</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-gaoxiong3580.html" target="_blank">高雄</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xianggang398.html" target="_blank">香港</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-aomen400.html" target="_blank">澳门</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-taibei402.html" target="_blank">台北</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>热门景区</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-wuyishan457.html" target="_blank">武夷山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changlonglvyoudujiaqu3941.html" target="_blank">长隆旅游度假区</a>
+                                    <a href="lijiang.html" target="_blank">丽江泸沽湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-daochengyading3945.html" target="_blank">稻城亚丁</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiuzhaigou3698.html" target="_blank">九寨沟</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-gulangyu3939.html" target="_blank">鼓浪屿</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yandangshan98.html" target="_blank">雁荡山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-sanqingshan158.html" target="_blank">三清山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-taishan170.html" target="_blank">泰山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huashan344.html" target="_blank">华山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-emeishan456.html" target="_blank">峨眉山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tianmuhu3915.html" target="_blank">天目湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-hengdianyingshicheng3931.html" target="_blank">横店影视城</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiufen10652845.html" target="_blank">九份</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-fenghuang3883.html" target="_blank">凤凰</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-doujiangyanjingqu2332.html" target="_blank">都江堰景区</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-hailuogou3942.html" target="_blank">海螺沟</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xilingxueshan3943.html" target="_blank">西岭雪山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-lushan102880.html" target="_blank">庐山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-puzhehei104033.html" target="_blank">普者黑</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>江苏</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-nanjing82.html" target="_blank">南京</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-suzhou87.html" target="_blank">苏州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tongli109916.html" target="_blank">同里</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-zhouzhuang81.html" target="_blank">周庄</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-wuxi83.html" target="_blank">无锡</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yangzhou92.html" target="_blank">扬州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-zhenjiang93.html" target="_blank">镇江</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-lianyungang89.html" target="_blank">连云港</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-taizhou94.html" target="_blank">泰州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-liyang3554.html" target="_blank">溧阳</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-nantong88.html" target="_blank">南通</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xinghuashi200630.html" target="_blank">兴化市</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changshu471.html" target="_blank">常熟</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changzhou86.html" target="_blank">常州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tianmuhu3915.html" target="_blank">天目湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-kunshan3553.html" target="_blank">昆山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-qiandengguzhen103430.html" target="_blank">千灯古镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jinxiguzhen103417.html" target="_blank">锦溪古镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yancheng91.html" target="_blank">盐城</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yixing84.html" target="_blank">宜兴</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>安徽江西</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-huangshan127.html" target="_blank">黄山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-hongcun100477.html" target="_blank">宏村</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-nanchang146.html" target="_blank">南昌</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-wuyuan157.html" target="_blank">婺源</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jinggangshan475.html" target="_blank">井冈山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-lushan149.html" target="_blank">庐山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-sanqingshan158.html" target="_blank">三清山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tianzhushan100334.html" target="_blank">天柱山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jingdezhen147.html" target="_blank">景德镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiuhuashan3695.html" target="_blank">九华山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yichun154.html" target="_blank">宜春</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-suzhou200147.html" target="_blank">宿州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiangxi145.html" target="_blank">江西</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					<!--国外目的地-->
+					<li>
+						<h4>国外目的地</h4>
+						<div class="menu-top">
+							<a href="#">京都</a>
+							<a href="#">新加坡</a>
+							<a href="#">长滩岛</a>
+						</div>
+						<div class="menu-panel" style="display:none">
+							<dl class="dl-horizontal">
+								<dt>大洋洲</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-aodaliya3596.html" target="_blank">澳大利亚</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xinxilan3597.html" target="_blank">新西兰</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-daxidi3598.html" target="_blank">大溪地</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xini3600.html" target="_blank">悉尼</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-moerben3873.html" target="_blank">墨尔本</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-kaiensi3599.html" target="_blank">凯恩斯</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huangjinhaian3602.html" target="_blank">黄金海岸</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-bulisiban3603.html" target="_blank">布里斯班</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-posi206792.html" target="_blank">珀斯</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-nandao250332.html" target="_blank">南岛</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jianzhen185735.html" target="_blank">箭镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huilingdun250335.html" target="_blank">惠灵顿</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-danniding185765.html" target="_blank">但尼丁</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-beidao250327.html" target="_blank">北岛</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-luotuoluwa10590305.html" target="_blank">罗托鲁瓦</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huanghouzhen10591704.html" target="_blank">皇后镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiducheng185744.html" target="_blank">基督城</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-aokelan3604.html" target="_blank">奥克兰</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>日韩</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-riben3543.html" target="_blank">日本</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-dongjing3727.html" target="_blank">东京</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-daban3729.html" target="_blank">大阪</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-beihaidao3728.html" target="_blank">北海道</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jingdu3730.html" target="_blank">京都</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-chongsheng160767.html" target="_blank">冲绳</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiuzhou3731.html" target="_blank">九州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changqi203756.html" target="_blank">长崎</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-fugang203736.html" target="_blank">福冈</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>东南亚</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-yuenan3624.html" target="_blank">越南</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jianpuzhai3623.html" target="_blank">柬埔寨</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-malaixiya3570.html" target="_blank">马来西亚</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xinjiapo3569.html" target="_blank">新加坡</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-feilvbin3576.html" target="_blank">菲律宾</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yindunixiya3619.html" target="_blank">印度尼西亚</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-laowo3670.html" target="_blank">老挝</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-wenlai3616.html" target="_blank">文莱</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-miandian3872.html" target="_blank">缅甸</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-henei3743.html" target="_blank">河内</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xialongwan3745.html" target="_blank">下龙湾</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huzhimingshi204147.html" target="_blank">胡志明市</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xiangang181513.html" target="_blank">岘港</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jinbianshi203600.html" target="_blank">金边市</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xianli3746.html" target="_blank">暹粒</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changtandao3607.html" target="_blank">长滩岛</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-manila3610.html" target="_blank">马尼拉</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-balidao3545.html" target="_blank">巴厘岛</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>欧洲</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-helan3635.html" target="_blank">荷兰</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yingguo3558.html" target="_blank">英国</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-aierlan3913.html" target="_blank">爱尔兰</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-faguo3559.html" target="_blank">法国</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-bali3778.html" target="_blank">巴黎</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-puluowangsi3786.html" target="_blank">普罗旺斯</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiana3782.html" target="_blank">戛纳</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-nisi3785.html" target="_blank">尼斯</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-deguo3561.html" target="_blank">德国</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-bolin3764.html" target="_blank">柏林</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-munihei3770.html" target="_blank">慕尼黑</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yidali3562.html" target="_blank">意大利</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-weinisi3835.html" target="_blank">威尼斯</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-foluolunsa204895.html" target="_blank">佛罗伦萨</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-luoma3834.html" target="_blank">罗马</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xibanya3636.html" target="_blank">西班牙</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-basailuona3824.html" target="_blank">巴塞罗那</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-saiweiliya3827.html" target="_blank">塞维利亚</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-xila3634.html" target="_blank">希腊</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yadian3832.html" target="_blank">雅典</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					<!--城市周边热推-->
+					<li>
+						<h4>城市周边热推</h4>
+						<div class="menu-top">
+							<a href="#">上海迪士尼度假区</a>
+							<a href="#">北京欢乐谷</a>
+						</div>
+						<div class="menu-panel" style="display:none">
+							<dl class="dl-horizontal">
+								<dt>上海周边</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-suzhou87.html" target="_blank">苏州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-hangzhou100.html" target="_blank">杭州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-jiaxing108.html" target="_blank">嘉兴</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huangshan127.html" target="_blank">黄山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tianmuhu3915.html" target="_blank">天目湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-wuxi83.html" target="_blank">无锡</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-nanjing82.html" target="_blank">南京</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-ningbo104.html" target="_blank">宁波</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>苏州周边</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-kunshan3553.html" target="_blank">昆山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-zhangjiagang3875.html" target="_blank">张家港</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tongli109916.html" target="_blank">同里</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-zhouzhuang81.html" target="_blank">周庄</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-liyang3554.html" target="_blank">溧阳</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huzhou109.html" target="_blank">湖州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changshu471.html" target="_blank">常熟</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-shanghai79.html" target="_blank">上海</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>南京周边</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-zhenjiang93.html" target="_blank">镇江</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yangzhou92.html" target="_blank">扬州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-taizhou94.html" target="_blank">泰州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-changzhou86.html" target="_blank">常州</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-huanqiukonglongcheng10564826.html" target="_blank">环球恐龙城</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yancheng91.html" target="_blank">盐城</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-tangshan3961.html" target="_blank">汤山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-yixing84.html" target="_blank">宜兴</a>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal">
+								<dt>杭州周边</dt>
+								<dd>
+									<a href="http://www.lvmama.com/lvyou/d-xihu3932.html" target="_blank">西湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-qiandaohu102.html" target="_blank">千岛湖</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-linan103.html" target="_blank">临安</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-haiyan200677.html" target="_blank">海盐</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-wuzhen97.html" target="_blank">乌镇</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-shaoxing111.html" target="_blank">绍兴</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-zhoushan114.html" target="_blank">舟山</a>
+                                    <a href="http://www.lvmama.com/lvyou/d-anji110.html" target="_blank">安吉</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--轮播图部分-->
+			<div class="container clearfix">
+				<div class="row">
+					<div class="carousel slide" id="mycarousel">
+						<ol class="carousel-indicators">
+							<li data-slide-to="0" data-target="#mycarousel" class="active"></li>
+							<li data-slide-to="1" data-target="#mycarousel"></li>
+							<li data-slide-to="2" data-target="#mycarousel"></li>
+							<li data-slide-to="3" data-target="#mycarousel"></li>
+							
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active"><img src="img/d35c5764-8b32-46f6-b5d3-b6cae56cb7bc.jpg" alt="" /></div>
+							<div class="item"><img src="img/newbanner1.jpeg" alt="" /></div>
+							<div class="item"><img src="img/newbanner2.png" alt="" /></div>
+							<div class="item"><img src="img/newbanner3.jpeg" alt="" /></div>
+						</div>
+					</div>
+				</div>
+				<!--轮播下面的搜索框-->
+				<div class="travel-search">
+	               <div id="box">
+						<div class="clearfix">
+							<input @keydown.up.prevent="up()"  @keydown.down="down()"  @keyup="search()" type="text" class='fl' v-model="msg" placeholder="请输入景点/关键词"/>
+							<input @click="search();" type="button" class="fr" value="搜索"/>
+						</div>
+						<ul id="list" :class="{bor:flag}">
+							<li :class="{active:index==nowIndex}" v-for="(item,index) in arr">{{item}}</li>
+						</ul>
+					</div>
+				</div>
+		</div>
+		<!--推荐攻略-->
+		<div class="recom-strategy">
+    		<a href="#" target="_blank" class="strategy-box">
+            	<div class="bar clearfix">
+            		<span class="stat"><span class="num">515</span> 赞<i class="icon-hand"></i></span>
+            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+        		</div>
+        	<div class="title">
+            	<h3>从山城到稻城，最美的季节里，我路过你的全世界</h3>
+            </div>
+        	<dl class="dl-horizontal">
+	            <dt class="fl test imgList clearfix">
+	                <ul>
+	            		<li><img src="img/wKgBZ1oK1tSABpWuACYxov89C_s93.jpeg" style="width: 220px;"></li>
+	            		<li><img src="img/daocheng1.jpeg" style="width: 220px;"></li>
+	            		<li><img src="img/daocheng4.jpeg" style="width: 220px;"></li>
+	            	</ul>
+	            </dt>
+	            <dd style="overflow: hidden;">
+	                <div class="info">我希望有个如你一般的人
+							如山间清爽的风
+							如古城温暖的光
+							从清晨到夜晚
+							由山野到书房
+							只要最后是你就好
+							       ——张嘉佳《从你的全世界路过》
+							
+							一年前的国庆，独自跑到电影院看《从你的全世界路过》，看到泪流满面不能自已；半年后的三月我拖着满是疲惫的...
+	                </div>
+                    <div class="ext-r"><span class="author"><img src="img/wKgBEFr4S8-AJpanALETAoZutxA90.jpeg">幻雪</span><span class="nums">12073浏览，67评论</span></div>
+	            </dd>
+        	</dl>
+        </a>
+    	</div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">99</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>越南机场实用指南（出行必备）</h3>
+	            </div>
+	        	<div class="info">
+		                	出国自由行，最害怕在语言不通的情况下、迷路、找不到地方，因为缺乏对当地机场的了解误机等等；这次我精心整理了越南几个重要的机场详情，机场大巴，机场位置等都做了介绍。
+	机场攻略在手，说走就走，妈妈再也不担心你出国旅游误机啦！
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBZ1m3sGmAYVPWAAEPeoHvVRE82.jpeg"></li>
+	                <li><img src="img/wKgBZ1m3sGmAYVPWAAEPeoHvVRE82.jpeg"></li>
+	                <li><img src="img/wKgBZ1m3p36AItQTAAMEUtDmfJQ420.png"></li>
+	                <li class="ext-r">64118浏览</li>
+	            </ul>
+	        </div>
+	        </a>
+	    </div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">500</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>问答</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>厦门有哪些不易发现但值得一去的美景？</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBs1egDUCATZY3AAiRSaJIi9M569.png" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+		                	铁路公园，这个其实严格意义讲已经不算不易发现的景点了，被各种小资都快拍烂了...不
+		                	过对于厦门的印象只局限于鼓浪屿、增厝安、中山路来说的朋友们，可能还算一个
+		                	不易发现，而且能出照片的地方吧。 不过这里要告诉你们一个残酷的事实，就是铁路公园真的没
+	                                               多大......要不了多久一下子就走到头啦...图...
+	                    </div>
+	                    
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">388</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>“巴铁国”的晃荡青春之旅－在巴国警察的“护驾”下游木尔坦(...</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/button3.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+		                	《“巴铁国”的晃荡青春之旅－在巴国警察的“护驾”下游木尔坦》预约游记通道：
+	                	http://www.mafengwo.cn/note/activity/appointment/   木尔坦，巴基斯坦东部工商业城市，
+	                                       交通枢纽，木尔坦专区、县行政中心。  位于旁遮普平原西南,杰纳布河下游东岸6公里。面
+	                                       积23平方公里，人口73万(1981)。地处信...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBs1dnsh-AWI6zAAR9YkAPmWg87.jpeg">幻雪</span><span class="nums">12073浏览，67评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>	
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">187</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>私藏的柬埔寨吃货指南（盘点当地人心中的网红餐厅）</h3>
+	            </div>
+	        	<div class="info">
+		                	深度游，和当地人聊天，品尝当地人爱吃的美食。
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBZ1l2xJqAeC7BABKUkHele8w98.jpeg"></li>
+	                <li><img src="img/wKgBZ1l2xFeAAl0HABFNoBSZW-E59.jpeg"></li>
+	                <li><img src="img/wKgBZ1l2xMiAYun9ABQwJTrKqKU91.jpeg"></li>
+	                <li class="ext-r">44137浏览</li>
+	            </ul>
+	        </div>
+	        </a>
+	    </div>
+	    <div class="recom-strategy" >
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">0</span> 我们体验过<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>不排队！网购马丘比丘门票图解教程</h3>
+	            </div>
+	        	<div class="info">
+		               	马丘比丘购票官网：该网站非常坑，开始可以选英语，到后面还是会变成西语。网站打开时需要等待，请耐心等待，见下图
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBZ1nd_5qAClSKAALtV0Xg9L424.jpeg"></li>
+	                <li><img src="img/wKgBpVYuqX2ADUm9AABnapeRG_M614.png"></li>
+	                <li><img src="img/wKgBpVYuqoCAc3q6AAZK3ibYuds661.png"></li>
+	                <li class="ext-r">54158浏览</li>
+	            </ul>
+	        </div>
+	        </a>
+	    </div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">289</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>成都 | 想要蒂芙尼蓝的度假之旅，这里统统满足你～</h3>
+	            </div>
+	        	<div class="info">
+		               	小长假该如何过，这里有份周末度假指南待领取！
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBEFsqP1yAGMwcAAGnw4_25pk25.jpeg"></li>
+	                <li><img src="img/wKgBEFsqPjaAGKkYAAHwtGoUwDw93.jpeg"></li>
+	                <li><img src="img/wKgBEFsqPjaAK4CDAAAiXE3bb5Y50.jpeg"></li>
+	                <li class="ext-r">44119浏览</li>
+	        	</ul>
+	        </div>
+	        </a>
+	    </div>	
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">1190</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>“菲·长”老友记—长滩岛的五月天</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBZ1k_z1SABJ93AAO9MCVkK6g71.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+		                	跟自己的老伙伴相互陪伴14年了。26岁的我们彼此都找到了另一半，商量着何时能有一个
+	                                               四人游。总算在2017年的五月天，目标达成！老伙伴喜欢海岛，所以最终将目的地选
+	                                              在了拥有“世界上最细的白沙滩”的长滩岛。  老伙伴喜欢不动脑，所...
+	     
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBZ1kuYiCAIHESABgo2Bzz3Mw24.jpeg">麻吉卡鲁big星</span><span class="nums">12073浏览，67评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">664</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>【稻城】走近你，喜欢你，想念你</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBZ1kwDaKAMv9fAAg0uvOmpss20.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+		                	『前言』00：15，微信提示有新消息，是田甜——“睡了么，我持续一周了，每天满脑子
+	                 都是稻城”我俩都是感性的人， 我才意识到，原来距离21号离开稻城，已经整整10天了， 在
+	                 即将离开稻城的时候不知哭了多少次，舍不...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBZ1km6gSAfuayAABajLy8YnY50.jpeg">高 畅</span><span class="nums">23511浏览，104评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">66</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3> 百度地图＋大众点评＋诗远游记 ＝厦门</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBEFq1FPiAVyRrAAwGm3Wv-0Q07.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+		                	第一天走过了三个城市从Nnnnn久以前被一条朋友圈种草了厦门万石植物园，然
+	                                              后开始了白日梦般的筹划！！！郑州到厦门的机票从最低的340到最后的730以至于不忍
+	                                             心看的四位数，然后我打开了万能的百度呀，离厦门最近的机
+	                                            场是哪里？回答: 晋江机场！感...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBEFq1OeCAELtIAAGZm8nIG4021.jpeg">啊 biu</span><span class="nums">1367浏览，5评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>
+	    <div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">109</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3> 台北到台东&amp;绿岛潜水散漫之旅</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBEFpu8ASAax0VAAaVQEUDQPQ46.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+	                	从相识起，这是我们走过的第四个地方，也是小p狼一直念念不忘回来后又叨念着再去的
+						地方。台湾如同个绅士、爱干净、善意、体面又热情的少年。和他成为朋友，只需要一
+						句，一句问候的时间吧。这次的行程，只有10天，所以没有选择环岛。再加上是国庆，
+						避开人...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBZ1lb0_6AJEikAABxeWaB5b433.jpeg">兔小嗨</span><span class="nums">1696浏览，6评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">123</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>世界杯看球之余还可以去这里丨 莫斯科地铁站里的艺术</h3>
+	            </div>
+	        	<div class="info">
+		               	来莫斯科一定要去感受下地铁的艺术文化，你会发现战斗民族也有一颗柔软的心
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBEFrn6UaAaNbaAAlvGT5L_7U19.jpeg"></li>
+	                <li><img src="img/wKgBEFrn6E6AESK7AATqfS7XtZk88.jpeg"></li>
+	                <li><img src="img/wKgBEFrn6TWAWSfwAAbe6S5ydhA20.jpeg"></li>
+	            	<li class="ext-r">34118浏览</li>
+	            </ul>
+	        </div>
+	        </a>
+	    </div>		
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">2090</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3> 埃及之旅（五）：不可想象的遗迹——卢克索</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBEFsRIU6AYaIpAAlolwiQfc881.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+	                	卢克索在古埃及的名字叫“Waset”，古希腊人称它为“底比斯城”，古老的尼罗河把她分为东
+	                	底比斯和西底比斯。东底比斯，神祗和生者的乐土；西底比斯，死者的王国。把时光倒回
+	                	到公元前2000年，第十一王朝的门图霍特普二世将她最早呈现在史书中；500多年后，...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBEFsKrx2Af1ocAAAH6vmvCTQ33.jpeg">老段</span><span class="nums">188浏览，7评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>	
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">1290</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>游记</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3> 趁年轻，和爸妈一起去趟欧洲——第一站： 威尼斯</h3>
+	            </div>
+	        	<dl class="dl-horizontal">
+		            <dt class="fl">
+		                <img src="img/wKgBZ1n3QleACAsMAAuVl0US1LA08.jpeg" style="width: 220px;">
+		            </dt>
+		            <dd>
+		                <div class="info">
+	                	风情万种的威尼斯2008年跟团来过一次威尼斯，初次到威尼斯颇为震撼。能够在水上建
+	                	立一座城，这是怎么样的神奇！简单可概括为：房子飘在水上屹立不倒，出门坐船看不
+	                	到小汽车，城市不大艺术气息浓郁，冰淇淋味多便宜又好吃，面具和冰箱贴到处都是，...
+		                </div>
+	                    <div class="ext-r"><span class="author"><img src="img/wKgBEFrJy6OAfAYpAAsQuz9Yh9o32.jpeg">盖盖晨</span><span class="nums">1518浏览，12评论</span></div>
+		            </dd>
+	        	</dl>
+	        </a>
+	    </div>		
+		<div class="recom-strategy">
+	    		<a href="#" target="_blank" class="strategy-box">
+	            	<div class="bar clearfix">
+	            		<span class="stat"><span class="num">452</span> 赞<i class="icon-hand"></i></span>
+	            		<span class="type"><i class="icon-line"></i>来自 <strong>自由行攻略</strong></span>
+	        		</div>
+	        	<div class="title">
+	            	<h3>想要旅行100分，这12件小事儿值得尝试！）</h3>
+	            </div>
+	        	<div class="info">
+		                	来算算你的旅行能得几分&gt;&gt;
+		        </div>
+		         <div class="imgs">
+	            <ul class="clearfix">
+	                <li><img src="img/wKgBZ1nwQlKAZaZFAAfm1_2HC_U93.jpeg"></li>
+	                <li><img src="img/wKgBZ1iyzPKAFNNLAA3bysIfdok34.jpeg"></li>
+	                <li><img src="img/wKgBs1a4jXyAC6vSABZUa_2I1kE63.jpeg"></li>
+	                <li class="ext-r">248浏览</li>
+	            </ul>
+	        </div>
+	        </a>
+	    </div>	
+	    <hr />
+	    <a href="#" class="loader">
+	    	<!--<span>加载更多</span>
+	    	<i></i>-->
+	    	<img src="img/lazy.gif"/>
+	    </a>
+	     <div style="background:#A6A6A6">	
+			<footer id="footer">
+				<div class="ft-content">
+					<div class="ft-info clearfix">
+					    <dl class="ft-info-col ft-info-intro fl">
+					        <dt>全球旅游消费指南 </dt>
+					        <dd>覆盖全球200多个国家和地区</dd>
+					        <dd><strong>100,000,000</strong> 位旅行者</dd>
+					        <dd><strong>920,000</strong> 家国际酒店</dd>
+					        <dd><strong>21,000,000</strong> 条真实点评</dd>
+					        <dd><strong>382,000,000</strong> 次攻略下载</dd>
+					        <dd><a class="highlight" href="http://www.mafengwo.cn/activity/sales_report2017/index" target="_blank">中国旅游行业第一部“玩法”</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-about fl">
+					        <dt>关于我们</dt>
+					        <dd><a href="http://www.mafengwo.cn/s/about.html" rel="nofollow">关于马蜂窝</a><a href="http://www.mafengwo.cn/s/contact.html" class="m_l_10" rel="nofollow">联系我们</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/private.html" rel="nofollow">隐私政策</a><a href="http://www.mafengwo.cn/s/logo.html" rel="nofollow" class="m_l_10">商标声明</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/agreement.html" rel="nofollow">服务协议</a><a href="http://www.mafengwo.cn/s/rules.html" rel="nofollow" class="m_l_10">游记协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/salesagreement.html" rel="nofollow">商城平台服务协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/property.html" rel="nofollow">网络信息侵权通知指引</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/sitemap.html" target="_blank">网站地图</a><a class="joinus highlight m_l_10" title="马蜂窝团队招聘" target="_blank" href="http://www.mafengwo.cn/s/hr.html" rel="nofollow">加入马蜂窝</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-service fl" >
+					        <dt>旅行服务</dt>
+					        <dd>
+					            <ul class="clearfix">
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/gonglve/">旅游攻略</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/hotel/">酒店预订</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/sales/">旅游特价</a></li>
+					                <li class="fr"><a target="_blank" href="http://zuche.mafengwo.cn/">国际租车</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/wenda/">旅游问答</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/insure/">旅游保险</a></li>
+					                <li class="fl"><a target="_blank" href="http://z.mafengwo.cn">旅游指南</a></li>
+					                <li class="fr"> <a target="_blank" href="http://huoche.mafengwo.cn">订火车票</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/travel-news/">旅游资讯</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/app/intro/gonglve.php">APP下载</a></li>
+					                <li style="width: 120px;"><a target="_blank" href="http://www.mafengwo.cn/sales/alliance.php" class="highlight">旅行商城全球商家入驻</a></li>
+					            </ul>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-qrcode fl">
+					        <dd class="fl">
+					            <span class="ft-qrcode-tejia"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>马蜂窝良品<br>官方服务号</p>
+					        </dd>
+					        <dd class="fl">
+					            <span class="ft-qrcode-weixin"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>马蜂窝旅游<br>订阅号</p>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-social" >
+					        <dt>向崇尚自由的加勒比海盗致敬！</dt>
+					        <dd>
+					            <a class="ft-social-weibo" target="_blank" href="http://weibo.com/mafengwovip" rel="nofollow"><i class="iconfont icon-xinlang"></i></a>
+					            <a class="ft-social-qqt" target="_blank" href="http://t.qq.com/mafengwovip" rel="nofollow"><i class="iconfont icon-weixin"></i></a>
+					            <a class="ft-social-qzone" target="_blank" href="http://1213600479.qzone.qq.com/" rel="nofollow"><i class="iconfont icon-qq"></i></a>
+					        </dd>
+					    </dl>
+					</div>
+					<div class="ft-copyright">
+					    <div class="ft-safety">
+					        <a class="s-a" target="_blank" href="https://search.szfw.org/cert/l/CX20140627008255008321" id="___szfw_logo___"></a>
+					        <a class="s-b" href="https://ss.knet.cn/verifyseal.dll?sn=e130816110100420286o93000000&amp;ct=df&amp;a=1&amp;pa=787189" target="_blank" rel="nofollow"></a>
+					        <a class="s-c" href="http://www.itrust.org.cn/Home/Index/itrust_certifi/wm/1669928206.html" target="_blank" rel="nofollow"></a>
+					    </div>
+					    <a href="http://www.mafengwo.cn"><i class="ft-mfw-logo"></i></a>
+					    <p>© 2018 Mafengwo.cn <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank"><img src="http://images.mafengwo.net/images/footer/police_record.png" width="12" style="margin:0 2px 4px 0;">京公网安备11010502013401号</a> <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a></p>
+					    <p><a href="http://images.mafengwo.net/images/about/licence_3.jpg" target="_blank" rel="nofollow">营业执照</a><span class="m_l_10"><a href="https://m.mafengwo.cn/im/feedback/" target="_blank" rel="nofollow">帮助中心</a></span><span class="m_l_10">马蜂窝客服：国内</span><span class="highlight">4006-345-678</span><span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	        <!--  点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<!--<ul>
+						<li class="fl">
+							<p class="edu-img edu-img1"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step1"></span>
+								<span class="left">登录QQ彩贝<br>返利商城</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img2"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step2"></span>
+								<span class="left">去商家购物，免注册、<br>逾300家认证商家</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img3"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step3"></span>
+								<span class="left">完成交易<br>商家核对订单</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img4"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step4"></span>
+								<span class="left">订单核对有效<br>彩贝到账</span>
+							</p>
+						</li>
+					</ul>-->
+				</div>
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin"></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fr">
+							<img src="img/showqrcode.jpg" alt="" width="150px"/>
+						</li>
+					</ul>
+				</div>	
+			</span>
+		</div>
+		
+		
+     
+  
+		<script src="lib/jquery-2.1.4.min.js"></script>
+		<script src="lib/imgList.js"></script>
+		<script src="lib/bootstrap.js"></script>
+		<script src="lib/vue.js"></script>
+		<script src="lib/vue-resource.js"></script>
+		<script src="js/strategy.js"></script>
+		
+	</body>
+</html>

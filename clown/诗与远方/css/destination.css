@@ -1,0 +1,508 @@
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.fl{
+		float: left;
+	}
+	.fr{
+		float: right;
+	}
+	.clearfix:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	ul li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.nav-top{
+		width: 100%;
+		height: 688px;
+		position: relative;
+	}
+	#nav-t{
+		width: 100%;
+		height: 62px;
+		box-sizing: border-box;
+		position: absolute;
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);	
+	}
+	#box{
+		max-width: 100%;
+		position: relative;
+		overflow: hidden;
+	}
+	#nav-t>ul>li>a{
+		color: #fff;
+		font-size:16px ;
+	}
+	#nav-t:hover a{
+		color: #000;
+	}
+	#nav-t:hover .nav-ul>li.active a{
+		color: #fff;
+	}
+	#nav-t:hover{
+		background: #fff;
+	}
+	.nav-top .nav-ul{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	.nav-top .nav-ul>li{
+		float: left;
+		padding: 20px 16px;
+		box-sizing: border-box !important;	
+	}
+	#nav-t>.nav-ul li:hover a{
+		color: orange;
+		text-decoration: none;
+	}
+	.nav-top .nav-ul>li a{
+		color: #000;
+	}
+	#nav-t>.nav-ul>.active:hover a{
+		color: #fff !important;
+	}
+	#nav-t>.nav-ul>li.active{
+		background: orange;
+		color: #fff !important;
+	}
+	#ipt{
+		width:180px;
+		height:62px;
+		position: relative;
+	}
+	#ipt input[type="text"]{
+		width:75%;
+		height:36px;
+		border:1px solid burlywood;
+		text-indent: 2em;
+		border-right: none;
+		box-sizing: border-box;
+		outline: none;
+		position: absolute;
+		top: 13px;
+		border-radius:18px 0 0 18px;
+	}
+	#ipt input[type="button"]{
+		width: 25%;
+		height:36px;
+		border-radius:18px ;
+		outline: none;
+		box-sizing: border-box;
+		cursor: pointer;
+		color:#fff;
+		background:orange;
+		position: absolute;
+		top: 13px;
+		left: 75%;
+		border: 2px solid orange;
+	}
+	#list{
+		width:240px;
+		position: absolute;
+		top:63px ;
+		border:1px solid transparent;
+		box-sizing: border-box;
+		z-index: 999;
+	}
+	#list li{
+		height:24px;
+		line-height: 24px;
+		padding-left: 24px;
+		background: #fff;
+		box-sizing: border-box;
+	}
+	#list li.active{
+		background: orange;
+	}
+	
+	#list.bor{
+		border-color: burlywood;
+	}
+	
+	/*导航登录注册部分*/
+	#nav-t>.nav-ul>.r-li{
+		width: 200px;
+		height:62px;
+        overflow:hidden;
+        vertical-align:middle;
+		line-height: 62px;
+		padding: 0;
+		position: relative;
+		color: orange;
+	}
+	#nav-t>.nav-ul>.r-li>.dr{
+		display: inline-block; 
+		position: absolute; 
+		left:108px;
+		top: 0;
+	}
+	#nav-t>.nav-ul>.r-li a{
+		font-size:16px ;
+		color: orange;
+	}
+	#nav-t>.nav-ul>.r-li a:hover{
+		color: red;
+	}
+	
+	
+	/*下拉菜单*/
+		
+	#nav-t .xiala{
+		position: absolute;
+		top: 60px;
+		border-radius:0 ;
+		box-shadow:none;
+		border:#fff ;
+		background: #f5f5f5;
+		opacity: 0.9;
+		z-index: 666;
+	}	
+	#nav-t .xiala li{
+		box-sizing: border-box;
+	}
+	#nav-t #xiala li>a:hover{
+		background: #c9c9c9;
+		cursor: pointer;
+		z-index: 666;
+	}
+	#nav-t #xiala:hover{
+		background: #F5F5F5;
+	}
+	
+	#nav-t .xiala li a{
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		color: #333 !important;
+		height:32px;
+		line-height: 32px;
+		padding-left:24px ;
+	}
+
+	#nav-t .xiala .xl-left>li>a{
+		margin-left: 24px;
+	}
+
+	/*下拉菜单2*/
+	#xiala2 .xiala{
+		width:320px;
+		padding-top: 16px;
+	}
+	#xiala2:hover{
+		background: #f5f5f5;
+	}
+	#xiala2 .xl-left{
+		margin-left: -26px;
+		font-size:18px ;
+		color: #666;
+	}
+	#xiala2 .xl-left li{
+		margin-bottom:36px ;
+	}
+	#xiala2 .xl-right{
+		margin-right:42px;
+	}
+	#xiala2 .xl-right li{
+		margin-bottom: 6px;
+	}
+	#xiala2 .xl-left .active{
+		color: orange !important;
+	}
+	#xiala2 .xl-right>li>a:hover{
+		color: orange !important;
+		cursor: pointer;
+	}
+	#xiala2 .xl-left>li>a:hover{
+		color: orange !important;
+		cursor: pointer;
+	}
+	
+/*文本部分*/
+	#box .txt-l{
+			width:480px;
+			height: 200px;
+			position: absolute;
+			right: 6%;
+			top:42%;
+			color: #fff;
+		}
+		#box .txt-l h2>a{
+			color: #fff;
+			font-size: 36px;
+		}
+		#box .txt-l h2>a:hover{
+			cursor: pointer;
+			color: orange;
+			text-decoration: none;
+		}
+		#box .txt-l p{
+			margin-top: 36px;
+			font-size: 18px;
+			
+		}
+/*热门目的地部分*/
+	#remen{
+			width: 1000px;
+			text-align: center;
+			position: relative;
+			margin: 0 auto;
+		}
+	
+		
+	#remen .remen-nav .remen-top{
+		width: 100%;
+		margin: 0 auto;
+		margin-top:18px ;
+	}
+	#remen .remen-nav .remen-top a{
+		height: 42px;
+		line-height: 22px;
+		color: #333;
+		font-size:18px ;
+		display: inline-block;
+		padding-bottom: 12px;
+		margin: 0 25px;
+	}
+	#remen .remen-nav .remen-top .active{
+		color: orange;
+		border-bottom: 3px solid orange;
+		padding-bottom:12px ;
+		text-decoration: none;
+	}
+	#remen .remen-nav .remen-top span{
+		height: 22px;
+		line-height: 22px;
+		color: #eee;
+	}
+	.col{
+		width: 100%;	
+		display: none;
+	}
+	.rm-left{
+		width: 40%;
+	}
+	.rm-right{
+		width: 40%;
+	}
+	.rm-cnt{
+		margin-top:42px ;
+	}
+	dt{
+		width: 30%;
+		text-align:left;
+		float: left;
+		box-sizing: border-box;
+		color: #333;
+		font-size:16px ;
+		font-weight: 500;
+	}
+	dt a{
+		color: #333;
+		font-size:16px ;
+		font-weight: 500;
+	}
+	dd a{
+		color: #666;
+	}
+	dd{
+		width: 70%;
+		text-align:left;
+		word-wrap:break-word;
+		box-sizing: border-box;
+		display: inline-block;
+	}
+	dt>a:hover{
+		color: orange;
+	}
+	dd>a:hover{
+		color: orange;
+	}	
+	
+/*当季推荐部分*/	
+	.container-wrap{
+			background: #fafafa;
+			padding-bottom: 80px;
+		}
+	#wrap{
+		width:1000px;
+		margin:50px auto;
+		overflow: hidden;
+	}
+	#wrap .imgbox{
+		position: relative;
+		overflow: hidden;
+	}
+	#wrap h2{
+		text-align: center;
+		margin-bottom:24px ;
+	}
+	#wrap li{
+		float:left;
+		width:33.33333%;
+		overflow: hidden;
+	}
+	#wrap .detail{
+		margin:10px 8px;
+		overflow: hidden;
+			text-overflow: ellipsis;
+	}
+	#wrap .detail img{
+		width:100%;
+	}
+	
+	#wrap .detail:hover{
+		box-shadow: 2px 3px 5px #888;
+		transform:scale(1.01) ;
+	}
+	#wrap .detail .dec{
+		position: absolute;
+		bottom: -80px;
+		width: 100%;
+		height:120px;
+		line-height: 36px;
+		background: #333;
+		opacity: 0.8;
+		display: block;
+		color: #fff;
+		font-size:24px ;
+		text-align: center;
+		text-decoration: none;
+		transition: all 0.5s;
+	}
+	#wrap .detail .dec>p{
+		font-size:14px;
+		line-height:24px;
+		text-align:left;
+		margin: 8px 18px;
+		overflow: hidden;
+	}
+	#wrap .detail .dec:hover{
+		bottom: -20px;
+		opacity: 0.5;
+	}
+
+/*全屏滚动*/
+	/*下拉部分*/
+	.xiala-log{
+		width:36px;
+		height:20px;
+		background: #000;
+		background: url(../img/xiala-log.png) no-repeat -30px -60px;
+		position: absolute;
+		bottom:1.5%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.xiala-log:hover{
+		cursor: pointer;
+	}
+/*置顶部分*/
+
+		
+/*底部部分*/			
+	#box .container-btm{
+			background: #555;
+			color: #c2c2c2;
+		}
+	#box .container-btm a{
+			color: #c2c2c2;
+			text-decoration: none;
+		}
+	#box .container-btm a:hover{
+			color:#fff;
+		}
+	#box .container-btm span{
+			color: #ff9d00;
+		}
+	#box .container-btm .txt-btm{
+			width: 1000px;
+			height: 240px;
+			margin:0 auto;
+			overflow: hidden;
+			padding-top: 48px;
+		}
+	#box .container-btm .btm-ul-1{
+			width: 25%;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+	#box .container-btm .btm-ul-2{
+			width: 25%;
+			overflow: hidden;
+			box-sizing: border-box;
+
+		}
+	#box .container-btm .btm-ul-2 a{
+			margin-right:12px ;
+		}
+	#box .container-btm .btm-ul-3{
+			width: 25%;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+	#box .container-btm .btm-ul-3 a{
+			padding-left:36px ;
+		}
+	#box .container-btm .btm-ul-4{
+		width: 25%;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+	
+	/*置顶部分*/
+	.rightMenuBox {
+	  width: 50px;
+	  position: fixed !important;
+	  opacity: 0.4;
+	  bottom:6%;
+	  right:2%;
+	  box-shadow: 2px 2px 15px #111;
+	}
+	.rightMenuBox:hover{
+		opacity: 1;
+		
+	}
+	.rightMenuBox i {
+	  height: 50px;
+	  font-size: 30px;
+	  position: relative;
+	  top: -3px;
+	  right: 4px;
+	}
+	.rightMenuBox i:hover {
+	  color: #FFAA48;
+	}
+	.rightMenuBox span:hover ul {
+	  display: block;
+	}
+	.rightMenuBox .edu-main {
+	  position: absolute;
+	  right: 50px;
+	  top: 0px;
+	}
+	.rightMenuBox .edu-main ul {
+	  width: 490px;
+	  height: 60px;
+	  display: none;
+	}
+	.rightMenuBox .edu-main ul li {
+	  background: white;
+	  margin: 0 1px 10px  1px;
+	  width: 120px;
+	  padding: 10px;
+	  border: 1px solid wheat;
+	  border-radius: 5px;
+	}
+
+	[v-cloak]{
+		display: none;
+	}

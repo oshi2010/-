@@ -1,0 +1,632 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+    <link href="css/aozhou.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="lib/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/1-iconfont/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/jquery.fullPage.css"/>
+	<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.fullPage.min.js" ></script>
+	<script type="text/javascript" src="lib/vue.js" ></script>
+	<script type="text/javascript" src="lib/vue-resource.js" ></script>
+</head>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.fl{
+				float: left;
+			}
+			.fr{
+				float: right;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			ul li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.nav-top{
+				width: 100%;
+				height: 75px;
+				z-index:2;
+				position: relative;
+			}
+			#nav-t{
+				width: 100%;
+				height: 62px;
+				box-sizing: border-box;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translateX(-50%);	
+			}
+			#box{
+				position: relative;
+			}
+			#nav-t>ul>li>a{
+				font-size:20px ;
+			}
+			#nav-t:hover a{
+				color: #000;
+			}
+			#nav-t:hover .nav-ul>li.active a{
+				color: #000000;
+			}
+			#nav-t:hover{
+				background: #fff;
+			}
+			.nav-top .nav-ul{
+				width: 1000px;
+				margin: 0 auto;
+			}
+			.nav-top .nav-ul>li{
+				float: left;
+				padding: 20px 10px;
+				box-sizing: border-box !important;	
+			}
+			#nav-t>.nav-ul li:hover a{
+				color: orange;
+				text-decoration: none;
+			}
+			.nav-top .nav-ul>li a{
+				color: #000;
+			}
+			#nav-t>.nav-ul>.active:hover a{
+				color: #fff !important;
+			}
+			#nav-t>.nav-ul>li.active{
+				background: orange;
+				color: #fff !important;
+			}
+			#ipt{
+				width:190px;
+				height:62px;
+				position: relative;
+			}
+			#ipt input[type="text"]{
+				width:75%;
+				height:36px;
+				border:1px solid burlywood;
+				text-indent: 2em;
+				border-right: none;
+				box-sizing: border-box;
+				outline: none;
+				position: absolute;
+				top: 13px;
+			}
+			#ipt input[type="button"]{
+				width: 25%;
+				height:36px;
+				border:1px solid burlywood;
+				outline: none;
+				box-sizing: border-box;
+				cursor: pointer;
+				color:#fff;
+				background: deepskyblue;
+				position: absolute;
+				top: 13px;
+				left: 75%;
+			}
+			#list{
+				width:288px;
+				position: absolute;
+				top:50px ;
+				border:1px solid transparent;
+				box-sizing: border-box;
+			}
+			#list li{
+				height:24px;
+				line-height: 24px;
+				padding-left: 24px;
+				background: #fff;
+				box-sizing: border-box;
+			}
+			#list li.active{
+				background: orange;
+			}
+			#list.bor{
+				border-color: burlywood;
+			}
+			
+			/*导航登录注册部分*/
+			#nav-t>.nav-ul>.r-li{
+				width: 200px;
+				height:62px;
+	            
+				line-height: 62px;
+				padding: 0;
+				position: relative;
+				color: orange;
+			}
+			#nav-t>.nav-ul>.r-li>.dr{
+				display: inline-block; 
+				position: absolute; 
+				left:108px;	
+				top: 0;
+			}
+			#nav-t>.nav-ul>.r-li a{
+				font-size:16px ;
+				color: orange;
+			}
+			#nav-t>.nav-ul>.r-li a:hover{
+				color: red;
+			}
+			/*下拉菜单*/
+				
+			#nav-t .xiala li{
+				height:32px;
+				line-height: 32px;
+				padding-left:24px ;
+			}
+			#nav-t #xiala li:hover{
+				background: #fff;
+				cursor: pointer;
+			}
+			#nav-t #xiala:hover{
+				background: #eee;
+			}
+			/*下拉菜单2*/
+			#xiala2 .xiala{
+				width:320px;
+				padding-top: 16px;
+			}
+			#xiala2:hover{
+				background: #eee;
+			}
+			#xiala2 .xl-left{
+				margin-left: -26px;
+				font-size:18px ;
+				color: #666;
+			}
+			#xiala2 .xl-left li{
+				margin-bottom:36px ;
+			}
+			#xiala2 .xl-right{
+				margin-right:42px;
+				margin-top:-34px ;
+			}
+			#xiala2 .xl-right li{
+				margin-bottom: 6px;
+			}
+			#xiala2 .xl-left>.active{
+				color: orange;
+			}
+			#xiala2 .xl-right>li:hover{
+				color: orange;
+				cursor: pointer;
+			}
+			#xiala2 .xl-left>li:hover{
+				color: orange;
+				cursor: pointer;
+			}
+			.nav-ul{
+				position: relative;
+			}
+			#huangbiao123{
+				position: absolute;
+				left: -99px;
+				top: 10px;
+			}
+		</style>
+<body>
+    <div id="father">
+      <section>
+      	 <div class="nav-top" >
+				<nav id="nav-t" >
+					<ul class="nav-ul">
+						<li style="line-height: 62px;	" ><a href="#" ><img src="img/login.png" style="width:100px;position:relative;top:-20px;left: 0;" id="huangbiao123"/></a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="destination.html">目的地</a></li>
+						<li><a href="strategy.html">旅游攻略</a></li>
+						<li id="xiala" class="dropdown">
+							<a data-toggle="dropdown" href="liberty.html">旅行商城<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>自由行</li>
+								<li>跟团游</li>
+								<li>当地游</li>
+								<li>国内机票</li>
+								<li>签证</li>
+								<li>保险</li>
+							</ul>
+						</li>
+						<li><a href="#">酒店</a></li>
+						<li id="xiala2" class="dropdown">
+							<a data-toggle="dropdown" href="exchange.html">社区<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>
+									<ul class="fl xl-left">
+										<li class="active">问答</li>
+										<li>诗与远方周边</li>
+										<li>蜂首俱乐部</li>
+										<li>结伴</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="fr xl-right">
+										<li>小组论坛</li>
+										<li>分舵同城</li>
+										<li>诗与远方拍卖行</li>
+										<li>照片PK</li>
+										<li>真人兽</li>
+										<li>照道具商城</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li id="ipt" style="margin-left:10px ;">
+							<p class="clearfix">
+								<input id="ss" type="text" @keydown.down="down()" @keydown.up.prevent="up()" @keyup="search()" @click="search()" v-model="msg" name="" id="" value="" />
+								<input  type="button"  value="搜 索" style="background-color: orange;"/>
+							</p>
+							<ul id="list" :class="{bor:flag}">
+								<li :class="{active:index==noIndex}" v-for="(item,index) in arr"></li>
+							</ul>
+						</li>
+						<li class="r-li">
+							<a href="#" class="iconfont icon-xinlang1" style="font-size: 25px;"></a>
+							<a href="#" class="iconfont icon-qq2" style="font-size: 25px;"></a>
+							<a href="#" class="iconfont icon-weixin1" style="font-size: 25px;"></a>
+							<div class="dr">
+								<a href="login.html">登录</a>
+								<span>|</span>
+								<a href="register.html">注册</a>
+							</div>	
+						</li>	
+					</ul>
+				</nav>
+				<p id="xia" class="xiala-log"></p>
+			</div>	
+         <div id="div">
+             <div class="flash">
+				<img src="img/198238005-1.jpg"/>		
+				<img src="img/198238005-2.jpg"/>
+				<img src="img/198238005-3.jpg"/>
+				<img src="img/198238005-4.jpg"/>
+				<img src="img/198238005-5.jpg"/>
+				<img src="img/198238005-6.jpg"/>
+				<img src="img/198238005-7.jpg"/>
+				<img src="img/198238005-8.jpg"/>
+				<img src="img/198238005-9.jpg"/>
+				<img src="img/198238005-10.jpg"/>
+					<ul class="button">
+							<li class="hover"></li>	
+							<li></li>	
+							<li></li>
+							<li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>	
+					</ul>
+                <div id="two">
+                     <h1 style="">搜索旅游地区景点</h1>
+                     <form action="#" method="post">
+                         <input type="search" placeholder="搜索城区景点" size="50"/><input type="button" value="搜索" style="margin: 0 auto; border: 0px solid orange;font-size: 18px;"/>
+                     </form>
+                 </div> 
+             </div>
+                  <script src="JS/jquery-1.8.3.min.js"></script>
+                  <script type="text/javascript">
+                      var index=0;//初始序列号
+                      var Play=null;
+                      $(".button li").mouseover(function(){
+                          index = $(this).index();//获得序列号
+                          clearInterval(Play);//	清除定时器
+                              $(this).addClass("hover").siblings().removeClass("hover");
+                              $(".flash img").eq(index).show().siblings("img").hide();//eq  查找跟他序列号相同的
+                      }).mouseout(function(){
+                              autoPlay();
+                         });
+                  function autoPlay(){
+                      Play=setInterval(function(){
+                          index++;
+                          if(index>9){
+                                  index=-1;
+                              }
+                                  $(".button li").eq(index).addClass("hover").siblings().removeClass("hover");
+                                  $(".flash img").eq(index).show().siblings("img").hide();//eq  查找跟他序列号相同的
+                          },3000);
+                  } 
+                  autoPlay();
+                  </script>	
+         </div>
+         
+         <div id="three">
+             <ul>
+                <li><a href="#">NSW</a></li>
+                <li><a href="#">VIC</a></li>
+                <li><a href="#">QLD</a></li>
+                <li><a href="#">WA</a></li>
+                <li><a href="#">SA</a></li>
+                <li><a href="#">TAS</a></li>
+                <li><a href="#">NT</a></li>
+                <li><a href="#">ACT</a></li>
+             </ul>
+         </div> 
+         <div id="four">
+             <div id="five">
+                 <h2 style="margin-bottom: 25px; color: orange;">特色城区</h2>
+                 <ul>
+                    <li>
+                       <a href="#"><img src="img/13249310235-1.jpg"/>
+                          <div class="five">
+                              <h3>新南威尔士</h3>
+                              <h6>89 个特色城区</h6>
+                           </div>
+                           <div class="six"></div>
+                       </a> 
+                    </li>
+                    <li><a href="#"><img src="img/13249310235-2.jpg"/>
+                           <div class="five">
+                               <h3>维多利亚</h3>
+                               <h6>85 个特色城区</h6>
+                           </div>
+                           <div class="six"></div>
+                        </a>
+                    </li>
+                    <li><a href="#"><img src="img/13249310235-3.jpg"/>
+                            <div class="five">
+                                <h3>昆士兰</h3>
+                                <h6>36 个特色城区</h6>
+                            </div>
+                            <div class="six"></div>
+                        </a>
+                    </li>
+                    <li><a href="#"><img src="img/13249310235-4.jpg"/>
+                            <div class="five">
+                               <h3>西澳大利亚</h3>
+                               <h6>20 个特色城区</h6>
+                            </div>   
+                            <div class="six"></div>
+                        </a>
+                       
+                    </li>
+                    <li><a href="#"><img src="img/13249310235-5.jpg"/>
+                            <div class="five">
+                                <h3>南澳大利亚</h3>
+                                <h6>20 个特色城区</h6>
+                            </div>
+                            <div class="six"></div>
+                        </a>
+                    </li>
+                    <li><a href="#"><img src="img/14.jpeg"/>
+                            <div class="five">
+                               <h3>塔斯马尼亚</h3>
+                               <h6>8 个特色城区</h6>
+                            </div>
+                            <div class="six"></div>
+                        </a>
+                    </li>
+                 </ul>
+             </div>
+         </div> 
+         <div class="one" style=" height: 450px;">
+               <ul >
+                  <li>
+                    <a href="#"><img src="img/20181520-1.jpg" style="width: 250px; height: 200px;"/>
+                      <div>
+                          <span>New South Wales</span>
+                          <p>新南威尔士州</p>
+                          <span>查看此地区商业地产 ></span>
+                      </div>
+                      <div class="two"></div>
+                    </a>  
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-2.jpg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Victoria</span>
+                              <p>维多利亚州</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>   
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-3.jpg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Queensland</span>
+                              <p>昆士兰州</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-4.jpg" style="width: 250px; height: 200px;"/>
+                        <div>
+                            <span>Sydney</span>
+                            <p>悉尼</p>
+                            <span>查看此地区商业地产 ></span>
+                        </div>
+                        <div class="two"></div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-5.jpg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Melbourne</span>
+                              <p>墨尔本</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-6.jpg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Brisbane</span>
+                              <p>布里斯班</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>
+                  </li>
+                  <li>
+                      <a href="#"><img src="img/20181520-7.jpg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Perth</span>
+                              <p>珀斯</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>
+                  </li>
+                  <li style="display: none;">
+                      <a href="#"><img src="img/11.jpeg" style="width: 250px; height: 200px;"/>
+                          <div>
+                              <span>Perth</span>
+                              <p>珀斯</p>
+                              <span>查看此地区商业地产 ></span>
+                          </div>
+                          <div class="two"></div>
+                       </a>
+                  </li>
+               </ul>
+          </div>
+      </section>
+      <!--底部开始-->
+		<style>
+			#dididi{
+				height:620px;
+				background-color:#3c3c3c;
+			}
+			.dididi{
+				width: 1100px;
+				margin: 0 auto;
+				padding: 50px;
+			}
+			.dididi-dl{
+				height: 155px;
+				margin-right: 130px;
+			}
+			.bianse{
+				color: orange;
+			}
+		</style>
+		<div id="dididi">
+			<div class="dididi">
+				<dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">全球旅游消费指南 </dt>
+			        <dd style="color: white;">覆盖全球200多个国家和地区</dd>
+			        <dd><strong><span class="bianse">100,000,000</span></strong> <span style="color: white;">位旅行者</span></dd>
+			        <dd><strong><span class="bianse">920,000</span></strong> <span style="color: white;">家国际酒店</span></dd>
+			        <dd><strong><span class="bianse">21,000,000</span></strong> <span style="color: white;">条真实点评</span></dd>
+			        <dd><strong><span class="bianse"class="bianse">382,000,000</span></strong> <span style="color: white;">次攻略下载</span></dd></dd>
+			        <dd><span><a href="#" class="bianse">中国旅游行业第一部“玩法”</a></span></dd>
+			    </dl>
+			    <dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">关于我们</dt>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">关于马蜂窝</a><a href="#" style="color: white;">联系我们</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">隐私政策</a><a href="#" style="color: white;">商标声明</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">服务协议</a><a href="#" style="color: white;">游记协议</a></dd>
+			        <dd><a href="#" style="color: white;">商城平台服务协议</a></dd>
+			        <dd><a href="#" style="color: white;">网络信息侵权通知指引</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">网站地图</a><span ><a href="#" class="bianse">加入诗与远方</a></span></dd>
+			    </dl>
+			    <dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">旅行服务</dt>
+			        <dd>
+			            	<dd><a href="#" style="margin-right: 18px;color: white;">旅游攻略</a><a href="#" style="color: white;">酒店预订</a></dd>
+							<dd><a href="#" style="margin-right: 18px;color: white;">旅游特价</a><a href="#" style="color: white;">国际租车</a></dd>
+			               	<dd><a href="#" style="margin-right: 18px;color: white;">旅游问答</a><a href="#" style="color: white;">旅游保险</a></dd>
+			                <dd><a href="#" style="margin-right: 18px;color: white;">旅游指南</a><a href="#" style="color: white;">订火车票</a></dd>
+			                <dd><a href="#" style="margin-right: 18px;color: white;">旅游资讯</a><a href="#" style="color: white;">APP下载</a></dd>
+			                <dd><span ><a href="#" class="bianse">旅行商城全球商家入驻</a></span></dd>
+			        </dd>
+			    </dl>
+			    <div class="fenseerweima" >
+			    	<span><img src="img/1520878379.jpeg.png" style="width: 120px; height: 120px; margin-bottom: 5px;"/></span>
+					<p style="color: orange;">【诗与远方订阅号】</p>
+			    </div>
+			</div>
+			<div style="width: 1000px; margin: 0 auto;height: 70px;">
+		    	<p style="text-align: center; color: orange;font-size:18px;">向崇尚自由的加勒比海盗致敬！</p>
+		    </div>
+		    <div style="width: 1000px; margin: 0 auto;"><hr /></div>
+		    <div style="width: 1000px; margin: 0 auto;" id="leilei">
+		    	<style>
+		    		#leilei span{
+		    			margin-right: 14px;
+		    			color: white;
+		    		}
+		    	</style>
+		    	<span>马可波罗</span>
+		    	<span>Onlylady女人志</span>
+		    	<span>艺龙旅游指南</span>
+		    	<span>欣欣旅游网</span>
+		    	<span>户外运动</span>
+		    	<span>360音乐</span>
+		    	<span>旅游网</span>
+		    	<span>小说网</span>
+		    	<span>学习啦</span>
+		    	<span>游多多</span>
+		    	<span>问答</span>
+		    	<span>火车时刻表</span>
+		    	<span>驴妈妈旅游网</span>
+		    	<span>靖江旅游</span>
+		    	<span>YunOs</span>
+		    	<span>携程旅游</span>
+		    	<span>火车票</span>
+		    	<span>天气预报</span>
+		    	<span>上海地图</span>
+		    	<span>手机浏览器</span>
+		    	<span>SUV联合越野</span>
+		    	<span>图吧</span>
+		    	<span>途牛旅游</span>
+		    	<span>绿野户外</span>
+		    	<span>二手车</span>
+		    	<span>好豆</span>
+		    	<span>美食网</span>
+		    	<span>TripAdvisor</span>
+		    	<span>天巡网</span>
+		    	<span>租租车</span>
+		    	<span>短租房</span>
+		    	<span>五分旅游网</span>
+		    	<span>爱旅行</span>
+		    	<span>酒店预订</span>
+		    	<span>旅游网</span>
+		    	<span>wed114结婚网</span>
+		    	<span>车讯网</span>
+		    	<span>遨游旅游</span>
+		    	<span>手机</span>
+		    	<span>更多友情链接>>></span>
+		    </div>
+		    <div style="width:950px; margin: 0 auto;"><hr /></div>
+		    <div style="width: 1000px; margin: 0 auto;" id="wanwanchengcheng">
+		    	<style>
+		    		#wanwanchengcheng p{
+		    			text-align: center;
+		    			color: white;
+		    		}
+		    	</style>
+		    	<p>
+		    		@2018Madengwo.cn京ICP备11015476号&nbsp;&nbsp;&nbsp;
+		    		京公网安备11010502013401号京ICP证110318号&nbsp;&nbsp;&nbsp;
+		    		网络出版服务许可证：(总)网出证(京)字第131号
+		    	</p>
+		    	<p>
+		    		增值电信业务经营许可证：京B2-20180228&nbsp;&nbsp;&nbsp;营业执照&nbsp;&nbsp;&nbsp;帮助中心&nbsp;&nbsp;&nbsp;诗与远方客服：
+		    		国内&nbsp;&nbsp;&nbsp;<span style="color: orange;">4006-345-678</span>&nbsp;&nbsp;&nbsp;海外&nbsp;&nbsp;&nbsp; <span style="color: orange;">+86-10-5922-2799</span>
+		    	</p>
+		    </div>
+		    <div style="width: 1000px; margin: 0 auto;margin-top: 15px;">
+		    	<p style="text-align: center;"><img src="img/niubi.png"/></p>
+		    </div>	
+		</div>
+		<!--底部结束-->
+    </div>
+</body>
+</html>

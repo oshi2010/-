@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>旅游商城-自由行</title>
+		<link rel="stylesheet" type="text/css" href="css/liberty.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css"/>
+		<link rel="stylesheet" href="lib/1-iconfont/iconfont.css" />
+		<script src="lib/jquery-1.12.3.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+		<script src="lib/jquery.lazyload.min.js"></script>
+		<script src="lib/vue.js"></script>
+		<script src="lib/vue-resource.js"></script>
+	</head>
+	<body>
+	
+		<!--头部-->
+		<div id="header">
+			<div class="syyf-header ">
+				<div class="box fl">
+					<a href="#">
+						<img src="img/login.png" alt="诗与远方" title="诗与远方" />
+					</a>
+				</div>
+				<!--头部导航-->
+				<div class="header-list fl">
+					<a href="index.html" class="fl" >首页</a>
+					<a href="destination.html" class="fl" >目的地</a>
+					<a href="strategy.html" class="fl" >旅游攻略</a>
+					<a href="liberty.html"  class=" fl active">商城
+						<i class="iconfont icon-xiala"></i>
+					</a>
+					<a href="#" class="fl" >酒店</a>
+					<a href="exchange.html" class="fl community-nav" >社区<i class="iconfont icon-xiala"></i></a>
+					<div class="community no" >
+                        <div class="panel-wrapper">
+                            <ul class="nav-list clearfix fl">
+                                <li class="h"><a href="exchange.html" target="_blank" title="问答" data-cs-p="wenda">问答<i class="iconfont icon-hot"></i></a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/things.php" target="_blank" title="诗与远方周边" data-cs-p="things">诗与远方周边<i class="iconfont icon-new"></i></a></li>
+                                <li><a href="jub.html" target="_blank" title="蜂首俱乐部" data-cs-p="club">蜂首俱乐部</a></li>
+                                <li><a href="travel.html" target="_blank" title="结伴" data-cs-p="together">结伴</a></li>
+                            </ul>
+                            <ul class="nav-list-sub clearfix fr">
+                                <li><a href="http://www.mafengwo.cn/group/" target="_blank" title="诗与远方旅行家" data-cs-p="group">小组论坛</a></li>
+                                <li><a href="http://www.mafengwo.cn/rudder/" target="_blank" title="分舵同城" data-cs-p="rudder">分舵同城</a></li>
+                                <li><a href="http://www.mafengwo.cn/auction/" target="_blank" title="诗与远方拍卖行" data-cs-p="paimai">诗与远方拍卖行</a></li>
+                                <li><a href="http://www.mafengwo.cn/postal/" target="_blank" title="游记纪念工厂" data-cs-p="postal">游记纪念工厂</a></li>
+                                <li><a href="detailed.html" target="_blank" title="照片PK" data-cs-p="photo_pk">照片PK</a></li>
+                                <li><a href="http://www.mafengwo.cn/focus/" target="_blank" title="真人兽" data-cs-p="focus">真人兽</a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/virtual_goods.php" target="_blank" title="道具商店" data-cs-p="virtual">道具商店</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+				<script>
+					$(".header-list>.community-nav ").focus(function(){
+						$(".community").toggle();
+					}).blur(function(){
+						$(".community").toggle();
+					})
+				</script>
+				<!--搜索-->
+				<div class="search ">
+					<div class="input-group " >
+						<input type="text" class="form-control"  @click="searA()" v-model="msgA"/>
+						<span class="input-group-addon iconfont icon-search"></span>
+						<div class="search-list">
+							
+						</div>
+						
+					</div>
+				</div>
+				<!--<script>
+					var vm =new Vue({
+						el:".search",
+						data:{
+							arrA:[],
+							msgA:"",
+							iteem:1111,
+							a:0
+						},
+						methods:{
+							searA:function(){
+								
+								var url="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+								this.$http.jsonp(url,{params:{wd:this.msgA},jsonp:"cb"}).then(function(ars){
+									this.a++
+									this.arrA=ars.data.s
+									console.log(this.arrA)
+									console.log(this.a)
+								})
+							}
+						}
+						
+					})
+					
+				</script>-->
+				<!--登录-->
+				<div class="login fr">
+					<a href="#" class="ico">
+						<span class="iconfont icon-xinlang1"></span>
+					</a>
+					<a href="#"  class="ico">	
+						<span class="iconfont icon-qq2"></span>
+					</a>
+					<a href="#"  class="ico">
+						<span class="iconfont icon-weixin"></span></a>
+					<a href="login.html">
+					 	<span>登录</span>
+					</a>
+					<span>|</span>
+					<a href="register.html">
+						<span>注册</span>
+					</a>
+				</div>
+			</div>
+			<div class="shadow "></div>
+			<div class="content container">
+				<div class="content-list fr">
+					<ul>
+						<li class="active " ><a id="a" href="liberty.html">自由行</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">跟团游</a></li>
+						<span>|</span>
+						<li><a href="localtion.html" id="a">当地游</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">国内机票</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">签证</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">全球wifi</a></li>
+						<span>|</span>
+						<li><a href="cruise.html" id="a">游轮</a></li>
+						<span>|</span>
+						<li><a href="insurance.html" id="a">旅游保险</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!--内容-->
+		<style type="text/css">
+			[v-cloak]{
+				display:none
+			}
+		</style>
+		<div id="container" >
+			<div class="brand-bar">
+				<div class="bb-hd ">
+					<h2>自由行</h2>
+				</div>
+				<div class="input-search fr ">
+					<div  class="trigger fl  btn"  >
+						<h4 class="fl tri-pro"  v-cloak>{{msg}}</h4><span class="fr">出发</span>
+						<ul class="trigger-list clearfix">
+							<li><h4  >全国</h4></li>
+                            <li>
+                            	<a  href="#" v-for="(item,index) in proArr" @click="clickPro(item)">{{item}}</a>
+                            	
+                            </li>
+                            
+						</ul>
+					</div>
+					<i class="iconfont icon-danxiangjiantou fl jt"></i>
+					<input v-focus="!msgB" v-if="!msgB" @blur="msgB=true"   type="text"  class="fl" placeholder="目的地......" v-model="str"  />
+					<span class="fl host" v-if="msgB" @click="focus()">{{str}}</span>
+					<i class="iconfont icon-search fr"></i>
+				</div>
+				<script>
+					var vm = new Vue({
+						el:".input-search",
+						directives:{
+							focus:{
+								inserted:function(el,binding,vnode){
+									el.focus();
+								}
+							}
+						},
+						data:{
+							proArr:["北京","天津","上海","广州","深圳","成都","重庆","昆明","武汉","西安","香港","澳门"],
+							msg:"深圳",
+							msgB:true,
+							str:""
+						},
+						methods:{
+							clickPro:function(item){
+								var b=item;
+								this.msg=b
+								console.log(this.msgB)
+							},
+							focus:function(){
+								this.msgB=false;
+//								$(input-search)
+//								var bb=$(".input-search input").attr('autofocus','autofocus')
+//								console.log(bb)
+							}
+							
+							
+						}
+					})
+//					
+					function c(){
+						$(".trigger-list").toggle();
+					}
+					$(".trigger ").on("click",function(){
+						c()
+					})
+				</script>
+			</div>
+			<!--左侧导航-->
+			<div class="catagory-nav fl">
+				<div class="items">
+					<div class="item">
+						<i class="iconfont icon-simiao fl"></i>
+						<h4 class="fl">国内旅游</h4>
+						<span class="fl">
+							<a href="#">三亚</a>
+							<a href="scene.html">云南</a>
+							<a href="#">成都</a>
+							<a href="#">西安</a>
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-china clearfix">
+				                    <div class="col-left fl" data-mes-g="0-1-0-0" data-mes-t="左侧区域">
+				                         <dl class="dl-china">
+				                            <dt>热门</dt>
+					                            <dd>
+					                                <div class="place-nav">
+					                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-0" data-mes-t="三亚" data-v="M10030P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10030P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">三亚</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-1" data-mes-t="丽江" data-v="M10186P%E7%83%AD%E9%97%A8" rel="nofollow" href="lijiang.html">丽江</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-2" data-mes-t="厦门" data-v="M10132P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10132P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">厦门</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-3" data-mes-t="成都" data-v="M10035P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10035P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">成都</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-4" data-mes-t="西安" data-v="M10195P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10195P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">西安</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-5" data-mes-t="长白山" data-v="K长白山P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-K长白山P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">长白山</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-6" data-mes-t="北京" data-v="M10065P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10065P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">北京</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-7" data-mes-t="大理" data-v="M10487P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10487P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">大理</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                    <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-0-8" data-mes-t="桂林" data-v="M10095P%E7%83%AD%E9%97%A8" rel="nofollow" href="/sales/0-0-M10095P%E7%83%AD%E9%97%A8-0-0-0-0-0.html">桂林</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+				                                    </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>海南</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-0" data-mes-t="三亚" data-v="M10030P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-M10030P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">三亚</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                                                <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-1" data-mes-t="亚龙湾" data-v="K亚龙湾P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-K亚龙湾P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">亚龙湾</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                                                <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-2" data-mes-t="海口" data-v="M10513P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-M10513P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">海口</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                                                <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-3" data-mes-t="蜈支洲岛" data-v="K蜈支洲P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-K蜈支洲P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">蜈支洲岛</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                                                <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-4" data-mes-t="三亚湾" data-v="K三亚湾P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-K三亚湾P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">三亚湾</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+	                                                                                <span class="p-item">
+	                                                        <a target="_blank" data-mes-g="0-1-0-0-1-5" data-mes-t="西沙" data-v="K西沙P%E6%B5%B7%E5%8D%97" rel="nofollow" href="/sales/0-0-K西沙P%E6%B5%B7%E5%8D%97-0-0-0-0-0.html">西沙</a>
+	                                                        <span class="split"></span>
+	                                                    </span>
+				                                     </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>云南</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-0" data-mes-t="丽江" data-v="M10186P%E4%BA%91%E5%8D%97" rel="nofollow" href="lijiang.html">丽江</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-1" data-mes-t="大理" data-v="M10487P%E4%BA%91%E5%8D%97" rel="nofollow" href="/sales/0-0-M10487P%E4%BA%91%E5%8D%97-0-0-0-0-0.html">大理</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-2" data-mes-t="昆明" data-v="M10807P%E4%BA%91%E5%8D%97" rel="nofollow" href="/sales/0-0-M10807P%E4%BA%91%E5%8D%97-0-0-0-0-0.html">昆明</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                         <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-3" data-mes-t="西双版纳" data-v="M10809P%E4%BA%91%E5%8D%97" rel="nofollow" href="/sales/0-0-M10809P%E4%BA%91%E5%8D%97-0-0-0-0-0.html">西双版纳</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-4" data-mes-t="腾冲" data-v="M10651P%E4%BA%91%E5%8D%97" rel="nofollow" href="/sales/0-0-M10651P%E4%BA%91%E5%8D%97-0-0-0-0-0.html">腾冲</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-2-5" data-mes-t="香格里拉" data-v="M10482P%E4%BA%91%E5%8D%97" rel="nofollow" href="/sales/0-0-M10482P%E4%BA%91%E5%8D%97-0-0-0-0-0.html">香格里拉</a>
+                                                            <span class="split"></span>
+                                                        </span>
+				                                    </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>四川</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+                                                         <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-0" data-mes-t="成都" data-v="M10035P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-M10035P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">成都</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-1" data-mes-t="九寨沟" data-v="M10136P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-M10136P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">九寨沟</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-2" data-mes-t="稻城" data-v="K稻城P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-K稻城P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">稻城</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-3" data-mes-t="西岭雪山" data-v="K西岭雪山:M12703P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-K西岭雪山:M12703P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">西岭雪山</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-4" data-mes-t="峨眉山" data-v="K峨眉山P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-K峨眉山P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">峨眉山</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-3-5" data-mes-t="亚丁" data-v="K亚丁P%E5%9B%9B%E5%B7%9D" rel="nofollow" href="/sales/0-0-K亚丁P%E5%9B%9B%E5%B7%9D-0-0-0-0-0.html">亚丁</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                    </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>西南</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-0" data-mes-t="西藏" data-v="M12700P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M12700P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">西藏</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-1" data-mes-t="拉萨" data-v="M10442P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M10442P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">拉萨</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-2" data-mes-t="林芝" data-v="M10814P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M10814P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">林芝</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-3" data-mes-t="重庆" data-v="M10208P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M10208P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">重庆</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-4" data-mes-t="贵州" data-v="M14103P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M14103P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">贵州</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-5" data-mes-t="贵阳" data-v="M11239P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-M11239P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">贵阳</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-4-6" data-mes-t="黄果树" data-v="K黄果树:M11239P%E8%A5%BF%E5%8D%97" rel="nofollow" href="/sales/0-0-K黄果树:M11239P%E8%A5%BF%E5%8D%97-0-0-0-0-0.html">黄果树</a>
+                                                            <span class="split"></span>
+                                                        </span>
+				                                     </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>西北</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-0" data-mes-t="西安" data-v="M10195P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-M10195P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">西安</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-1" data-mes-t="青海湖" data-v="K青海湖P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-K青海湖P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">青海湖</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-2" data-mes-t="西宁" data-v="M10800P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-M10800P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">西宁</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-3" data-mes-t="新疆" data-v="M13061P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-M13061P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">新疆</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-4" data-mes-t="敦煌" data-v="M10240P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-M10240P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">敦煌</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-5-5" data-mes-t="乌鲁木齐" data-v="M10218P%E8%A5%BF%E5%8C%97" rel="nofollow" href="/sales/0-0-M10218P%E8%A5%BF%E5%8C%97-0-0-0-0-0.html">乌鲁木齐</a>
+                                                            <span class="split"></span>
+                                                        </span>
+				                                    </div>
+				                                </dd>
+				                            </dl>
+				                           <dl class="dl-china">
+				                                <dt>东北</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-6-0" data-mes-t="长白山" data-v="K长白山P%E4%B8%9C%E5%8C%97" rel="nofollow" href="/sales/0-0-K长白山P%E4%B8%9C%E5%8C%97-0-0-0-0-0.html">长白山</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-6-1" data-mes-t="大连" data-v="K大连P%E4%B8%9C%E5%8C%97" rel="nofollow" href="/sales/0-0-K大连P%E4%B8%9C%E5%8C%97-0-0-0-0-0.html">大连</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-6-2" data-mes-t="哈尔滨" data-v="K哈尔滨P%E4%B8%9C%E5%8C%97" rel="nofollow" href="/sales/0-0-K哈尔滨P%E4%B8%9C%E5%8C%97-0-0-0-0-0.html">哈尔滨</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-6-3" data-mes-t="长春" data-v="M11247P%E4%B8%9C%E5%8C%97" rel="nofollow" href="/sales/0-0-M11247P%E4%B8%9C%E5%8C%97-0-0-0-0-0.html">长春</a>
+                                                            <span class="split"></span>
+                                                        </span>
+				                                    </div>
+				                                </dd>
+				                            </dl>
+				                            <dl class="dl-china">
+				                                <dt>江浙沪</dt>
+				                                <dd>
+				                                    <div class="place-nav">
+				                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-0" data-mes-t="杭州" data-v="M10156P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-M10156P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">杭州</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-1" data-mes-t="上海" data-v="M10099P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-M10099P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">上海</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-2" data-mes-t="南京" data-v="K南京P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K南京P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">南京</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-3" data-mes-t="苏州" data-v="K苏州P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K苏州P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">苏州</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-4" data-mes-t="乌镇" data-v="K乌镇P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K乌镇P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">乌镇</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-5" data-mes-t="千岛湖" data-v="K千岛湖P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K千岛湖P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">千岛湖</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-6" data-mes-t="西塘" data-v="K西塘P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K西塘P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">西塘</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        <span class="p-item">
+                                                            <a target="_blank" data-mes-g="0-1-0-0-7-7" data-mes-t="横店" data-v="K横店P%E6%B1%9F%E6%B5%99%E6%B2%AA" rel="nofollow" href="/sales/0-0-K横店P%E6%B1%9F%E6%B5%99%E6%B2%AA-0-0-0-0-0.html">横店</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                        
+                                                    </div>
+				                                </dd>
+				                            </dl>
+				                        </div>
+				                    <div class="col-right fr" data-mes-g="0-1-0-1" data-mes-t="右侧区域">
+				                        <dt>福建</dt>
+		                                <dd>
+		                                    <div class="place-nav">
+		                                        <span class="p-item">
+	                                                <a target="_blank" data-mes-g="0-1-0-1-11-0" data-mes-t="厦门" data-v="M10132P%E7%A6%8F%E5%BB%BA" rel="nofollow" href="/sales/0-0-M10132P%E7%A6%8F%E5%BB%BA-0-0-0-0-0.html">厦门</a>
+	                                                <span class="split"></span>
+	                                            </span>
+	                                                <a target="_blank" data-mes-g="0-1-0-1-11-1" data-mes-t="鼓浪屿" data-v="K鼓浪屿P%E7%A6%8F%E5%BB%BA" rel="nofollow" href="/sales/0-0-K鼓浪屿P%E7%A6%8F%E5%BB%BA-0-0-0-0-0.html">鼓浪屿</a>
+	                                                <span class="split"></span>
+	                                            </span>
+	                                                                        <span class="p-item">
+	                                                <a target="_blank" data-mes-g="0-1-0-1-11-2" data-mes-t="武夷山" data-v="K武夷山P%E7%A6%8F%E5%BB%BA" rel="nofollow" href="/sales/0-0-K武夷山P%E7%A6%8F%E5%BB%BA-0-0-0-0-0.html">武夷山</a>
+	                                                <span class="split"></span>
+	                                            </span>
+	                                                                        <span class="p-item">
+	                                                <a target="_blank" data-mes-g="0-1-0-1-11-3" data-mes-t="福州" data-v="M11498P%E7%A6%8F%E5%BB%BA" rel="nofollow" href="/sales/0-0-M11498P%E7%A6%8F%E5%BB%BA-0-0-0-0-0.html">福州</a>
+	                                                <span class="split"></span>
+	                                            </span>
+	                                        </div>
+		                                </dd>
+		                            </dl>
+		                            <dl class="dl-china">
+		                                <dt>广东</dt>
+		                                <dd>
+		                                    <div class="place-nav">
+		                                        <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-0" data-mes-t="广州" data-v="M10088P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-M10088P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">广州</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-1" data-mes-t="珠海" data-v="M10269P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-M10269P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">珠海</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-2" data-mes-t="深圳" data-v="M10198P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-M10198P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">深圳</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-3" data-mes-t="长隆" data-v="K长隆P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-K长隆P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">长隆</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-4" data-mes-t="佛山" data-v="M13394P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-M13394P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">佛山</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-12-5" data-mes-t="惠州" data-v="M11475P%E5%B9%BF%E4%B8%9C" rel="nofollow" href="/sales/0-0-M11475P%E5%B9%BF%E4%B8%9C-0-0-0-0-0.html">惠州</a>
+                                                    <span class="split"></span>
+                                                </span>
+		                                    </div>
+		                                </dd>
+		                            </dl>
+		                            <dl class="dl-china">
+		                                <dt>内蒙古</dt>
+		                                <dd>
+		                                    <div class="place-nav">
+		                                         <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-13-0" data-mes-t="呼伦贝尔" data-v="M10774P%E5%86%85%E8%92%99%E5%8F%A4" rel="nofollow" href="/sales/0-0-M10774P%E5%86%85%E8%92%99%E5%8F%A4-0-0-0-0-0.html">呼伦贝尔</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                                            <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-13-1" data-mes-t="海拉尔" data-v="K海拉尔P%E5%86%85%E8%92%99%E5%8F%A4" rel="nofollow" href="/sales/0-0-K海拉尔P%E5%86%85%E8%92%99%E5%8F%A4-0-0-0-0-0.html">海拉尔</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                                            <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-13-2" data-mes-t="满洲里" data-v="K满洲里P%E5%86%85%E8%92%99%E5%8F%A4" rel="nofollow" href="/sales/0-0-K满洲里P%E5%86%85%E8%92%99%E5%8F%A4-0-0-0-0-0.html">满洲里</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                            </div>
+		                                </dd>
+		                            </dl>
+		                            <dl class="dl-china">
+		                                <dt>安徽/江西</dt>
+		                                <dd>
+		                                    <div class="place-nav">
+		                                        <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-14-0" data-mes-t="黄山" data-v="M10440P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF" rel="nofollow" href="/sales/0-0-M10440P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF-0-0-0-0-0.html">黄山</a>
+                                                    <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                        <a target="_blank" data-mes-g="0-1-0-1-14-1" data-mes-t="婺源" data-v="M10045P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF" rel="nofollow" href="/sales/0-0-M10045P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF-0-0-0-0-0.html">婺源</a>
+                        <span class="split"></span>
+                    </span>
+                                                <span class="p-item">
+                        <a target="_blank" data-mes-g="0-1-0-1-14-2" data-mes-t="庐山" data-v="K庐山P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF" rel="nofollow" href="/sales/0-0-K庐山P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF-0-0-0-0-0.html">庐山</a>
+                        <span class="split"></span>
+                    </span>
+                                                <span class="p-item">
+                                                    <a target="_blank" data-mes-g="0-1-0-1-14-3" data-mes-t="三清山" data-v="K三清山P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF" rel="nofollow" href="/sales/0-0-K三清山P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF-0-0-0-0-0.html">三清山</a>
+                                                <span class="split"></span>
+                                                </span>
+                                                <span class="p-item">
+                        <a target="_blank" data-mes-g="0-1-0-1-14-4" data-mes-t="南昌" data-v="K南昌P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF" rel="nofollow" href="/sales/0-0-K南昌P%E5%AE%89%E5%BE%BD%2F%E6%B1%9F%E8%A5%BF-0-0-0-0-0.html">南昌</a>
+                        <span class="split"></span>
+                    </span>
+                                        	</div>
+		                                </dd>
+		                            </dl>
+                                    <dl class="dl-china">
+<dt>河北</dt>
+<dd>
+<div class="place-nav">
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-15-0" data-mes-t="北戴河" data-v="K北戴河P%E6%B2%B3%E5%8C%97" rel="nofollow" href="/sales/0-0-K北戴河P%E6%B2%B3%E5%8C%97-0-0-0-0-0.html">北戴河</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-15-1" data-mes-t="秦皇岛" data-v="M11499P%E6%B2%B3%E5%8C%97" rel="nofollow" href="/sales/0-0-M11499P%E6%B2%B3%E5%8C%97-0-0-0-0-0.html">秦皇岛</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-15-2" data-mes-t="石家庄" data-v="M11830P%E6%B2%B3%E5%8C%97" rel="nofollow" href="/sales/0-0-M11830P%E6%B2%B3%E5%8C%97-0-0-0-0-0.html">石家庄</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-15-3" data-mes-t="承德" data-v="M10432P%E6%B2%B3%E5%8C%97" rel="nofollow" href="/sales/0-0-M10432P%E6%B2%B3%E5%8C%97-0-0-0-0-0.html">承德</a>
+                <span class="split"></span>
+            </span>
+                                </div>
+</dd>
+</dl>
+                                    <dl class="dl-china">
+<dt>山西</dt>
+<dd>
+<div class="place-nav">
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-16-0" data-mes-t="太原" data-v="M11240P%E5%B1%B1%E8%A5%BF" rel="nofollow" href="/sales/0-0-M11240P%E5%B1%B1%E8%A5%BF-0-0-0-0-0.html">太原</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-16-1" data-mes-t="平遥" data-v="K平遥P%E5%B1%B1%E8%A5%BF" rel="nofollow" href="/sales/0-0-K平遥P%E5%B1%B1%E8%A5%BF-0-0-0-0-0.html">平遥</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-16-2" data-mes-t="五台山" data-v="K五台山P%E5%B1%B1%E8%A5%BF" rel="nofollow" href="/sales/0-0-K五台山P%E5%B1%B1%E8%A5%BF-0-0-0-0-0.html">五台山</a>
+                <span class="split"></span>
+            </span>
+                                        <span class="p-item">
+                <a target="_blank" data-mes-g="0-1-0-1-16-3" data-mes-t="壶口瀑布" data-v="K壶口瀑布P%E5%B1%B1%E8%A5%BF" rel="nofollow" href="/sales/0-0-K壶口瀑布P%E5%B1%B1%E8%A5%BF-0-0-0-0-0.html">壶口瀑布</a>
+                <span class="split"></span>
+            </span>
+                                </div>
+</dd>
+</dl>
+                                    <dl class="dl-china">
+	            <dt>河南</dt>
+	            <dd>
+	                <div class="place-nav">
+	                                                                <span class="p-item">
+	                                        <a target="_blank" data-mes-g="0-1-0-1-17-0" data-mes-t="郑州" data-v="M10794P%E6%B2%B3%E5%8D%97" rel="nofollow" href="/sales/0-0-M10794P%E6%B2%B3%E5%8D%97-0-0-0-0-0.html">郑州</a>
+	                                        <span class="split"></span>
+	                                    </span>
+	                                                                <span class="p-item">
+	                                        <a target="_blank" data-mes-g="0-1-0-1-17-1" data-mes-t="开封" data-v="M11242P%E6%B2%B3%E5%8D%97" rel="nofollow" href="/sales/0-0-M11242P%E6%B2%B3%E5%8D%97-0-0-0-0-0.html">开封</a>
+	                                        <span class="split"></span>
+	                                    </span>
+	                                                                <span class="p-item">
+	                                        <a target="_blank" data-mes-g="0-1-0-1-17-2" data-mes-t="洛阳" data-v="M10094P%E6%B2%B3%E5%8D%97" rel="nofollow" href="/sales/0-0-M10094P%E6%B2%B3%E5%8D%97-0-0-0-0-0.html">洛阳</a>
+	                                        <span class="split"></span>
+	                                    </span>
+	                                                                <span class="p-item">
+	                                        <a target="_blank" data-mes-g="0-1-0-1-17-3" data-mes-t="龙门石窟" data-v="M10094:K龙门石窟P%E6%B2%B3%E5%8D%97" rel="nofollow" href="/sales/0-0-M10094:K龙门石窟P%E6%B2%B3%E5%8D%97-0-0-0-0-0.html">龙门石窟</a>
+	                                        <span class="split"></span>
+	                                    </span>
+	                                                                <span class="p-item">
+	                                        <a target="_blank" data-mes-g="0-1-0-1-17-4" data-mes-t="少林寺" data-v="K少林寺P%E6%B2%B3%E5%8D%97" rel="nofollow" href="/sales/0-0-K少林寺P%E6%B2%B3%E5%8D%97-0-0-0-0-0.html">少林寺</a>
+	                                        <span class="split"></span>
+	                                    </span>
+	                                                        </div>
+	            </dd>
+	        </dl>
+	                            <div class="act-banner" style="position: relative;">
+		                                                    </div>
+		                    </div>
+		                </div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<i class="iconfont icon-men1 fl"></i>
+						<h4 class="fl">日本</h4>
+						<span class="fl">
+							<a href="#">东京</a>
+							<a href="#">大阪</a>
+							<a href="#">冲绳</a>
+							<a href="#">北海道</a>   
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                   					 <div class="col-left" data-mes-g="0-1-1-0" data-mes-t="左侧区域">
+                                        <dl class="dl-country" data-mes-g="0-1-1-0-0" data-mes-t="日本">
+			                                <dt>日本</dt>
+			                                <dd>
+			                                    <div class="place-nav" data-mes-g="0-1-1-0-0-0" data-mes-t="目的地">
+			                                        <span class="p-item">
+			                                            <a target="_blank" data-v="M10183P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-0" data-mes-t="日本" rel="nofollow" href="/sales/0-0-M10183P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">日本</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M10222P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-1" data-mes-t="东京" rel="nofollow" href="/sales/0-0-M10222P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">东京</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M10765P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-2" data-mes-t="大阪" rel="nofollow" href="/sales/0-0-M10765P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">大阪</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M11041P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-3" data-mes-t="冲绳" rel="nofollow" href="/sales/0-0-M11041P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">冲绳</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M10746:K北海道P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-4" data-mes-t="北海道" rel="nofollow" href="/sales/0-0-M10746:K北海道P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">北海道</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M11042:K京都P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-5" data-mes-t="京都" rel="nofollow" href="/sales/0-0-M11042:K京都P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">京都</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M11043:K名古屋P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-6" data-mes-t="名古屋" rel="nofollow" href="/sales/0-0-M11043:K名古屋P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">名古屋</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M10768:K箱根P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-7" data-mes-t="箱根" rel="nofollow" href="/sales/0-0-M10768:K箱根P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">箱根</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M16283:K奈良P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-8" data-mes-t="奈良" rel="nofollow" href="/sales/0-0-M16283:K奈良P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">奈良</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="M15297:K福冈P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-9" data-mes-t="福冈" rel="nofollow" href="/sales/0-0-M15297:K福冈P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">福冈</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="K九州:M10183P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-10" data-mes-t="九州" rel="nofollow" href="/sales/0-0-K九州:M10183P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">九州</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="K札幌:M10183P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-11" data-mes-t="札幌" rel="nofollow" href="/sales/0-0-K札幌:M10183P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">札幌</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="K香川:M10183P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-12" data-mes-t="香川" rel="nofollow" href="/sales/0-0-K香川:M10183P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">香川</a>
+			                                            <span class="split"></span>
+			                                        </span>
+			                                                                    <span class="p-item">
+			                                            <a target="_blank" data-v="K高松:M10183P%E6%97%A5%E6%9C%AC" data-mes-g="0-1-1-0-0-0-13" data-mes-t="高松" rel="nofollow" href="/sales/0-0-K高松:M10183P%E6%97%A5%E6%9C%AC-0-0-0-0-0.html">高松</a>
+			                                            <span class="split"></span>
+			                                        </span>
+                                                </div>
+                                            </dd>
+                            			</dl>
+                                    </div>
+				                    <div class="col-right" data-mes-g="0-1-1-1" data-mes-t="右侧区域">
+				                        <dl class="dl-activity" data-mes-g="0-1-1-1-0" data-mes-t="精彩专题">
+				                            <dt>精彩专题</dt>
+				                            <dd>
+			                                    <a data-type="btn-theme" data-title="精华推荐" data-mes-g="0-1-1-1-0-0" data-mes-t="精华推荐" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/19317.html">
+			                                        <strong>精华推荐</strong><br>日本濑户内海的味道～
+			                                    </a>
+			                                </dd>
+				                        </dl>
+				                        <div class="act-banner" style="position: relative;"></div>
+				                    </div>
+				                </div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<i class="iconfont icon-mg-DNY fl"></i>
+						<h4 class="fl">东南亚 南亚 泰国</h4>
+						<span class="fl">
+							<a href="#">普吉岛</a>
+							<a href="#">清迈</a>
+							<a href="#">巴厘岛</a>
+							<!--<a href="#">马尔代夫</a>  -->
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                    <div class="row " style="margin:7px ;" data-mes-t="上方区域">
+                        <dl class="dl-country fl" data-mes-g="0-1-2-0-0" data-mes-t="泰国">
+                                <dt>泰国</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-2-0-0-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11047P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-0" data-mes-t="普吉岛" rel="nofollow" href="/sales/0-0-M11047P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">普吉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15284P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-1" data-mes-t="清迈" rel="nofollow" href="/sales/0-0-M15284P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">清迈</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M14210P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-2" data-mes-t="苏梅岛" rel="nofollow" href="/sales/0-0-M14210P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">苏梅岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11045P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-3" data-mes-t="曼谷" rel="nofollow" href="/sales/0-0-M11045P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">曼谷</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16980P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-4" data-mes-t="甲米" rel="nofollow" href="/sales/0-0-M16980P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">甲米</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11046P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-5" data-mes-t="芭提雅" rel="nofollow" href="/sales/0-0-M11046P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">芭提雅</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16209P%E6%B3%B0%E5%9B%BD" data-mes-g="0-1-2-0-0-0-6" data-mes-t="象岛" rel="nofollow" href="/sales/0-0-M16209P%E6%B3%B0%E5%9B%BD-0-0-0-0-0.html">象岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="fl dl-country" data-mes-g="0-1-2-0-1" data-mes-t="南亚">
+                                <dt >南亚</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-2-0-1-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10101P%E5%8D%97%E4%BA%9A" data-mes-g="0-1-2-0-1-0-0" data-mes-t="马尔代夫" rel="nofollow" href="/sales/0-0-M10101P%E5%8D%97%E4%BA%9A-0-0-0-0-0.html">马尔代夫</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11058P%E5%8D%97%E4%BA%9A" data-mes-g="0-1-2-0-1-0-1" data-mes-t="斯里兰卡" rel="nofollow" href="/sales/0-0-M11058P%E5%8D%97%E4%BA%9A-0-0-0-0-0.html">斯里兰卡</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10069P%E5%8D%97%E4%BA%9A" data-mes-g="0-1-2-0-1-0-2" data-mes-t="尼泊尔" rel="nofollow" href="/sales/0-0-M10069P%E5%8D%97%E4%BA%9A-0-0-0-0-0.html">尼泊尔</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10182P%E5%8D%97%E4%BA%9A" data-mes-g="0-1-2-0-1-0-3" data-mes-t="印度" rel="nofollow" href="/sales/0-0-M10182P%E5%8D%97%E4%BA%9A-0-0-0-0-0.html">印度</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="fl dl-country" data-mes-g="0-1-2-0-2" data-mes-t="越柬老缅">
+                                <dt>越柬老缅</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-2-0-2-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10180P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-0" data-mes-t="越南" rel="nofollow" href="/sales/0-0-M10180P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">越南</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16102P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-1" data-mes-t="芽庄" rel="nofollow" href="/sales/0-0-M16102P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">芽庄</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10070P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-2" data-mes-t="柬埔寨" rel="nofollow" href="/sales/0-0-M10070P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">柬埔寨</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16315P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-3" data-mes-t="岘港" rel="nofollow" href="/sales/0-0-M16315P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">岘港</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K吴哥窟P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-4" data-mes-t="吴哥窟" rel="nofollow" href="/sales/0-0-K吴哥窟P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">吴哥窟</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10179P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-5" data-mes-t="缅甸" rel="nofollow" href="/sales/0-0-M10179P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">缅甸</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10820P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-6" data-mes-t="老挝" rel="nofollow" href="/sales/0-0-M10820P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">老挝</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11053P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-7" data-mes-t="胡志明" rel="nofollow" href="/sales/0-0-M11053P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">胡志明</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16105P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-8" data-mes-t="美奈" rel="nofollow" href="/sales/0-0-M16105P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">美奈</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16359P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-9" data-mes-t="大叻" rel="nofollow" href="/sales/0-0-M16359P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">大叻</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11055P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-10" data-mes-t="河内" rel="nofollow" href="/sales/0-0-M11055P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">河内</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15308P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-11" data-mes-t="暹粒" rel="nofollow" href="/sales/0-0-M15308P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">暹粒</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15305P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85" data-mes-g="0-1-2-0-2-0-12" data-mes-t="金边" rel="nofollow" href="/sales/0-0-M15305P%E8%B6%8A%E6%9F%AC%E8%80%81%E7%BC%85-0-0-0-0-0.html">金边</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="fl dl-country" data-mes-g="0-1-2-0-3" data-mes-t="菲律宾|文莱">
+                                <dt>菲律宾|文莱</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-2-0-3-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10067P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-0" data-mes-t="菲律宾" rel="nofollow" href="/sales/0-0-M10067P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">菲律宾</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10737P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-1" data-mes-t="长滩岛" rel="nofollow" href="/sales/0-0-M10737P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">长滩岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K杜马盖地P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-2" data-mes-t="杜马盖地" rel="nofollow" href="/sales/0-0-K杜马盖地P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">杜马盖地</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K薄荷岛P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-3" data-mes-t="薄荷岛" rel="nofollow" href="/sales/0-0-K薄荷岛P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">薄荷岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K宿雾P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-4" data-mes-t="宿雾" rel="nofollow" href="/sales/0-0-K宿雾P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">宿雾</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K文莱P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1" data-mes-g="0-1-2-0-3-0-5" data-mes-t="文莱" rel="nofollow" href="/sales/0-0-K文莱P%E8%8F%B2%E5%BE%8B%E5%AE%BE%7C%E6%96%87%E8%8E%B1-0-0-0-0-0.html">文莱</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class=" fl dl-country" data-mes-g="0-1-2-0-4" data-mes-t="印尼|马来|新加坡">
+                                <dt>印尼|马来|新加坡</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-2-0-4-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10460P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-0" data-mes-t="巴厘岛" rel="nofollow" href="/sales/0-0-M10460P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">巴厘岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10097P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-1" data-mes-t="马来西亚" rel="nofollow" href="/sales/0-0-M10097P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">马来西亚</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10760P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-2" data-mes-t="沙巴" rel="nofollow" href="/sales/0-0-M10760P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">沙巴</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M28411P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-3" data-mes-t="仙本那" rel="nofollow" href="/sales/0-0-M28411P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">仙本那</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11051P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-4" data-mes-t="兰卡威" rel="nofollow" href="/sales/0-0-M11051P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">兰卡威</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10181P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-5" data-mes-t="印度尼西亚" rel="nofollow" href="/sales/0-0-M10181P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">印度尼西亚</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M66121P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-6" data-mes-t="美娜多" rel="nofollow" href="/sales/0-0-M66121P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">美娜多</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11049P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-7" data-mes-t="吉隆坡" rel="nofollow" href="/sales/0-0-M11049P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">吉隆坡</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10754P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-8" data-mes-t="新加坡" rel="nofollow" href="/sales/0-0-M10754P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">新加坡</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M49818P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1" data-mes-g="0-1-2-0-4-0-9" data-mes-t="纳闽" rel="nofollow" href="/sales/0-0-M49818P%E5%8D%B0%E5%B0%BC%7C%E9%A9%AC%E6%9D%A5%7C%E6%96%B0%E5%8A%A0%E5%9D%A1-0-0-0-0-0.html">纳闽</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                            </div>
+                    <div class="act-banner" style="position: relative;">
+                                            </div>
+                </div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<i class="iconfont icon-zijinhua fl"></i>
+						<h4 class="fl">香港 澳门 台湾</h4>
+						<span class="fl">
+							<a href="#">台北</a>
+							<a href="#">垦丁</a>
+							<a href="#">高雄</a>
+							<a href="#">香港</a>
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                    <div class="col-left" data-mes-g="0-1-3-0" data-mes-t="左侧区域">
+                                                    <dl class="dl-country" data-mes-g="0-1-3-0-0" data-mes-t="香港 澳门">
+                                <dt>香港 澳门</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-3-0-0-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10189P%E9%A6%99%E6%B8%AF+%E6%BE%B3%E9%97%A8" data-mes-g="0-1-3-0-0-0-0" data-mes-t="香港" rel="nofollow" href="/sales/0-0-M10189P%E9%A6%99%E6%B8%AF+%E6%BE%B3%E9%97%A8-0-0-0-0-0.html">香港</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10206P%E9%A6%99%E6%B8%AF+%E6%BE%B3%E9%97%A8" data-mes-g="0-1-3-0-0-0-1" data-mes-t="澳门" rel="nofollow" href="/sales/0-0-M10206P%E9%A6%99%E6%B8%AF+%E6%BE%B3%E9%97%A8-0-0-0-0-0.html">澳门</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-3-0-1" data-mes-t="台湾">
+                                <dt>台湾</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-3-0-1-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10819P%E5%8F%B0%E6%B9%BE" data-mes-g="0-1-3-0-1-0-0" data-mes-t="台北" rel="nofollow" href="/sales/0-0-M10819P%E5%8F%B0%E6%B9%BE-0-0-0-0-0.html">台北</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M21434P%E5%8F%B0%E6%B9%BE" data-mes-g="0-1-3-0-1-0-1" data-mes-t="垦丁" rel="nofollow" href="/sales/0-0-M21434P%E5%8F%B0%E6%B9%BE-0-0-0-0-0.html">垦丁</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11065P%E5%8F%B0%E6%B9%BE" data-mes-g="0-1-3-0-1-0-2" data-mes-t="高雄" rel="nofollow" href="/sales/0-0-M11065P%E5%8F%B0%E6%B9%BE-0-0-0-0-0.html">高雄</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15325P%E5%8F%B0%E6%B9%BE" data-mes-g="0-1-3-0-1-0-3" data-mes-t="花莲" rel="nofollow" href="/sales/0-0-M15325P%E5%8F%B0%E6%B9%BE-0-0-0-0-0.html">花莲</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M12594P%E5%8F%B0%E6%B9%BE" data-mes-g="0-1-3-0-1-0-4" data-mes-t="南投" rel="nofollow" href="/sales/0-0-M12594P%E5%8F%B0%E6%B9%BE-0-0-0-0-0.html">南投</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                            </div>
+                    <div class="col-right" data-mes-g="0-1-3-1" data-mes-t="右侧区域">
+                        <dl class="dl-activity" data-mes-g="0-1-3-1-0" data-mes-t="精彩专题">
+                            <dt>精彩专题</dt>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="香港自由行全指南" data-mes-g="0-1-3-1-0-0" data-mes-t="香港自由行全指南" target="_blank" href="http://www.mafengwo.cn/localdeals/mdd_topic_236/">
+                                        <strong>香港自由行全指南</strong><br>附3、5、6日完美行程推荐
+                                    </a>
+                                </dd>
+                                                    </dl>
+                        <div class="act-banner" style="position: relative;">
+                                                    </div>
+                    </div>
+                </div>
+							</li>
+						</ul>
+						
+					</div>
+					<div class="item">
+						<i class="iconfont icon-balitieta fl"></i>
+						<h4 class="fl">欧洲 美洲</h4>
+						<span class="fl">
+							<a href="#">美国</a>
+							<a href="#">英国</a>
+							<a href="#">法国</a>
+							<a href="#">意大利</a>
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                    <div class="col-left" data-mes-g="0-1-4-0" data-mes-t="左侧区域">
+                                                    <dl class="dl-country" data-mes-g="0-1-4-0-0" data-mes-t="欧洲">
+                                <dt>欧洲</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-4-0-0-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10122P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-0" data-mes-t="英国" rel="nofollow" href="/sales/0-0-M10122P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">英国</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10171P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-1" data-mes-t="法国" rel="nofollow" href="/sales/0-0-M10171P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">法国</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10051P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-2" data-mes-t="意大利" rel="nofollow" href="/sales/0-0-M10051P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">意大利</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10448P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-3" data-mes-t="芬兰" rel="nofollow" href="/sales/0-0-M10448P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">芬兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10176P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-4" data-mes-t="德国" rel="nofollow" href="/sales/0-0-M10176P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">德国</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10300P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-5" data-mes-t="俄罗斯" rel="nofollow" href="/sales/0-0-M10300P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">俄罗斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10053P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-6" data-mes-t="土耳其" rel="nofollow" href="/sales/0-0-M10053P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">土耳其</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10168P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-7" data-mes-t="希腊" rel="nofollow" href="/sales/0-0-M10168P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">希腊</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10549P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-8" data-mes-t="冰岛" rel="nofollow" href="/sales/0-0-M10549P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">冰岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10169P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-9" data-mes-t="瑞士" rel="nofollow" href="/sales/0-0-M10169P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">瑞士</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10173P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-10" data-mes-t="西班牙" rel="nofollow" href="/sales/0-0-M10173P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">西班牙</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11124P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-11" data-mes-t="伦敦" rel="nofollow" href="/sales/0-0-M11124P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">伦敦</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10573P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-12" data-mes-t="巴黎" rel="nofollow" href="/sales/0-0-M10573P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">巴黎</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="MP%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-13" data-mes-t="圣托里尼" rel="nofollow" href="/sales/0-0-MP%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">圣托里尼</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10063P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-14" data-mes-t="罗马" rel="nofollow" href="/sales/0-0-M10063P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">罗马</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10174P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-15" data-mes-t="捷克" rel="nofollow" href="/sales/0-0-M10174P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">捷克</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10175P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-16" data-mes-t="奥地利" rel="nofollow" href="/sales/0-0-M10175P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">奥地利</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11157P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-17" data-mes-t="丹麦" rel="nofollow" href="/sales/0-0-M11157P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">丹麦</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11094P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-18" data-mes-t="匈牙利" rel="nofollow" href="/sales/0-0-M11094P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">匈牙利</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11099P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-19" data-mes-t="荷兰" rel="nofollow" href="/sales/0-0-M11099P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">荷兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10171:K普罗旺斯P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-20" data-mes-t="普罗旺斯" rel="nofollow" href="/sales/0-0-M10171:K普罗旺斯P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">普罗旺斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11105P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-21" data-mes-t="比利时" rel="nofollow" href="/sales/0-0-M11105P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">比利时</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10102P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-22" data-mes-t="巴塞罗那" rel="nofollow" href="/sales/0-0-M10102P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">巴塞罗那</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K贝加尔湖P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-23" data-mes-t="贝加尔湖" rel="nofollow" href="/sales/0-0-K贝加尔湖P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">贝加尔湖</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11133'M21366P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-24" data-mes-t="马德里" rel="nofollow" href="/sales/0-0-M11133'M21366P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">马德里</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10172P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-25" data-mes-t="葡萄牙" rel="nofollow" href="/sales/0-0-M10172P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">葡萄牙</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11147P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-26" data-mes-t="波兰" rel="nofollow" href="/sales/0-0-M11147P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">波兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11614P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-27" data-mes-t="梵蒂冈" rel="nofollow" href="/sales/0-0-M11614P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">梵蒂冈</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11131P%E6%AC%A7%E6%B4%B2" data-mes-g="0-1-4-0-0-0-28" data-mes-t="爱尔兰" rel="nofollow" href="/sales/0-0-M11131P%E6%AC%A7%E6%B4%B2-0-0-0-0-0.html">爱尔兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-4-0-1" data-mes-t="美洲">
+                                <dt>美洲</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-4-0-1-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10062P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-0" data-mes-t="美国" rel="nofollow" href="/sales/0-0-M10062P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">美国</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10177P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-1" data-mes-t="加拿大" rel="nofollow" href="/sales/0-0-M10177P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">加拿大</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10926P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-2" data-mes-t="洛杉矶" rel="nofollow" href="/sales/0-0-M10926P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">洛杉矶</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10742P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-3" data-mes-t="旧金山" rel="nofollow" href="/sales/0-0-M10742P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">旧金山</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10579P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-4" data-mes-t="纽约" rel="nofollow" href="/sales/0-0-M10579P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">纽约</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10077P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-5" data-mes-t="塞班岛" rel="nofollow" href="/sales/0-0-M10077P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">塞班岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M19016P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-6" data-mes-t="关岛" rel="nofollow" href="/sales/0-0-M19016P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">关岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10927P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-7" data-mes-t="夏威夷" rel="nofollow" href="/sales/0-0-M10927P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">夏威夷</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K黄石公园P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-8" data-mes-t="黄石公园" rel="nofollow" href="/sales/0-0-K黄石公园P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">黄石公园</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10159P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-9" data-mes-t="阿根廷" rel="nofollow" href="/sales/0-0-M10159P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">阿根廷</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10929P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-10" data-mes-t="西雅图" rel="nofollow" href="/sales/0-0-M10929P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">西雅图</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10745P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-11" data-mes-t="华盛顿" rel="nofollow" href="/sales/0-0-M10745P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">华盛顿</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10925P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-12" data-mes-t="波士顿" rel="nofollow" href="/sales/0-0-M10925P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">波士顿</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10916P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-13" data-mes-t="迈阿密" rel="nofollow" href="/sales/0-0-M10916P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">迈阿密</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11684P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-14" data-mes-t="古巴" rel="nofollow" href="/sales/0-0-M11684P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">古巴</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11656P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-15" data-mes-t="墨西哥" rel="nofollow" href="/sales/0-0-M11656P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">墨西哥</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10923P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-16" data-mes-t="拉斯维加斯" rel="nofollow" href="/sales/0-0-M10923P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">拉斯维加斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10928P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-17" data-mes-t="芝加哥" rel="nofollow" href="/sales/0-0-M10928P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">芝加哥</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11005P%E7%BE%8E%E6%B4%B2" data-mes-g="0-1-4-0-1-0-18" data-mes-t="秘鲁" rel="nofollow" href="/sales/0-0-M11005P%E7%BE%8E%E6%B4%B2-0-0-0-0-0.html">秘鲁</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                            </div>
+                    <div class="col-right" data-mes-g="0-1-4-1" data-mes-t="右侧区域">
+                        <dl class="dl-activity" data-mes-g="0-1-4-1-0" data-mes-t="精彩专题">
+                            <dt>精彩专题</dt>
+                                                    </dl>
+                        <div class="act-banner" style="position: relative;">
+                                                    </div>
+                    </div>
+                </div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<i class="iconfont icon-cao fl"></i>
+						<h4 class="fl">澳洲 中东 非洲</h4>
+						<span class="fl">
+							<a href="#">澳大利亚</a>
+							<a href="#">毛里求斯</a>
+							<a href="#">帕劳</a>
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                    <div class="col-left" data-mes-g="0-1-5-0" data-mes-t="左侧区域">
+                                                    <dl class="dl-country" data-mes-g="0-1-5-0-0" data-mes-t="澳洲">
+                                <dt>澳洲</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-5-0-0-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10202P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-0" data-mes-t="澳大利亚" rel="nofollow" href="/sales/0-0-M10202P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">澳大利亚</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K新西兰P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-1" data-mes-t="新西兰" rel="nofollow" href="/sales/0-0-K新西兰P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">新西兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10856P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-2" data-mes-t="墨尔本" rel="nofollow" href="/sales/0-0-M10856P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">墨尔本</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10855P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-3" data-mes-t="悉尼" rel="nofollow" href="/sales/0-0-M10855P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">悉尼</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10865P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-4" data-mes-t="奥克兰" rel="nofollow" href="/sales/0-0-M10865P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">奥克兰</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10855:K歌剧院P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-5" data-mes-t="悉尼歌剧院" rel="nofollow" href="/sales/0-0-M10855:K歌剧院P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">悉尼歌剧院</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10885P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-6" data-mes-t="皇后镇" rel="nofollow" href="/sales/0-0-M10885P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">皇后镇</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K大堡礁P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-7" data-mes-t="大堡礁" rel="nofollow" href="/sales/0-0-K大堡礁P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">大堡礁</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15911P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-8" data-mes-t="帕劳" rel="nofollow" href="/sales/0-0-M15911P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">帕劳</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11044P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-9" data-mes-t="斐济" rel="nofollow" href="/sales/0-0-M11044P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">斐济</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11142P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-10" data-mes-t="里斯本" rel="nofollow" href="/sales/0-0-M11142P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">里斯本</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10858P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-11" data-mes-t="凯恩斯" rel="nofollow" href="/sales/0-0-M10858P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">凯恩斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K大溪地P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-12" data-mes-t="大溪地" rel="nofollow" href="/sales/0-0-K大溪地P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">大溪地</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10861P%E6%BE%B3%E6%B4%B2" data-mes-g="0-1-5-0-0-0-13" data-mes-t="珀斯" rel="nofollow" href="/sales/0-0-M10861P%E6%BE%B3%E6%B4%B2-0-0-0-0-0.html">珀斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-5-0-1" data-mes-t="中东">
+                                <dt>中东</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-5-0-1-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10053P%E4%B8%AD%E4%B8%9C" data-mes-g="0-1-5-0-1-0-0" data-mes-t="土耳其" rel="nofollow" href="/sales/0-0-M10053P%E4%B8%AD%E4%B8%9C-0-0-0-0-0.html">土耳其</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K迪拜P%E4%B8%AD%E4%B8%9C" data-mes-g="0-1-5-0-1-0-1" data-mes-t="迪拜" rel="nofollow" href="/sales/0-0-K迪拜P%E4%B8%AD%E4%B8%9C-0-0-0-0-0.html">迪拜</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K阿布扎比P%E4%B8%AD%E4%B8%9C" data-mes-g="0-1-5-0-1-0-2" data-mes-t="阿布扎比" rel="nofollow" href="/sales/0-0-K阿布扎比P%E4%B8%AD%E4%B8%9C-0-0-0-0-0.html">阿布扎比</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11213P%E4%B8%AD%E4%B8%9C" data-mes-g="0-1-5-0-1-0-3" data-mes-t="阿联酋" rel="nofollow" href="/sales/0-0-M11213P%E4%B8%AD%E4%B8%9C-0-0-0-0-0.html">阿联酋</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10605P%E4%B8%AD%E4%B8%9C" data-mes-g="0-1-5-0-1-0-4" data-mes-t="以色列" rel="nofollow" href="/sales/0-0-M10605P%E4%B8%AD%E4%B8%9C-0-0-0-0-0.html">以色列</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-5-0-2" data-mes-t="非洲">
+                                <dt>非洲</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-5-0-2-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11761P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-0" data-mes-t="毛里求斯" rel="nofollow" href="/sales/0-0-M11761P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">毛里求斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16827P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-1" data-mes-t="塞舌尔" rel="nofollow" href="/sales/0-0-M16827P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">塞舌尔</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10178P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-2" data-mes-t="埃及" rel="nofollow" href="/sales/0-0-M10178P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">埃及</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M12033P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-3" data-mes-t="摩洛哥" rel="nofollow" href="/sales/0-0-M12033P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">摩洛哥</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10455P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-4" data-mes-t="南非" rel="nofollow" href="/sales/0-0-M10455P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">南非</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M17439P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-5" data-mes-t="马达加斯加" rel="nofollow" href="/sales/0-0-M17439P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">马达加斯加</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M22478P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-6" data-mes-t="法属留尼汪" rel="nofollow" href="/sales/0-0-M22478P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">法属留尼汪</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11604P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-7" data-mes-t="突尼斯" rel="nofollow" href="/sales/0-0-M11604P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">突尼斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10029P%E9%9D%9E%E6%B4%B2" data-mes-g="0-1-5-0-2-0-8" data-mes-t="肯尼亚" rel="nofollow" href="/sales/0-0-M10029P%E9%9D%9E%E6%B4%B2-0-0-0-0-0.html">肯尼亚</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                            </div>
+                    <div class="col-right" data-mes-g="0-1-5-1" data-mes-t="右侧区域">
+                        <dl class="dl-activity" data-mes-g="0-1-5-1-0" data-mes-t="精彩专题">
+                            <dt>精彩专题</dt>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="蜜月精选" data-mes-g="0-1-5-1-0-0" data-mes-t="蜜月精选" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/19842.html">
+                                        <strong>蜜月精选</strong><br>蜜月就去毛里求斯，收获100分的甜蜜！
+                                    </a>
+                                </dd>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="酒店攻略" data-mes-g="0-1-5-1-0-1" data-mes-t="酒店攻略" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/926.html">
+                                        <strong>酒店攻略</strong><br>帕劳选酒店攻略，给你最佳的床上体验~
+                                    </a>
+                                </dd>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="干货" data-mes-g="0-1-5-1-0-2" data-mes-t="干货" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/7780.html">
+                                        <strong>干货</strong><br>绝色天堂毛里求斯，你想要的最全玩法攻略！
+                                    </a>
+                                </dd>
+                                                    </dl>
+                        <div class="act-banner" style="position: relative;">
+                                                    </div>
+                    </div>
+                </div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<i class="iconfont icon-sirendaoyu fl"></i>
+						<h4 class="fl">热门海岛</h4>
+						<span class="fl">
+							<a href="#">巴厘岛</a>
+							<a href="#">普吉岛</a>
+							<a href="#">塞班</a>
+							<!--<a href="#">斐济</a>-->
+						</span>
+						<i class="iconfont icon-jiantou fr"></i>
+						<ul>
+							<li>
+								<div class="bd bd-country clearfix">
+                    <div class="col-left" data-mes-g="0-1-6-0" data-mes-t="左侧区域">
+                                                    <dl class="dl-country" data-mes-g="0-1-6-0-0" data-mes-t="当季热门">
+                                <dt>当季热门</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-6-0-0-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11047P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-0" data-mes-t="普吉岛" rel="nofollow" href="/sales/0-0-M11047P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">普吉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10460P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-1" data-mes-t="巴厘岛" rel="nofollow" href="/sales/0-0-M10460P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">巴厘岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M14210P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-2" data-mes-t="苏梅岛" rel="nofollow" href="/sales/0-0-M14210P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">苏梅岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M15911P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-3" data-mes-t="帕劳" rel="nofollow" href="/sales/0-0-M15911P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">帕劳</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10077P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-4" data-mes-t="塞班岛" rel="nofollow" href="/sales/0-0-M10077P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">塞班岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10737P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-5" data-mes-t="长滩岛" rel="nofollow" href="/sales/0-0-M10737P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">长滩岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11044P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-6" data-mes-t="斐济" rel="nofollow" href="/sales/0-0-M11044P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">斐济</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M19016P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-7" data-mes-t="关岛" rel="nofollow" href="/sales/0-0-M19016P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">关岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10927P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-8" data-mes-t="夏威夷" rel="nofollow" href="/sales/0-0-M10927P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">夏威夷</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11058P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8" data-mes-g="0-1-6-0-0-0-9" data-mes-t="斯里兰卡" rel="nofollow" href="/sales/0-0-M11058P%E5%BD%93%E5%AD%A3%E7%83%AD%E9%97%A8-0-0-0-0-0.html">斯里兰卡</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-6-0-1" data-mes-t="高端奢华">
+                                <dt>高端奢华</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-6-0-1-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10101P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E" data-mes-g="0-1-6-0-1-0-0" data-mes-t="马尔代夫" rel="nofollow" href="/sales/0-0-M10101P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E-0-0-0-0-0.html">马尔代夫</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M11761P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E" data-mes-g="0-1-6-0-1-0-1" data-mes-t="毛里求斯" rel="nofollow" href="/sales/0-0-M11761P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E-0-0-0-0-0.html">毛里求斯</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M10344P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E" data-mes-g="0-1-6-0-1-0-2" data-mes-t="大溪地" rel="nofollow" href="/sales/0-0-M10344P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E-0-0-0-0-0.html">大溪地</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="M16827P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E" data-mes-g="0-1-6-0-1-0-3" data-mes-t="塞舌尔" rel="nofollow" href="/sales/0-0-M16827P%E9%AB%98%E7%AB%AF%E5%A5%A2%E5%8D%8E-0-0-0-0-0.html">塞舌尔</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                                    <dl class="dl-country" data-mes-g="0-1-6-0-2" data-mes-t="马尔代夫">
+                                <dt>马尔代夫</dt>
+                                <dd>
+                                    <div class="place-nav" data-mes-g="0-1-6-0-2-0" data-mes-t="目的地">
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K阿玛瑞岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-0" data-mes-t="阿玛瑞岛" rel="nofollow" href="/sales/0-0-K阿玛瑞岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">阿玛瑞岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K库拉玛提:M10101'MP%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-1" data-mes-t="库拉玛提岛" rel="nofollow" href="/sales/0-0-K库拉玛提:M10101'MP%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">库拉玛提岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K双鱼岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-2" data-mes-t="双鱼岛" rel="nofollow" href="/sales/0-0-K双鱼岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">双鱼岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K中央格兰德:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-3" data-mes-t="中央格兰德" rel="nofollow" href="/sales/0-0-K中央格兰德:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">中央格兰德</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K伊露:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-4" data-mes-t="伊露岛" rel="nofollow" href="/sales/0-0-K伊露:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">伊露岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K蓝色美人蕉:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-5" data-mes-t="蓝色美人蕉" rel="nofollow" href="/sales/0-0-K蓝色美人蕉:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">蓝色美人蕉</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K薇拉瓦鲁:M10101'K海龟岛P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-6" data-mes-t="薇拉瓦鲁岛" rel="nofollow" href="/sales/0-0-K薇拉瓦鲁:M10101'K海龟岛P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">薇拉瓦鲁岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K泰姬珊瑚:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-7" data-mes-t="泰姬珊瑚岛" rel="nofollow" href="/sales/0-0-K泰姬珊瑚:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">泰姬珊瑚岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K康杜玛岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-8" data-mes-t="康杜玛岛" rel="nofollow" href="/sales/0-0-K康杜玛岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">康杜玛岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K波杜希蒂'M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-9" data-mes-t="波杜希蒂岛" rel="nofollow" href="/sales/0-0-K波杜希蒂'M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">波杜希蒂岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K鲁滨逊岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-10" data-mes-t="鲁滨逊岛" rel="nofollow" href="/sales/0-0-K鲁滨逊岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">鲁滨逊岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K蜜月岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-11" data-mes-t="蜜月岛" rel="nofollow" href="/sales/0-0-K蜜月岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">蜜月岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K奥露:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-12" data-mes-t="奥露岛" rel="nofollow" href="/sales/0-0-K奥露:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">奥露岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K萨芙莉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-13" data-mes-t="萨芙莉岛" rel="nofollow" href="/sales/0-0-K萨芙莉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">萨芙莉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K瑞提拉:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-14" data-mes-t="瑞提拉岛" rel="nofollow" href="/sales/0-0-K瑞提拉:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">瑞提拉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K美露丽芙岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-15" data-mes-t="美露丽芙岛" rel="nofollow" href="/sales/0-0-K美露丽芙岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">美露丽芙岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K吉哈德岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-16" data-mes-t="吉哈德岛" rel="nofollow" href="/sales/0-0-K吉哈德岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">吉哈德岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K神仙珊瑚:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-17" data-mes-t="神仙珊瑚岛" rel="nofollow" href="/sales/0-0-K神仙珊瑚:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">神仙珊瑚岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K都喜天阙:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-18" data-mes-t="都喜天阙" rel="nofollow" href="/sales/0-0-K都喜天阙:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">都喜天阙</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K安娜塔拉吉哈瓦岛'KAKV:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-19" data-mes-t="AKV安娜塔拉吉哈瓦岛" rel="nofollow" href="/sales/0-0-K安娜塔拉吉哈瓦岛'KAKV:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">AKV安娜塔拉吉哈瓦岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K奥特瑞格科诺塔:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-20" data-mes-t="奥特瑞格科诺塔" rel="nofollow" href="/sales/0-0-K奥特瑞格科诺塔:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">奥特瑞格科诺塔</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K第六感拉姆岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-21" data-mes-t="第六感拉姆岛" rel="nofollow" href="/sales/0-0-K第六感拉姆岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">第六感拉姆岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K小四季:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-22" data-mes-t="四季库达呼拉岛" rel="nofollow" href="/sales/0-0-K小四季:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">四季库达呼拉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K阿雅达:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-23" data-mes-t="阿雅达岛" rel="nofollow" href="/sales/0-0-K阿雅达:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">阿雅达岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K卓美亚维塔维丽岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-24" data-mes-t="卓美亚维塔维丽岛" rel="nofollow" href="/sales/0-0-K卓美亚维塔维丽岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">卓美亚维塔维丽岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K柏悦哈达哈:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-25" data-mes-t="柏悦哈达哈" rel="nofollow" href="/sales/0-0-K柏悦哈达哈:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">柏悦哈达哈</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K奥臻:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-26" data-mes-t="奥臻岛" rel="nofollow" href="/sales/0-0-K奥臻:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">奥臻岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K瑞喜敦:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-27" data-mes-t="瑞喜敦岛" rel="nofollow" href="/sales/0-0-K瑞喜敦:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">瑞喜敦岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K莉莉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-28" data-mes-t="莉莉岛" rel="nofollow" href="/sales/0-0-K莉莉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">莉莉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K港丽岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-29" data-mes-t="港丽岛" rel="nofollow" href="/sales/0-0-K港丽岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">港丽岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K玛娜法鲁岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-30" data-mes-t="玛娜法鲁岛" rel="nofollow" href="/sales/0-0-K玛娜法鲁岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">玛娜法鲁岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K香格里拉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-31" data-mes-t="香格里拉岛" rel="nofollow" href="/sales/0-0-K香格里拉岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">香格里拉岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K博瑞哈达哈岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-32" data-mes-t="博瑞哈达哈岛" rel="nofollow" href="/sales/0-0-K博瑞哈达哈岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">博瑞哈达哈岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K尼亚玛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-33" data-mes-t="尼亚玛岛" rel="nofollow" href="/sales/0-0-K尼亚玛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">尼亚玛岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K宁静岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-34" data-mes-t="宁静岛" rel="nofollow" href="/sales/0-0-K宁静岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">宁静岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K大四季:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-35" data-mes-t="四季兰达吉拉瓦鲁岛" rel="nofollow" href="/sales/0-0-K大四季:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">四季兰达吉拉瓦鲁岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K白马庄园:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-36" data-mes-t="白马庄园" rel="nofollow" href="/sales/0-0-K白马庄园:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">白马庄园</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K卓美亚德瓦纳芙希:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-37" data-mes-t="卓美亚德瓦纳芙希岛" rel="nofollow" href="/sales/0-0-K卓美亚德瓦纳芙希:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">卓美亚德瓦纳芙希岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K芙花芬:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-38" data-mes-t="芙花芬岛" rel="nofollow" href="/sales/0-0-K芙花芬:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">芙花芬岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K维拉私人:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-39" data-mes-t="维拉私人岛" rel="nofollow" href="/sales/0-0-K维拉私人:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">维拉私人岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K蕉叶岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-40" data-mes-t="蕉叶岛" rel="nofollow" href="/sales/0-0-K蕉叶岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">蕉叶岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K艾布度:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-41" data-mes-t="艾布度岛" rel="nofollow" href="/sales/0-0-K艾布度:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">艾布度岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K安嘎嘎:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-42" data-mes-t="安嘎嘎岛" rel="nofollow" href="/sales/0-0-K安嘎嘎:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">安嘎嘎岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K白金岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-43" data-mes-t="白金岛" rel="nofollow" href="/sales/0-0-K白金岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">白金岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K卡尼岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-44" data-mes-t="卡尼岛" rel="nofollow" href="/sales/0-0-K卡尼岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">卡尼岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K班度士岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-45" data-mes-t="班度士岛" rel="nofollow" href="/sales/0-0-K班度士岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">班度士岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K库达富士岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-46" data-mes-t="库达富士岛" rel="nofollow" href="/sales/0-0-K库达富士岛:M10101P%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">库达富士岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                                    <span class="p-item">
+                                                            <a target="_blank" data-v="K芙拉瓦丽岛:MP%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB" data-mes-g="0-1-6-0-2-0-47" data-mes-t="芙拉瓦丽岛" rel="nofollow" href="/sales/0-0-K芙拉瓦丽岛:MP%E9%A9%AC%E5%B0%94%E4%BB%A3%E5%A4%AB-0-0-0-0-0.html">芙拉瓦丽岛</a>
+                                                            <span class="split"></span>
+                                                        </span>
+                                                                            </div>
+                                                                    </dd>
+                            </dl>
+                                            </div>
+                    <div class="col-right" data-mes-g="0-1-6-1" data-mes-t="右侧区域">
+                        <dl class="dl-activity" data-mes-g="0-1-6-1-0" data-mes-t="精彩专题">
+                            <dt>精彩专题</dt>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="避霾去哪儿？" data-mes-g="0-1-6-1-0-0" data-mes-t="避霾去哪儿？" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/1742.html">
+                                        <strong>避霾去哪儿？</strong><br>远离雾霾，去斐济迎接世界第一缕阳光
+                                    </a>
+                                </dd>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="自驾天堂！" data-mes-g="0-1-6-1-0-1" data-mes-t="自驾天堂！" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/19065.html">
+                                        <strong>自驾天堂！</strong><br>如果没有自驾，那你就白来塞班了！
+                                    </a>
+                                </dd>
+                                                            <dd>
+                                    <a data-type="btn-theme" data-title="省钱秘籍大公开" data-mes-g="0-1-6-1-0-2" data-mes-t="省钱秘籍大公开" target="_blank" href="http://www.mafengwo.cn/gonglve/ziyouxing/23716.html">
+                                        <strong>省钱秘籍大公开</strong><br>想在巴厘岛住得高端又实惠？
+                                    </a>
+                                </dd>
+                                                    </dl>
+                        <div class="act-banner" style="position: relative;">
+                                                    </div>
+                    </div>
+                </div>
+							</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+			<!--右侧img-->
+			<div class="img-box fr ">
+				<div class="carousel slide " id="myCarousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0">特卖汇</li>
+						<li data-target="#myCarousel" data-slide-to="1">带娃求学之旅</li>
+					</ol>
+					<ul class=" carousel-inner">
+						<li class="item"><img src="img/带娃.png"/></li>
+						<li class="item active" ><img src="img/14.jpg"/></li>
+						<li class="item"><img src="img/带娃.png"/></li>
+						<li class="item active" ><img src="img/14.jpg"/></li>
+					</ul>
+					<div>
+						<!--data-slide="prev"上一图-->
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+							<span class="iconfont icon-fanyedajiantou-zuo"></span>
+						</a>
+						<!--data-slide="next"下一图-->
+						<a href="#" class="right carousel-control" data-target="#myCarousel" data-slide="next">
+							<span class="iconfont icon-fanyedajiantou-you"></span>
+						</a>
+					</div>
+				</div>
+				<div class="safeguard ">
+					<div class=" fl">
+						<i class="iconfont icon-qianfenbi fl"></i>
+						<h4 class="fl">透明低价</h4>
+						<p class="fl">超值低价、每日更新</p>
+					</div>
+					<div class=" fl">
+						<i class="iconfont icon-luxian fl"></i>
+						<h4 class="fl">海量路线</h4>
+						<p class="fl">全球线路、自由选择</p></div>
+					<div class=" fl">
+						<i class="iconfont icon-kefu fl"></i>
+						<h4 class="fl">客服保障</h4>
+						<p class="fl">专业客服、实时在线</p></div>
+				</div>
+			</div>
+			<!---->
+			<div class="mod-promo fl ">
+				<div class="mod-hd ">
+					<h4 class="fl" style="color: orange;">本周热销</h4>
+					<sapn>大家在买</sapn>
+					<a href="#">
+						<sapn class="iconfont fr icon-zhuanhuan2-copy-copy">
+							换一换
+						</sapn>
+					</a>
+				</div>
+				<ul >
+					<li class=" fl">
+						<div class="li-img">
+							<img  src="img/lazyload.gif" class="lazy" data-original="img/10.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">7299 起</span>
+								<span class="fr">店铺：爱旅度假</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif"class="lazy" data-original="img/12.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8888 起</span>
+								<span class="fr">店铺：走在路上</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/15.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8635 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/16.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">9224 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+					
+				</ul>
+				<div class="mod-hd ">
+					<h4 class="fl" style="color: orange;">陪你看海</h4>
+					<sapn></sapn>
+					<a href="#">
+						<sapn class="iconfont fr icon-zhuanhuan2-copy-copy">
+							换一换
+						</sapn>
+					</a>
+				</div>
+				<ul >
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/17.jpg"/>
+							<p>静谧海岛·广州直飞苏梅岛8天往返含税机票（直飞本岛+海滩别墅/网红酒店/杰伦颖宝同级酒店可自由搭配）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">2756起</span>
+								<span class="fr">店铺：爱旅度假</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/18.jpg"/>
+							<p>暑你惠玩·广州直飞苏梅岛8天6晚自由行（海景无边泳池/别墅度假酒店/自由搭配+当地一日游+专车接送+赠旅游保险）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">3550 起</span>
+								<span class="fr">店铺：趣海岛</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/19.png"/>
+							<p>体验Mk6水下餐厅·马尔代夫Ozen奥臻岛7天5晚自由行(铂金一价全包+每天2次出海+60分钟SPA/深潜体验+儿童吃住全免+各式主题活动)</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">2648 起</span>
+								<span class="fr">店铺：爱上旅行</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/20.jpg"/>
+							<p>广州直飞沙巴5天4晚自由行（超长私家沙滩+精美早餐+赠送行李托运+机场免费接送）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">2666 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="mod-hd ">
+					<h4 class="fl" style="color: orange;">休假去哪玩</h4>
+					<sapn>大家在买</sapn>
+					<a href="#">
+						<sapn class="iconfont fr icon-zhuanhuan2-copy-copy">
+							换一换
+						</sapn>
+					</a>
+				</div>
+				<ul >
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/21.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">7299 起</span>
+								<span class="fr">店铺：爱旅度假</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/22.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8888 起</span>
+								<span class="fr">店铺：走在路上</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/23.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8635 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/24.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">9224 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="mod-hd ">
+					<h4 class="fl" style="color: orange;">扫货圣地</h4>
+					<sapn>大家在买</sapn>
+					<a href="#">
+						<sapn class="iconfont fr icon-zhuanhuan2-copy-copy">
+							换一换
+						</sapn>
+					</a>
+				</div>
+				<ul >
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/25.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">7299 起</span>
+								<span class="fr">店铺：爱旅度假</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/26.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8888 起</span>
+								<span class="fr">店铺：走在路上</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/27.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8635 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/28.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">9224 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="mod-hd ">
+					<h4 class="fl" style="color: orange;">游轮度假</h4>
+					<sapn>大家在买</sapn>
+					<a href="#">
+						<sapn class="iconfont fr icon-zhuanhuan2-copy-copy">
+							换一换
+						</sapn>
+					</a>
+				</div>
+				<ul >
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/29.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">7299 起</span>
+								<span class="fr">店铺：爱旅度假</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/2.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8888 起</span>
+								<span class="fr">店铺：走在路上</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/30.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">8635 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+					<li class=" fl">
+						<div class="li-img">
+							<img src="img/lazyload.gif" class="lazy" data-original="img/32.jpg"/>
+							<p>网红经典款·广州直飞苏梅岛+涛岛8天6晚自由行（网红酒店/精选别墅+赠7天Happy流量电话卡+赠4x4越野环岛游/涛岛浮潜+悬崖餐厅/无边泳池/纯净海滩）</p>
+						</div>
+						<div class="caption">
+							<div>
+								<span class = "iconfont icon-renminbi">9224 起</span>
+								<span class="fr">店铺：对岸</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		
+		
+		
+		
+		<!--底部-->
+		<div style="background:#A6A6A6">	
+			<footer id="footer">
+				<div class="ft-content">
+					<div class="ft-info clearfix">
+					    <dl class="ft-info-col ft-info-intro fl">
+					        <dt>全球旅游消费指南 </dt>
+					        <dd>覆盖全球200多个国家和地区</dd>
+					        <dd><strong>100,000,000</strong> 位旅行者</dd>
+					        <dd><strong>920,000</strong> 家国际酒店</dd>
+					        <dd><strong>21,000,000</strong> 条真实点评</dd>
+					        <dd><strong>382,000,000</strong> 次攻略下载</dd>
+					        <dd><a class="highlight" href="http://www.mafengwo.cn/activity/sales_report2017/index" target="_blank">中国旅游行业第一部“玩法”</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-about fl">
+					        <dt>关于我们</dt>
+					        <dd><a href="http://www.mafengwo.cn/s/about.html" rel="nofollow">关于马蜂窝</a><a href="http://www.mafengwo.cn/s/contact.html" class="m_l_10" rel="nofollow">联系我们</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/private.html" rel="nofollow">隐私政策</a><a href="http://www.mafengwo.cn/s/logo.html" rel="nofollow" class="m_l_10">商标声明</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/agreement.html" rel="nofollow">服务协议</a><a href="http://www.mafengwo.cn/s/rules.html" rel="nofollow" class="m_l_10">游记协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/salesagreement.html" rel="nofollow">商城平台服务协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/property.html" rel="nofollow">网络信息侵权通知指引</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/sitemap.html" target="_blank">网站地图</a><a class="joinus highlight m_l_10" title="马蜂窝团队招聘" target="_blank" href="http://www.mafengwo.cn/s/hr.html" rel="nofollow">加入马蜂窝</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-service fl" >
+					        <dt>旅行服务</dt>
+					        <dd>
+					            <ul class="clearfix">
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/gonglve/">旅游攻略</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/hotel/">酒店预订</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/sales/">旅游特价</a></li>
+					                <li class="fr"><a target="_blank" href="http://zuche.mafengwo.cn/">国际租车</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/wenda/">旅游问答</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/insure/">旅游保险</a></li>
+					                <li class="fl"><a target="_blank" href="http://z.mafengwo.cn">旅游指南</a></li>
+					                <li class="fr"> <a target="_blank" href="http://huoche.mafengwo.cn">订火车票</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/travel-news/">旅游资讯</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/app/intro/gonglve.php">APP下载</a></li>
+					                <li style="width: 120px;"><a target="_blank" href="http://www.mafengwo.cn/sales/alliance.php" class="highlight">旅行商城全球商家入驻</a></li>
+					            </ul>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-qrcode fl">
+					        <dd class="fl">
+					            <span class="ft-qrcode-tejia"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>马蜂窝良品<br>官方服务号</p>
+					        </dd>
+					        <dd class="fl">
+					            <span class="ft-qrcode-weixin"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>马蜂窝旅游<br>订阅号</p>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-social" >
+					        <dt>向崇尚自由的加勒比海盗致敬！</dt>
+					        <dd>
+					            <a class="ft-social-weibo" target="_blank" href="http://weibo.com/mafengwovip" rel="nofollow"><i class="iconfont icon-xinlang"></i></a>
+					            <a class="ft-social-qqt" target="_blank" href="http://t.qq.com/mafengwovip" rel="nofollow"><i class="iconfont icon-weixin"></i></a>
+					            <a class="ft-social-qzone" target="_blank" href="http://1213600479.qzone.qq.com/" rel="nofollow"><i class="iconfont icon-qq"></i></a>
+					        </dd>
+					    </dl>
+					</div>
+					<div class="ft-copyright">
+					    <div class="ft-safety">
+					        <a class="s-a" target="_blank" href="https://search.szfw.org/cert/l/CX20140627008255008321" id="___szfw_logo___"></a>
+					        <a class="s-b" href="https://ss.knet.cn/verifyseal.dll?sn=e130816110100420286o93000000&amp;ct=df&amp;a=1&amp;pa=787189" target="_blank" rel="nofollow"></a>
+					        <a class="s-c" href="http://www.itrust.org.cn/Home/Index/itrust_certifi/wm/1669928206.html" target="_blank" rel="nofollow"></a>
+					    </div>
+					    <a href="http://www.mafengwo.cn"><i class="ft-mfw-logo"></i></a>
+					    <p>© 2018 Mafengwo.cn <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank"><img src="http://images.mafengwo.net/images/footer/police_record.png" width="12" style="margin:0 2px 4px 0;">京公网安备11010502013401号</a> <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a></p>
+					    <p><a href="http://images.mafengwo.net/images/about/licence_3.jpg" target="_blank" rel="nofollow">营业执照</a><span class="m_l_10"><a href="https://m.mafengwo.cn/im/feedback/" target="_blank" rel="nofollow">帮助中心</a></span><span class="m_l_10">马蜂窝客服：国内</span><span class="highlight">4006-345-678</span><span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+		
+		
+		<!--点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fl">
+							<p class="edu-img edu-img1"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step1"></span>
+								<span class="left">登录<br>返利商城</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img2"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step2"></span>
+								<span class="left">去商家购物，免注册、<br>逾300家认证商家</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img3"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step3"></span>
+								<span class="left">完成交易<br>商家核对订单</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img4"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step4"></span>
+								<span class="left">订单核对有效<br>到账</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin"></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fr">
+							<img src="img/list_wx_qr_code.jpg" alt="" />
+						</li>
+					</ul>
+				</div>	
+			</span>
+		</div>
+		
+<script src="js/liberty.js"></script>
+			<!--手风琴画册-->
+			
+	</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>订购</title>
+		<link rel="stylesheet" href="css/cruise.css" />
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" href="lib/laydate/theme/default/laydate.css" />
+		<link rel="stylesheet" href="lib/1-iconfont/iconfont.css" />
+		<script src="lib/jquery-1.12.3.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+		<script src="lib/vue.js"></script>
+		<script src="lib/vue-resource.js"></script>
+		<script src="lib/laydate/laydate.js"></script> 
+		
+	</head>
+	<body>
+		<!--头部-->
+		<div id="header">
+			<div class="syyf-header ">
+				<div class="box fl">
+					<a href="index.html">
+						<img src="img/login.png" alt="诗与远方" title="诗与远方" />
+					</a>
+				</div>
+				<!--头部导航-->
+				<div class="header-list fl">
+					<a href="index.html" class="fl" >首页</a>
+					<a href="destination.html" class="fl" >目的地</a>
+					<a href="strategy.html" class="fl" >旅游攻略</a>
+					<a href="liberty.html"  class=" fl">商城
+						<i class="iconfont icon-xiala"></i>
+					</a>
+					<a href="#" class="fl  active" >酒店</a>
+					<a href="#" class="fl community-nav" >社区<i class="iconfont icon-xiala"></i></a>
+					<div class="community no" >
+                        <div class="panel-wrapper">
+                            <ul class="nav-list clearfix fl">
+                                <li class="h"><a href="exchange.html" title="问答" data-cs-p="wenda">问答<i class="iconfont icon-hot"></i></a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/things.php" target="_blank" title="诗与远方周边" data-cs-p="things">诗与远方周边<i class="iconfont icon-new"></i></a></li>
+                                <li><a href="jub.html" target="_blank" title="蜂首俱乐部" data-cs-p="club">蜂首俱乐部</a></li>
+                                <li><a href="travel.html" target="_blank" title="结伴" data-cs-p="together">结伴</a></li>
+                            </ul>
+                            <ul class="nav-list-sub clearfix fr">
+                                <li><a href="http://www.mafengwo.cn/group/" target="_blank" title="诗与远方旅行家" data-cs-p="group">小组论坛</a></li>
+                                <li><a href="http://www.mafengwo.cn/rudder/" target="_blank" title="分舵同城" data-cs-p="rudder">分舵同城</a></li>
+                                <li><a href="http://www.mafengwo.cn/auction/" target="_blank" title="诗与远方拍卖行" data-cs-p="paimai">诗与远方拍卖行</a></li>
+                                <li><a href="http://www.mafengwo.cn/postal/" target="_blank" title="游记纪念工厂" data-cs-p="postal">游记纪念工厂</a></li>
+                                <li><a href="detailed.html" target="_blank" title="照片PK" data-cs-p="photo_pk">照片PK</a></li>
+                                <li><a href="http://www.mafengwo.cn/focus/" target="_blank" title="真人兽" data-cs-p="focus">真人兽</a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/virtual_goods.php" target="_blank" title="道具商店" data-cs-p="virtual">道具商店</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+				
+				<!--搜索-->
+				<div class="search ">
+					<div class="group" >
+							<input type="text" class="form-control"  @click="searA()" v-model="msgA"/>
+							<span class="input-group-addon iconfont icon-search"></span>
+							
+						<div class="search-list">
+						</div>
+						
+					</div>
+				</div>
+			
+				<!--登录-->
+				<div class="login fr">
+					<a href="#" class="ico">
+						<span class="iconfont icon-xinlang1"></span>
+					</a>
+					<a href="#"  class="ico">	
+						<span class="iconfont icon-qq2"></span>
+					</a>
+					<a href="#"  class="ico">
+						<span class="iconfont icon-weixin"></span></a>
+					<a href="login.html">
+					 	<span>登录</span>
+					</a>
+					<span>|</span>
+					<a href="register.html">
+						<span>注册</span>
+					</a>
+				</div>
+			</div>
+			<div class="shadow "></div>
+			<div class="content container">
+				<div class="content-list fr">
+					<ul>
+						<li class=" " ><a id="a" href="liberty.html">自由行</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">跟团游</a></li>
+						<span>|</span>
+						<li><a href="localtion.html" id="a">当地游</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">国内机票</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">签证</a></li>
+						<span>|</span>
+						<li><a href="#" id="a">全球wifi</a></li>
+						<span>|</span>
+						<li class="active让"><a href="cruise.html" id="a">游轮</a></li>
+						<span>|</span>
+						<li><a href="insurance.html" id="a">旅游保险</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+			
+		<!--正文-->
+		
+		<div id="container">
+			<div class="container">
+				<ul class="con-nav clearfix">
+					<li><a href="liberty.html">商城首页</a></li>
+					<span class="iconfont icon-fanyedajiantou-you"></span>
+					<li>
+						<span>选择</span>
+						<i class="iconfont icon-xiala"></i>
+						<ul >
+                            <li><a data-navk="type" data-navv="3" target="_blank" href="liberty.html">自由行</a></li>
+                            <li><a data-navk="type" data-navv="32" target="_blank" href="/sales/0-0-0-32.html">私家团</a></li>
+                            <li><a data-navk="type" data-navv="33" target="_blank" href="/sales/0-0-0-33.html">游学团</a></li>
+                            <li><a data-navk="type" data-navv="34" target="_blank" href="/sales/0-0-0-34.html">特价机票套餐</a></li>
+                            <li><a data-navk="type" data-navv="1" target="_blank" href="/sales/0-0-0-1.html">特价机票</a></li>
+                            <li><a data-navk="type" data-navv="6" target="_blank" href="/sales/0-0-0-6.html">半自助游</a></li>
+                            <li><a data-navk="type" data-navv="30" target="_blank" href="/sales/0-0-0-30.html">跟团游</a></li>
+                            <li><a data-navk="type" data-navv="28" target="_blank" href="/sales/0-0-0-28.html">自由行定制</a></li>
+                            <li><a data-navk="type" data-navv="19" target="_blank" href="insurance.html">保险</a></li>
+                            <li><a data-navk="type" data-navv="5" target="_blank" href="#">旅途中</a></li>
+                    	</ul>
+					</li>
+					<span class="iconfont icon-fanyedajiantou-you"></span>
+					<li>
+						<span >出发时间</span>
+						<i class="iconfont icon-xiala"></i>
+						<ul class="clearfix"style="width: 80px;left:0">
+                            <li><a data-navk="date" data-navv="all" href="/sales/0-0-0-0.html" target="_blank">全部</a></li>
+                            <li><a data-navk="date" data-navv="201808" href="/sales/201808-0-0-0.html" target="_blank">八月</a></li>
+                            <li><a data-navk="date" data-navv="201809" href="/sales/201809-0-0-0.html" target="_blank">九月</a></li>
+                            <li><a data-navk="date" data-navv="201810" href="/sales/201810-0-0-0.html" target="_blank">十月</a></li>
+                            <li><a data-navk="date" data-navv="201711" href="/sales/201711-0-0-0.html" target="_blank">十一月</a></li>
+                            <li><a data-navk="date" data-navv="201712" href="/sales/201712-0-0-0.html" target="_blank">十二月</a></li>
+                    	</ul>
+					</li>
+					<span class="iconfont icon-fanyedajiantou-you"></span>
+					<li><a href="#">目的地</a></li>
+					<span class="iconfont icon-fanyedajiantou-you"></span>
+					<li><a href="#">丽江老房子客栈</a></li>
+				</ul>
+				<div class="con-left fl">
+					<div class="carousel con-car slide" id="myCarousel">
+						<!--放小圆点的区域-->
+						<ol class="carousel-indicators">
+							<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+							<li data-target="#myCarousel" data-slide-to="3"></li>
+							<li data-target="#myCarousel" data-slide-to="4"></li>
+							<li data-target="#myCarousel" data-slide-to="5"></li>
+						</ol>
+						<ul class="carousel-inner">
+							<li class="item active"><img src="http://p3-q.mafengwo.net/s9/M00/3A/53/wKgBs1Zv2rqANtHDACTMz6qDuC874.jpeg?imageMogr2%2Fthumbnail%2F%211360x760r%2Fgravity%2FCenter%2Fcrop%2F%211360x760%2Fquality%2F90"/></li>
+							<li class="item"><img src="http://b3-q.mafengwo.net/s9/M00/3A/77/wKgBs1Zv2u2AG6pFACOmt9grjrw27.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/></li>
+							<li class="item"><img src="http://b1-q.mafengwo.net/s9/M00/3A/78/wKgBs1Zv2vGAS1y9ACF6GcrvjKI49.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/></li>
+							<li class="item"><img src="http://n3-q.mafengwo.net/s9/M00/3A/80/wKgBs1Zv2wGAIL1iACQj_cIgg4E40.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/></li>
+							<li class="item"><img src="http://b3-q.mafengwo.net/s9/M00/3A/90/wKgBs1Zv2zCAdA1TACDV54Ukabc74.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/></li>
+							<li class="item"><img src="http://b2-q.mafengwo.net/s9/M00/3A/B7/wKgBs1Zv242AZschACPsqaOWJlo53.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/></li>
+						</ul>
+						<!--<div>
+							data-slide="prev"上一图
+							<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+								<span class="iconfont icon-fanyedajiantou-zuo"></span>
+							</a>
+							data-slide="next"下一图
+							<a href="#" class="right carousel-control" data-target="#myCarousel" data-slide="next">
+								<span class="iconfont icon-fanyedajiantou-you"></span>
+							</a>
+						</div>-->
+					</div>
+					
+					<!--日期-->
+						<div class="date-box clearfix">
+						<span class="fl">入住日期</span>
+						<input type="text" v-cloak @blur="date()" :selDate="132" class="demo-input fl" placeholder="请选择日期" id="test1" v-model="dat">
+					
+						<br /><br />
+						<h4 style="margin:30px  20px">您好:</h4>
+						<p v-cloak style="margin-left:40px">您的将于 【<span style="padding:0 5px ">{{dat}}</span>】 入住 丽江老房子客栈</p>
+						<p v-cloak style="margin-left:40px">您订购的是:【<span style="padding:0 5px ">{{priceI.room}}</span>】</p>
+						<p v-cloak style="margin-left:40px">您的旅途将 【<span style="padding:0 5px ">{{flag}}</span>】人  相伴同行</p>
+					</div>
+					
+						
+					
+				</div>
+				<div class="con-right fr">
+					<div class="intro-r">
+		                <div class="sales-title">
+		                    <span class="shop-icon fl">旅行商城</span>
+		                    <h1> 丽江老房子客栈 </h1>
+							<div class="s-label clearfix">
+                                <span>酒店八折</span>
+                                <span>高性价比</span>
+                                <span>1对1客服</span>
+                                <span>越南免签证</span>
+                        	</div>
+		                </div>
+		                <a href="#" target="_blank" data-stat-area="2_6">
+	                        <img src="img/图层 1.png" width="100%" alt="">
+	                    </a>
+	                	<div class="price-panel clearfix">
+                    		<ul>
+                    			
+                    			
+		                       <li class="item-price">
+	                                <em>￥</em><strong>688~4666</strong>
+	                                <span id="priceDesc">
+	                                    <a href="javascript:void(0);" data-stat-area="2_2">价格说明</a>
+	                                    <span id="priceDescMsg">
+	                                    	 此价格区间是指，本产品可售日期范围内的最低价和最高价。其中最低价库存为：内舱房 4人间 2018-10-07
+	                                    </span>
+	                                </span>
+		                        </li>
+		                        <li class="item-sold">已售768</li>
+		                            <!---- <li class="item-reviews"><a href="javascript:void(0)">92 条评论</a></li>---->
+		                    </ul>
+		                </div>
+		                <div class="info-panel">
+							<div class="info-promo clearfix" data-stat-area="2_5" data-promotion-list="">
+		                        <span class="label" data-promotion-title="">优惠信息</span>
+		                        <div class="promo-bd">
+		                            <span class="t-text" style="display: none;" data-promotion-limit-preview=""></span>
+									<span class="t-default honey-hover" style="" onclick="window.open('http://www.mafengwo.cn/g/i/2947856.html')" data-promotion-honey="">
+		                            	<div class="s_popup num-tips">              
+		                            		<i class="i-arrow i-arrCenter"></i>              
+		                            		<p>VIP至多可抵扣订单金额的
+		                            			<span>30％</span>
+		                            		</p>            
+		                            	</div>           
+		                            	 VIP抵30%
+		                            </span>
+									<span class="t-zao honey-hover" style="display: none;" data-promotion-zao=""></span>
+		                            <span class="t-n-off honey-hover" style="display: none;" data-promotion-n-off=""></span>
+									<span class="t-blue honey-hover" style="" data-promotion-limit-app="">
+		                            	<div class="s_popup num-tips" style="padding: 0;left: -110px;">                    
+		                            		<i class="i-arrow i-arrCenter"></i>                    
+		                            		<p>8.18-8.31期间，限时立减150元！</p></div>APP立减150元</span>
+									<!--扫描二维码  这个要放到 优惠信息的 最后-->
+		                            <span class="sales-app" data-promotion-scan="" style="">
+		                            	<a href="javascript:void(0);">
+		                            		<i></i>收藏产品，扫码下单
+		                            		<span>
+		                            			<img src="https://n2-q.mafengwo.net/s9/M00/5D/32/wKgBs1bVB56AH_aIAAACrCZiYf4650.png?imageMogr2%2Fthumbnail%2F%21150x150r%2Fquality%2F90">
+		                            		</span>
+		                            	</a>
+		                            </span>
+		                            <br data-promotion-bargain="">
+									<span class="t-text" style="display: none;" data-promotion-bargain=""></span>
+		                        </div>
+		                    </div>
+		                    <i id="mount_ota_coupon" style="display: none;"></i>
+							<span class="label">预订须知</span>
+		                    <div class="info-tips-box">
+	                            <p>
+	                                <span data-desc="">此产品需要二次确认，商家将在18个工作小时内（工作日9:00-18:00）核实是否有位!</span>
+	                            </p>
+	                        </div>
+		                </div>
+		                </div>
+							<div class="r-line"></div>
+		                    <div class="property-panel">
+		                   	 	<div id="stock_wrap">
+		                        	<div style="display:none;" data-template-holder="1">
+								        <li data-sku-id-template="1">
+								            <div class="s_popup num-tips" data-sku-pop="1" style="text-align: left;white-space:normal;">
+								                <i class="i-arrow i-arrCenter"></i>
+								                <p data-sku-mode-tag-desc="1"></p>
+											</div>
+								            <a href="javascript:void(0);">
+								                <span class="prop-tag" style="display: none;" data-sku-mode-tag="1"></span>
+								                <span class="prop-tag" style="display: none;" data-sku-mode-tag="1"></span>
+								                <span class="prop-tag" style="display: none;" data-sku-mode-tag="1"></span>
+								                <span class="prop-tag" style="display: none;" data-sku-mode-tag="1"></span>
+								                <span data-sku-name="1"></span><i></i>
+								            </a>
+								        </li>
+										<dl class="clearfix tj-type" data-attribute-template="1">
+								            <dt class="label" data-attribute-name="1">
+								               	 套餐类型
+								            </dt>
+								            <dd>
+								                <ul class="ui-selProp clearfix" data-attribute-value-mount="1">
+								                	</ul>
+								            </dd>
+								        </dl>
+		
+		        <li data-attribute-value-template="1" data-attribute="1">
+		            <a href="javascript:void(0);">
+		                <span data-attribute-value-name="1"></span><i></i>
+		            </a>
+		        </li>
+		
+		        <p data-sku-rule-template="1" style="word-wrap: break-word; word-break: normal;">
+		            <b data-sku-rule-label="1"></b> :
+		            <span style="font-size: 14px; color:#333; font-weight: normal;" data-sku-rule-value="1"></span>
+		        </p>
+		    </div>
+		
+		
+		   
+			<div data-attribute-mount="1">
+				<dl class="clearfix tj-type" data-attribute="140">
+		            <dt class="label" data-attribute-name="1">选择酒店类型</dt>
+		            <dd>
+		                <ul class="ui-selProp clearfix" data-attribute-value-mount="1">
+							<li v-cloak v-for="(item,index) in priceArr" @click="price(item,index)">
+								<span :title="'【￥'+item.price+'】'">{{item.room}}</span>
+						    </li>
+		                </ul>
+		            </dd>
+		           
+		        </dl>
+		        <dl class="clearfix tj-type" data-attribute="143">
+		            <dt class="label" data-attribute-name="1">具体房型</dt>
+		            <dd>
+		                <ul class="ui-selProp clearfix" data-attribute-value-mount="1">
+		                	<li v-for="(item,index) in mathArr" @click="math(item,index)">
+		                		<span >{{item}} 人间</span>
+		                	</li>
+			            </ul>
+		            </dd>
+		        </dl>
+			</div>
+		 </div>
+		<dl class="clearfix" data-num-picker-wrap="1" style="">
+            <dt class="label">数量选择</dt>
+            <dd>
+                <ul class="ui-numProp clearfix" data-num-picker-mount="1">
+                	<li class="amount-adult" data-num-picker="23">
+                  
+                    <div class="amount">
+                        <span class="input">
+                            <span data-num-picker-name="1">成人</span>
+                            <span data-num-picker-number="1" class="num" v-cloak>{{flag}}</span>
+                        </span>
+                        <span class="btns">
+                            <a @click="add()" class="btn-plus" data-num-picker-plus="1" data-num-picker-def-id="23" href="javascript:void(0);">
+                                <i>+</i>
+                            </a>
+                            <a  @click="sub()"class="btn-minus" data-num-picker-minus="1" data-num-picker-def-id="23" href="javascript:void(0);">
+                                <i>-</i>
+                            </a>
+                        </span>
+                    </div>
+                   	<!--入住时间-->
+                   	
+                 
+                   	
+					<form class="goumai" action="travelCustomize.html"  >  <!--onsubmit="return Check1()"-->
+						<span>￥</span>
+						<span v-cloak>{{total}}</span>
+						<button  class="buy"   value="立即购买"   >立即购买</button>
+					</form>
+		        </div>
+			</div>
+			<!--模态框-->
+		<div class="modal" id="mymodal" tabindex="-1"><!--固定位置，上下左右为0代表满屏-->
+			<div class="modal-dialog"><!--相对适应；自适应宽度大于768时宽度为600-->
+				<div class="modal-content"><!--修饰边框、背景、边距、阴影等效果-->
+					<!--<div class="modal-header"><!--模态头-->
+						<!--data-dismiss="modal"清除modal-->
+						<button class="close" data-dismiss="modal" style="background: #C6C6C6;border-radius:5px;margin: 10px;">&times;</button>
+					<!--</div>-->
+					<div class="modal-body">
+						<h4 style="text-align: center;">日期  【{{dat}}】 的订单，最少入住【 {{mathI}}】 人 </h4>
+					</div> 
+				</div>
+			</div>
+		</div>
+			
+			<div class="nav-tab fl">
+				<ul class="clearfix">
+					<li class="tab-o">产品介绍</li>
+					<!--<li class="tab-t">参考行程</li>-->
+					<li class="tab-s">说明</li>
+					<li class="tab-f">购买通知</li>
+					
+				</ul>
+				
+				<div class="tab-img">
+					<img src="img/lazyload.gif"  class="lazy" data-original="http://p1-q.mafengwo.net/s9/M00/39/A4/wKgBs1Zv2ROAC2-rAB1GpnvIFPk81.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/>
+					<img src="img/lazyload.gif"  class="lazy" data-original="http://n3-q.mafengwo.net/s9/M00/3A/2B/wKgBs1Zv2mKAA-uaACJKiWjpLAA26.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/>
+					<img src="img/lazyload.gif"  class="lazy" data-original="http://p4-q.mafengwo.net/s9/M00/3A/25/wKgBs1Zv2lmASuMAACEsJqm6H0s37.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/>
+					<img src="img/lazyload.gif"  class="lazy" data-original="http://n3-q.mafengwo.net/s9/M00/3A/AF/wKgBs1Zv23aANdZ2ACaBAGcwpMQ70.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/>
+					<img src="img/lazyload.gif"  class="lazy" data-original="http://n4-q.mafengwo.net/s9/M00/3A/6B/wKgBs1Zv2t2ABzsSACUHyKkZkIo49.jpeg?imageMogr2%2Fthumbnail%2F%211360x940r%2Fgravity%2FCenter%2Fcrop%2F%211360x940%2Fquality%2F90"/>
+				</div>
+					
+					
+				
+					<!--<dl class="detail-notes">
+				        <dt class="subtitle " id="route"><h2>--- 参 考 行 程 ---</h2></dt>
+				        <dd class="notes-content m-route">
+	                        <div data-list-panel="0" class="react-expand expanded">
+    							<div class="expand-wrap">
+                                    <div class="timeline day-timeline">
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>01</b></span>广州起航时间 21:00
+		                                    </dt>
+                                          	<dd>搭乘接驳车或自行前往广州南沙旅途中码头，由旅途中公司工作人员协助办理登船手续（18:30-20:30），随后进行边防及海关检查，通过后即开始登船。愉快的海上航行即将开始。贵宾们放下行李后可立即展开新奇的旅途中体验，寻访旅途中的每一个角落，熟悉旅途中上的每一个区域，在自助餐厅里也可以开始享用精美餐点，旅途中预计于北京时间21:30启航离港，开始完美的海上之旅。<br>温馨提示：<br>1、 当天出发前请务必带好自己的有效证件幵于出团通知指定时间地点集合；<br>2、 需要托运的行李需要锁好（贵重和易碎物品不要放在托运箱内）；<br>3、 旅途中21:00启航，自驾车游客需按照出团通知时间抵达码头办理登船手续；<br>4、 本行程为自由行线路，全程无领队，登船后即可自由活动；</dd>                               
+                                        </dl>
+                                        <dl class="clearfix  ">
+                                			<dt><i class="i-flag i-flag-hotel"></i>世界梦号客舱</dt>
+                            			</dl>
+                                		<dl class="clearfix ">
+                                			<dt><i class="i-flag i-flag-food"></i>早餐(自理) 中餐(自理) 晚餐(包含)</dt>
+                            			</dl>
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>02</b></span>海上巡游
+		                                    </dt>
+                                        	<dd>今天我们将迎来海上休息日，建议您睡个懒觉，之后继续体验豪华旅途中为您准备的各项设施和精彩节目。分布在船上大大小小的酒吧为您提供了理想的社交场所，海上历奇青少年活动中心为各个年龄阶段的孩子提供由专人全程看护的活动项目，爱运动的游客，船上众多的健身设施一定不能错过。当夜幕降临的时候，真冰溜冰场、电影院、大剧场等都有各类表演供您欣赏，而配备专业DJ的夜总也将会通宵开放。</dd>                                
+                                        </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-hotel"></i>世界梦号客舱</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-food"></i>早餐(包含) 中餐(包含) 晚餐(包含)</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>03</b></span>岘港Da Nang（越南）　　抵港时间：07:00（06:00）　　离港时间：17:00（16:00）
+		                                    </dt>
+                                    		<dd>早餐自由享用，旅途中于当地时间06:00抵达越南第四大城市【岘港】，它拥有无敌的蓝天碧海，让人发思古之幽情的古城，以及那片都市人久违了的宁静。您可选择游览联合国世界文化遗产—会安古城，会安有许多完好保存下来的古建筑、古街道，体现了中国、日本、越南文化与建筑风格的有机结合。或选择参观占婆博物馆，这里收集了全国各地的占族文物，被称为岘港的一块瑰玉。<br>　　温馨提醒：若您自费参加了船上组织的岸上观光线路，请按所通知的时间和地点集合；旅途中将于16:00离开岘港（注意时差），请务必提前一个小时返回船上。请务必根据船上当天规定的时间回船！（注：办理落地签客人，需跟旅途中公司组织的岸上游方可上岸。）</dd>                                
+                                        </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-hotel"></i>世界梦号客舱</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-food"></i>早餐(包含) 中餐(自理) 晚餐(包含)</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>04</b></span>下龙湾（越南）　　抵港时间：10:00（09:00）　　离港时间：22:00（21:00）
+		                                    </dt>
+                                            <dd>早餐自由享用，旅途中于当地时间早上09:00抵达风光秀丽迷人，闻名遐迩的【下龙湾】，它也是世界新七大自然奇观之一，因其景色酷似中国的桂林山水，又被称为“海上桂林”。乘坐观光船，您可近距离欣赏石灰岩岛屿构成的奇观。（以上为当地风光介绍，您可于登船当天前往6楼服务中心报名，自费参加岸上观光旅游团。）<br>　　温馨提醒：若您自费参加了船上组织的岸上观光线路，请按所通知的时间和地点集合；旅途中将于21:00离开下龙湾（注意时差），请务必提前一个小时返回船上。请务必根据船上当天规定的时间回船！（注：办理落地签客人，需跟旅途中公司组织的岸上游方可上岸。）</dd>                               
+                                        </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-hotel"></i>世界梦号客舱</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-food"></i>早餐(包含) 中餐(自理) 晚餐(包含)</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>05</b></span>海上巡游
+		                                    </dt>
+                                            <dd>乘客们可以熟悉旅途中上的设施和环境，体验无拘无束的生活体验。这个是一个视觉与味觉的的享受。旅途中上的各种休闲设施会在这一天满足您各种娱乐需求，使您不会感到乏味。SPA，歌剧，泳池，应有尽有。旅途中上餐厅的美食选择丰富， 让乘客们可以尽享不同风味的佳肴。</dd>                                </dl>
+	                                    <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-hotel"></i>世界梦号客舱</dt>
+		                                </dl>
+		                                <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-food"></i>早餐(包含) 中餐(包含) 晚餐(包含)</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt>
+		                                        <span class="day-round"><b>06</b></span>广州南沙（抵达时间：08:30）
+		                                    </dt>
+                                       		<dd>旅途中08:30靠港，旅途中靠岸后请不用着急，仔细阅读旅途中活劢日程表上所安排的时间内容，依照指示下船；预计全部乘客下船后时间约是10:30，结束愉快的旅途中假期。如果需要预定您的下次旅途中旅程，或者亲友咨询，可以随时咨询我们的工作人员，您的支持是我们的前进的动力：）<br>温馨提示：<br>1、客人可根据自己预订癿机票返回温馨的家（预计11:00前下船完毕，请预计足够码头前往机场的时间，再订合适的机票）；<br>2、广州南沙码头到广州白云机场需要2.5小时车程；<br>3、国内航班请提前1.5小时抵达机场办理登机手续；<br>4、下船如需接驳车服务，敬请提前于旅途中6楼船中接待处提前预约。</dd>                     
+                                        </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-hotel"></i>温馨的家</dt>
+		                                </dl>
+                                        <dl class="clearfix">
+		                                    <dt><i class="i-flag i-flag-food"></i>早餐(包含) 中餐(自理) 晚餐（自理）</dt>
+		                                </dl>
+                                    </div>
+                                <div class="intro" style="margin:2em 0 0 2em;color:#666;">以上行程安排可能会根据当天实际情况进行适当调整</div>
+                    <div class="expand-light"></div>
+                </div>
+                <a class="expand-more" href="#">更多内容</a>
+            </div>
+        </dd>
+    </dl>-->
+					<div class="m-panel m-cost" data-module-name="费用说明" data-stat-display="4">
+					    <div class="m-hd">
+					        <h2>--- 说 明 ---</h2>
+						</div>
+						
+				        <div class="m-bd">
+				        	<dl class="detail-notes">
+				        		<div class="info-section">
+					                <dl class="clearfix">
+					                    <dt class="subtitle">基本信息</dt>
+					                    <dd class="notes-content">
+					                        <div class="cell" >
+					                            <span class="label">入住时间: 14:00 - 18:00</span>
+					                        </div>
+					                         <div class="cell">
+					                            <span class="label">离店时间: 14:00 之前</span>
+					                        </div>
+					                        <div class="cell">
+					                            <span class="label">建成于: 2009 年</span>
+					                        </div>
+					                        <div class="cell">
+					                            <span class="label">翻修于: 2014 年</span>
+					                        </div>
+					                        <div class="cell">
+					                            <span class="label">酒店规模: 64 间客房</span>
+					                        </div>
+					                    </dd>
+					                </dl>
+					            </div>
+					           
+				                <dt class="subtitle">必读</dt>
+				                <dd class="notes-content">
+				                    <p>客栈位于丽江古城光义街金星巷10号，离四方街步行只需一分钟。</p>
+									<p>客栈位于丽江古城光义街金星巷10号，离四方街步行只需一分钟。</p>
+									<p>连订三晚可免费接机一次（温馨房除外）请提前一天联系。</p>
+									<p>贴士</p>
+									<p>客栈自带观景台，可以观丽江古城全景。</p>
+									<p>室内设施齐全，床品，浴巾考究干净，提供24小时热水及无线网络，享受便捷度假生活。</p>
+									<p>二楼设有露台，布置古朴而温馨。</p>
+				                </dd>
+				           </dl>
+				            <dl class="detail-notes">
+				                <dt class="subtitle">主要设施</dt>
+				                <dd class="notes-content">
+				                    <li><i class="i01"></i>免费wifi</li>
+				                    <li><i class="i02"></i>收费停车场</li>
+				                    <li class="und"><i class="i04"></i>电梯</li>
+				                    <li><i class="i05"></i>餐厅</li>
+				                    <li><i class="i06"></i>行李寄存</li>
+				                    <li><i class="i09"></i>24小时服务</li>
+				                    <li><i class="i08"></i>热水壶</li>
+				                    <li><i class="i11"></i>吹风机</li>
+				                </dd>
+				            </dl><br />
+				            <dl class="detail-notes">
+				                <dt class="subtitle">酒店服务</dt>
+				                <dd class="notes-content">
+				                    <li><i class="icon-bg icon-ok"></i>接机服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>洗衣服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>旅游服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>客房服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>中文服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>快速入住服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>叫车服务</li>
+				                </dd>
+				            </dl><br />
+				            <dl class="detail-notes">
+				                <dt class="subtitle">酒店设施</dt>
+				                <dd class="notes-content">
+                                    <li><i class="icon-bg icon-ok"></i>棋牌室</li>
+                                    <li><i class="icon-bg icon-ok"></i>烧烤设施</li>
+                                    <li><i class="icon-bg icon-ok"></i>家庭房</li>
+                                    <li><i class="icon-bg icon-ok"></i>吸烟区</li>
+                                    <li><i class="icon-bg icon-ok"></i>储物柜</li>
+                              	</dd>
+				            </dl><br />
+				            <dl class="detail-notes">
+				                <dt class="subtitle">酒店服务</dt>
+				                <dd class="notes-content">
+				                    <li><i class="icon-bg icon-ok"></i>接机服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>洗衣服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>旅游服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>客房服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>中文服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>快速入住服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>叫车服务</li>
+				                </dd>
+				            </dl><br />
+				            <dl class="detail-notes">
+				                <dt class="subtitle">房间设施</dt>
+				                <dd class="notes-content">
+                                    <li><i class="icon-bg icon-ok"></i>叫醒服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>24小时热水</li>
+                                    <li><i class="icon-bg icon-ok"></i>雨伞租借服务</li>
+                                    <li><i class="icon-bg icon-ok"></i>空调</li>
+                                    <li><i class="icon-bg icon-ok"></i>电视</li>
+                                    <li><i class="icon-bg icon-ok"></i>淋浴设施</li>
+				                </dd>
+				            </dl><br />
+				            
+				            
+                       
+				            
+				            
+				            
+				            
+				            <dl class="detail-notes">
+				                <dt class="subtitle">特别说明</dt>
+				                <dd class="notes-content">
+				                    <p>本产品为代订世界梦号船票和代支付港务费。</p>
+				                </dd>
+				            </dl>
+				         </div>
+					</div>
+					<div class="m-panel m-notice" data-module-name="购买须知" data-stat-display="6">
+					    <div class="m-hd">
+					        <h2>--- 购 买 须 知 ---</h2>
+					    </div>
+					    <div class="m-bd">
+							<dl class="detail-alert">
+	                            <dt class="subtitle">退改政策</dt>
+			                            <dd class="notes-content">
+		                                    此产品为二次确认产品，供应商确认前可随时退，供应商确认后按照下列规则退改。<br>
+		                                    此产品一经供应商确认可安排之后，不可退改，敬请谅解<br>
+		                                    此产品需二次确认，在支付成功后18个工作小时内（工作日9:00-18:00），经客服二次确认无船票，可与供应商协商退款。购买后因个人原因无法出行或者超出了有效期恕不予以退款，敬请谅解。<br>
+                                </dd>
+                        	</dl>
+                            <dl class="detail-notes">
+	                            <dt class="subtitle">重要提示</dt>
+	                            <dd class="notes-content">
+                                    <p>1. 根据星梦旅途中公司的规定，乘坐旅途中旅行的<span style="color: #ff0000;">婴儿必须在旅途中启航第一天时至少满6个月</span>；</p>
+									<p>2. 18岁以下未成年人须至少有一名家长或一名成年旅客陪同全程，并且该家长或成年旅客需对未成年人的财产和行为负责；</p>
+									<p>3. <span style="color: #ff0000;">星梦旅途中规定，将不接受怀孕24周（含）以上的孕妇游客的预订申请。未超过24周的孕妇报名此行程，请提供医生开具的允许登船的证明；</span></p>
+									<p>4.<span style="color: #ff0000;"><strong> 根据旅途中公司规定，乘坐星梦旅途中出行的客人，需严格遵守旅途中公司的承运条款（https://www.dreamcruiseline.cn/fltg/），请您仔细阅读。如因违反条款规定所带来的后果，需由您自行承担；</strong></span></p>
+									<p>5. 目前旅途中上所有价目均以港币计算；</p>
+									<p>6. 本产品价格仅适用于中国大陆籍客人及在大陆居住或工作的外籍客人(外籍客人报名需提供有效大陆暂住证中国居留签证或工作签证复印件），否则外籍客人需与中国大陆籍客人入住同一客房才可享用此优惠。</p>
+									<p>7.承运人或船舶所无法避免的情况及尽了合理努力仍无法预防的后果（统称为「不可抗力事件」）。 旅客承认及确认乘坐远洋轮船旅行有时会发生承运人无法控制或缓和的风险与情况。旅客承担承运人或船长因任何不可抗力事件而变得必要或合宜的判断所引起、导致的任何损伤、损失或损害的风险，并免除承运人上述任何损伤、损失或损害的责任，或免除承运人所无法控制的任何种类的损失。在任何此等情况下，航海之全部或部份可予修改、缩短、延长或取消，而承运人无需负上退款或其他责任。 承运人按其全权酌情决定权，须有充分的自由（不论有否事先通知）于船舶航行前、期间或之后任何时间按船长／承运人合理判断（不论单独或按他人意见所出）为任何理由或目的（包括但不限于不可抗力事件、船上任何人员的健康状况、旅客的安全、保安、舒适或便利、旅客或人员紧急上岸、海空交通、车辆或公共汽车出发及抵达误点、政府公告或旅行警示）而在不论有或没有领航员和拖船协助的情况下前进、离开及进入港口；偏离广告中公布的路线、或直接或惯常的路线；驶入任何非预定或不在广告中之港口；取消停靠任何预定的港口；拖行及协助其他船舶及提供协助拯救生命及或财产；略过任何预定或广告中公布的港口或在此港口提前或延后上岸；驶回登船港口或之前曾经到过的任何港口；以另一艘船或任何一个停靠港取代。所有此等偏差须被视为原定计划航海的一部份，且不相当于航海之实质修改。对于出于此等情况或因此而引致的任何损失、损害或延迟，承运人对旅客不负有任何责任。 承运人与船长有至高的权利，且无需向旅客负有任何种类的赔偿责任，而遵守由任何国家的政府或部门、或由代表此等政府或部门或宣称获此等政府或部门授权的人士、或由船舶战争风险保险条款下有权发出此等命令、建议或指示的任何组织或人士所发出的命令、建议或指示，包括但不限于与健康、保安、入境、海关或安全有关之命令、建议或指示。如果由于或为遵守此等命令、建议或指示而作为，无论以致任何事与前相同与否，不得被视为偏离或违反本航行合约。根据此等命令、建议或指示而任何旅客上岸或行李卸下，须构成本航线合约中承运人义务之应当与适当完成。 如船舶检疫涉及旅客拘留，每位旅客必须承担所有由此而起的风险、损失和费用，（而若该检疫期间被留在船舶上，旅客将被收取及应每天支付拘留期间的食宿与维护费），以及就旅客而评定或招致的所有检疫费用和支出。旅客承担所有不论如何引起的延迟或拘留所造成的风险及损失。因本段落列举之情况造成的旅客及／或行李上岸及登船相关费用及船舶和岸上之间的转运费用，必须由旅客承担。 如果原定计划航行因不可抗力事件而受到妨碍或阻止（或承运人或船长认为可能会受到妨碍或阻止），或若承运人或船长出于任何原因认为继续或试图进入或进入或逗留于旅客的目的地可能使船舶遭受风险、损失或损害，或者很有可能使其延迟，则旅客及其行李可于登船港口或船舶可能停靠的任何港口或地方，届时承运人的责任须终止，航行合约亦须被视为已完全履行。或若旅客并未登船，承运人可取消原定计划航行，并且无需退还预付的航费。</p>
+                                </dd>
+                        	</dl>
+                            <dl class="detail-notes">
+                            <dt class="subtitle">产品服务信息</dt>
+                            <dd class="notes-content">该旅游产品由 深圳市深中国际旅行社有限公司 提供</dd>
+                        </dl>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--footer-->
+		
+		<footer >
+			<!--底部-->
+			<div id="footer">
+					<div class="ft-content">
+						<div class="ft-info clearfix">
+						    <dl class="ft-info-col ft-info-intro fl">
+						        <dt>全球旅游消费指南 </dt>
+						        <dd>覆盖全球200多个国家和地区</dd>
+						        <dd><strong>100,000,000</strong> 位旅行者</dd>
+						        <dd><strong>920,000</strong> 家国际酒店</dd>
+						        <dd><strong>21,000,000</strong> 条真实点评</dd>
+						        <dd><strong>382,000,000</strong> 次攻略下载</dd>
+						        <dd><a class="highlight" href="http://www.mafengwo.cn/activity/sales_report2017/index" target="_blank">中国旅游行业第一部“玩法”</a></dd>
+						    </dl>
+						    <dl class="ft-info-col ft-info-about fl">
+						        <dt>关于我们</dt>
+						        <dd><a href="http://www.mafengwo.cn/s/about.html" rel="nofollow">关于诗与远方</a><a href="http://www.mafengwo.cn/s/contact.html" class="m_l_10" rel="nofollow">联系我们</a></dd>
+						        <dd><a href="http://www.mafengwo.cn/s/private.html" rel="nofollow">隐私政策</a><a href="http://www.mafengwo.cn/s/logo.html" rel="nofollow" class="m_l_10">商标声明</a></dd>
+						        <dd><a href="http://www.mafengwo.cn/s/agreement.html" rel="nofollow">服务协议</a><a href="http://www.mafengwo.cn/s/rules.html" rel="nofollow" class="m_l_10">游记协议</a></dd>
+						        <dd><a href="http://www.mafengwo.cn/s/salesagreement.html" rel="nofollow">商城平台服务协议</a></dd>
+						        <dd><a href="http://www.mafengwo.cn/s/property.html" rel="nofollow">网络信息侵权通知指引</a></dd>
+						        <dd><a href="http://www.mafengwo.cn/s/sitemap.html" target="_blank">网站地图</a><a class="joinus highlight m_l_10" title="诗与远方团队招聘" target="_blank" href="http://www.mafengwo.cn/s/hr.html" rel="nofollow">加入诗与远方</a></dd>
+						    </dl>
+						    <dl class="ft-info-col ft-info-service fl" >
+						        <dt>旅行服务</dt>
+						        <dd>
+						            <ul class="clearfix">
+						                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/gonglve/">旅游攻略</a></li>
+						                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/hotel/">酒店预订</a></li>
+						                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/sales/">旅游特价</a></li>
+						                <li class="fr"><a target="_blank" href="http://zuche.mafengwo.cn/">国际租车</a></li>
+						                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/wenda/">旅游问答</a></li>
+						                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/insure/">旅游保险</a></li>
+						                <li class="fl"><a target="_blank" href="http://z.mafengwo.cn">旅游指南</a></li>
+						                <li class="fr"> <a target="_blank" href="http://huoche.mafengwo.cn">订火车票</a></li>
+						                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/travel-news/">旅游资讯</a></li>
+						                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/app/intro/gonglve.php">APP下载</a></li>
+						                <li style="width: 120px;"><a target="_blank" href="http://www.mafengwo.cn/sales/alliance.php" class="highlight">旅行商城全球商家入驻</a></li>
+						            </ul>
+						        </dd>
+						    </dl>
+						    <dl class="ft-info-col ft-info-qrcode fl">
+						        <dd class="fl">
+						            <span class="ft-qrcode-tejia"><img src="img/fetch_qrcode_rec.jpg"/></span>
+						            <p>诗与远方良品<br>官方服务号</p>
+						        </dd>
+						        <dd class="fl">
+						            <span class="ft-qrcode-weixin"><img src="img/fetch_qrcode_rec.jpg"/></span>
+						            <p>诗与远方旅游<br>订阅号</p>
+						        </dd>
+						    </dl>
+						    <dl class="ft-info-social" >
+						        <dt>向崇尚自由的加勒比海盗致敬！</dt>
+						        <dd>
+						            <a class="ft-social-weibo" target="_blank" href="http://weibo.com/mafengwovip" rel="nofollow"><i class="iconfont icon-xinlang"></i></a>
+						            <a class="ft-social-qqt" target="_blank" href="http://t.qq.com/mafengwovip" rel="nofollow"><i class="iconfont icon-weixin"></i></a>
+						            <a class="ft-social-qzone" target="_blank" href="http://1213600479.qzone.qq.com/" rel="nofollow"><i class="iconfont icon-qq"></i></a>
+						        </dd>
+						    </dl>
+						</div>
+						<div class="ft-copyright">
+						    <div class="ft-safety">
+						        <a class="s-a" target="_blank" href="https://search.szfw.org/cert/l/CX20140627008255008321" id="___szfw_logo___"></a>
+						        <a class="s-b" href="https://ss.knet.cn/verifyseal.dll?sn=e130816110100420286o93000000&amp;ct=df&amp;a=1&amp;pa=787189" target="_blank" rel="nofollow"></a>
+						        <a class="s-c" href="http://www.itrust.org.cn/Home/Index/itrust_certifi/wm/1669928206.html" target="_blank" rel="nofollow"></a>
+						    </div>
+						    <a href="http://www.mafengwo.cn"><i class="ft-mfw-logo"></i></a>
+						    <p>© 2018 Mafengwo.cn <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank"><img src="http://images.mafengwo.net/images/footer/police_record.png" width="12" style="margin:0 2px 4px 0;">京公网安备11010502013401号</a> <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a></p>
+						    <p><a href="http://images.mafengwo.net/images/about/licence_3.jpg" target="_blank" rel="nofollow">营业执照</a><span class="m_l_10"><a href="https://m.mafengwo.cn/im/feedback/" target="_blank" rel="nofollow">帮助中心</a></span><span class="m_l_10">诗与远方客服：国内</span><span class="highlight">4006-345-678</span><span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span></p>
+						</div>
+					</div>
+				</div>
+		</footer>
+		
+		
+		
+		
+		<!--这个置顶是基于jq  写的  所用的话请先引入-->
+		<!--点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fl">
+							<p class="edu-img edu-img1"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step1"></span>
+								<span class="left"><a href="#">登录<br>返利商城</a></span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img2"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step2"></span>
+								<span class="left"><a href="#">去商家购物<br>免注册</a></span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img3"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step3"></span>
+								<span class="left">完成交易<br>商家核对订单</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img4"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step4"></span>
+								<span class="left">订单核对有效<br>完成</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin"></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fr">
+							<img src="img/list_wx_qr_code.jpg" alt="" />
+						</li>
+					</ul>
+				</div>	
+			</span>
+		</div>
+		
+	</body>
+</html>
+<script src="lib/jquery.lazyload.min.js"></script>
+<script src="js/reserve.js"></script>
+		

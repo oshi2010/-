@@ -1,0 +1,696 @@
+*{
+	padding:0;
+	margin:0px
+}
+.fr{
+	float:right;
+}
+.fl{
+	float:left;
+}
+li{
+	list-style: none;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*头部*/
+.header{
+	width:1000px;
+	height:50px;
+	line-height: 50px;
+	margin:0 auto;
+	background:black;
+}
+/*.header input{
+	width:300px;
+	height:25px;
+	display: inline-block;
+	border:2px solid orange;
+	font-size:14px;
+	border-radius:3px;
+	margin-left:50px;
+}
+.header a{
+	float:right;
+	margin:3px;
+	color:orange;
+	
+}*/
+.header-ul{
+	width:1000px;
+	margin:0 auto;
+	height:60px;
+	line-height:60px;
+	position:relative;
+	background:orange;
+}
+.header-ul ul{
+	width:0 50px;
+	margin-top:-10px;
+}
+.header-ul ul li:first-child:{
+}
+.header-ul li a{
+	float:left;
+	color:#fff;
+	font-size:18px;
+	margin-right:35px;
+}
+.header-ul li .active{
+	color:red!important;
+	border-bottom: 2px solid orange;
+}
+.header-ul p{
+	font-size:11px;
+	color:#666;
+	margin-left:0px!important;
+}
+.header-p{
+	width:1000px;
+	margin:0px;
+	height:30px;
+	line-height: 30px;
+	
+}
+/*身体部分*/
+.container{
+	width:1000px;
+	margin:30px auto;
+	height:2400px;
+}
+/*左边*/
+.container .container-left{
+	width:640px;
+	height:2400px;
+	float:left;
+	margin-right:20px;
+}
+/*云南*/
+.yunnan{
+	width:640px;
+	height:200px;
+}
+.yunnan-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;;
+}
+.yunnan-top a{
+	margin-left:400px;
+	font-size:12px;
+}
+.yunnan-body{
+	width:640px;
+	height:210px;
+	margin-top:20px;
+}
+.yunnan-body .yn-bl{
+	width:150px;
+	height:100px;
+}
+.yunnan-body .yn-bl img{
+	width:160px;
+	height:100px;
+}
+.yunnan-body .yn-br{
+	float:left;
+	margin-left:20px;
+	width:450px;
+	height:150px;	
+	
+}
+.yn-br p{
+	height:60px;
+	line-height:21px;
+	font-size:13px;
+}
+.yn-br h6{
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+	color: #333;
+}
+.yn-br ul{
+	width:450px;
+	height:30px;
+	margin-left:0px;
+}
+.yn-br ul li a{
+	float:left;
+	margin-right:10px;
+	font-size:12px;
+	color:#39a5ea
+}
+
+/*云南旅游攻略*/
+.gonglie{
+	width:640px;
+	height:420px;
+	margin-top:20px;
+}
+.gonglie-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+}
+.gonglie-top h2{
+	font-size:14px;
+}
+.gonglie-top a{
+	margin-left:400px;
+	font-size:12px;
+}
+.gonglie-body{
+	width:640px;
+	margin-top:20px;
+	
+}
+.gonglie1{
+	width:640px;
+	height:100px;
+	margin:20px 0
+}
+/*span 里的云南字体颜色*/
+.p-red{
+	color:#ab3103!important;
+}
+/*左侧图片*/
+.gonglie-img{
+	width:150px;
+	height:100px;
+}
+.gonglie-img img{
+	width:150px;
+	height:100px;
+	float:left;
+}
+.gonglie-right{
+	float:left;
+	margin-left:20px;
+	width:450px;
+	height:100px;	
+}
+.gonglie-right h3 a{
+	font-size:15px;
+	color:#6e4987;
+	font-weight:400
+}
+.gonglie-right p{
+	line-height:25px;
+	font-size:13px;
+}
+
+.gonglie-right ul li{
+	float:left;
+	font-size:12px;
+	margin:5px 5px;
+}
+/*云南玩法线路*/
+.ynplay{
+	width:640px;
+	height:300px;
+}
+.yunnan-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+}
+.ynplay-body{
+	margin-top:20px;
+}
+.ynplay-img{
+	width:150px;
+	height:100px;
+	float:left;
+}
+.ynplay-right{
+	float:left;
+	margin-left:20px;
+	width:450px;
+	height:240px;	
+}
+.family{
+	height:45px;
+}
+.ynplay-right .family h6 a{
+	font-size:14px;
+	font-weight: 350;
+	color:black
+}
+.ynplay-right .family h6 span{
+	width:14px;
+	height:14px;
+	color:#fff;
+	margin-right:3px;
+	background:deepskyblue;
+	border:1px solid deepskyblue;
+	border-radius: 3px;
+}
+.ynplay-right .family p{
+	font-size:12px;
+	color:#969696;
+}
+
+/*云南旅行商城*/
+.yntravel{
+	width:640px;
+	height:500px;
+	
+}
+.yntravel-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+	font-size:20px;
+}
+.yntravel-top h2{
+	font-size:15px;
+	font-weight: 400;
+}
+.yntravel-top a span{
+	font-size:13px;
+	margin-left:400px;
+}
+.yntravel-ul ul{
+	width:640px;
+	height:110px;
+}
+.yntravel-ul ul li a{
+	float:left;
+	margin-right:30px;
+	line-height: 23px;
+	font-size:13px;
+	color:deepskyblue
+}
+.yntravel-imgcontainer{
+	width:640px;
+	height:350px;
+}
+.market-row li{
+	float:left;
+	width:300px;
+	height:110px;
+	margin:5px;
+}
+.market-row li .ynplay-row-img{
+	width:95px;
+	height: 95px;
+	float:left;
+}
+.market-row li .ynplay-row-img img{
+	width:90px;
+	height: 90px;
+}
+.ynplay-row-p{
+	width:205px;
+	height:100px;
+	float:left;
+}
+
+.ynplay-row-p  h6{
+	font-size:15px;
+	font-weight:400;
+	color:black
+}
+.ynplay-row-p span{
+	color:orange;
+	margin-left:60px;
+}
+.ynplay-row-p p{
+	line-height: 18px;
+	font-size:14px;
+	
+}
+ .seg-desc a{
+ 	color:#6e4987;
+ 	
+ }
+ .seg-desc{
+ 	font-size:12px!important;
+ 	color:#666!important;
+	font-size:12px!important;
+	margin-left:0px!important;
+}
+/*云南问答*/
+.wenda{
+	width:640px;
+	height:180px;
+	margin-top:120px;
+}
+.wenda-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+	font-size:20px;
+}
+.wenda-top h2{
+	font-size:15px;
+	float:left;
+}
+.wenda-top span{
+	font-size:13px;
+}
+.wenda-container{
+	width:640px;
+	height:145px;
+}
+.wenda-container li{
+	width:640px;
+	height:25px;
+	line-height:25px;
+	margin-top:5px;
+}
+.wenda-container li a{
+	width:230px;
+	float:left;
+	font-size:14px;
+	font-weight: 500;
+	color:#666;
+	margin-right:30px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.wenda-container li span{
+	float:left;
+	font-size:13px;
+}
+/*云南游记*/
+.travelNotes{
+	width:640px;
+	height:180px;
+	margin-top:20px;
+}
+.travelNotes-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+	font-size:20px;
+}
+.travelNotes-top h2{
+	font-size:15px;
+	float:left;
+}
+.travelNotes-top h2 a{
+	color:#555;
+}
+.travelNotes-top h2 span{
+	font-size:13px;
+	font-weight: 400;
+	float:right;
+	margin-left:460px;
+}
+
+.travelNotes-ul{
+	width:640px;
+	height:145px;
+}
+.travelNotes-ul li{
+	width:640px;
+	height:25px;
+	line-height:25px;
+	margin-top:5px;
+}
+.travelNotes-ul li a{
+	width:300px;
+	height:23px;
+	float:left;
+	font-size:13px;
+	font-weight: 500;
+	color:#666;
+	margin-right:30px!important;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.travelNotes-ul li span{
+	font-size:12px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user{
+	width:640px;
+	height:280px;
+	margin-top:20px;
+}
+.user-top{
+	width:640px;
+	height:35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ccc;
+	font-size:20px;
+}
+
+.user-top h2 a{
+	font-size:15px;
+	color:#555;
+}
+.user-top h2 span{
+	font-size:12px;
+	font-weight: 400;
+	float:right;
+	margin-left:460px;
+}
+.user-body{
+	width: 640px;
+	height: 240px;
+}
+.user-body li{
+	width:640px;
+	height:80px;
+}
+.user-body .user-left{
+}
+.user-body li img{
+	width:50px;
+	height:50px;
+	float:left;
+	border:50%;
+	border-radius:50%;
+	margin:5px 10px 5px 5px;
+}
+.user-body li .user-middle{
+	width: 277px;
+	height: 60px;
+	float:left;
+} 
+.user-body li .user-middle p{
+	width:277px;
+	height:30px;
+	line-height: 30px;
+	font-size:13px;
+}
+.user-body li .user-middle p span{
+	color:orange
+}
+.user-body .user-right{
+	height:60px;
+	margin-left:60px;
+	float:left;
+	line-height:60px;
+}
+.user-body .user-right a{
+	float:left;
+}
+.user-body .user-right input[type="button"]{
+	display:inline-block;
+	width:80px;
+	background:orange;
+	color:#fff;
+	margin-left:50px;
+	margin-right:10px;
+	font-size:20px;
+	border-radius:2px;
+}
+.user-body .user-right input[type="text"]{
+	width:80px;
+	font-size:20px;
+	display:inline-block
+	border:3px solid orange;
+	border-radius:2px;
+	color:orange;
+}
+/*相关搜索*/
+.search{
+	width:640px;
+	height:120px;
+}
+.search-top{
+	width:640px;
+	height:40px;
+	font-size:15px;
+	line-height: 40px;
+	border-bottom: 2px solid #ccc;;
+}
+.search-body{
+	width:640px;
+	height:80px;
+}
+.search-body li{
+	float:left;
+	margin:5px 30px;
+	font-size:14px;
+}
+.search-body li a{
+	color:deepskyblue!important;
+	width:20px;
+	height:30px;
+	display:inline-block
+	line-height: 30px;
+	margin:10px;
+}
+
+
+
+/*右边*/
+.container .container-right{
+	width:340px;
+	height:2400px;
+	float:left;
+}
+/*云南附近旅游热门*/
+.hot{
+	width:340px;
+	height:340px;
+	
+}
+.hot-top{
+	width:340px;
+	height:40px;
+	margin-top:30px;
+	line-height: 40px;
+	
+}
+.hot-top h2{
+
+}
+.hot-top h2 span{
+	float:right;
+	font-size:13px;
+	font-weight: 400;
+}
+.hot-body{
+	width:340px;
+	height:280px;
+}
+.hot-body li{
+	width:103px;
+	height: 140px;
+	float:left;
+	margin:5px;
+}
+.hot-body li img{
+	width:90px;
+	height: 90px;
+}
+.hot-body li p{
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+}
+/*云南旅游攻略下载*/
+.login{
+	width:340px;
+	height:400px;
+}
+.login-top{
+	width:340px;
+	margin:20px 0;
+	border-bottom: 2px solid #ccc;
+	
+}
+.login-top span{
+	float:right;
+	font-size:13px;
+	color:deepskyblue
+	font-weight: 400;
+}
+.login-body{
+	width:340px;
+	height:300px;
+}
+.login-body-top{
+	width:340px;
+	height:150px;
+}
+.login-body-left img{
+	width:90px;
+	height:130px;
+	float:left;
+	margin-right:10px;
+}
+.login-body-right{
+	float:left;
+	width:220px;
+	height:130px;
+	
+}
+.login-body-right h6{
+	font-size:18px;
+	color:#6e4987;
+	font-weight:400 ;
+}
+.login-body-right p{
+	font-size:12px;
+	line-height:20px;
+	
+}
+.login-body-right input{
+	width:70px;
+	height:30px;
+	display:block;
+	font-size:16px;
+	margin-top:10px;
+	color:#fff;
+	background:deepskyblue;
+	border-radius:2px;
+}
+
+/*底部*/
+#footer{
+	width:1000px;
+	height:300px;
+	overflow:hidden;
+	margin:0 auto;
+	color:black;
+	background:#737373
+}
+#footer dl dt,dd a{
+	color:black;
+}
+#footer .three{
+	width:230px;
+	height:300px;
+	float:left;
+}
+#footer .three dl{
+	margin-left:5px;
+}
+#footer .one{
+	width:230px;
+	height:300px;
+	float:left;
+}
+#footer .two{
+	width:230px;
+	height:300px;
+	float:left;
+}
+#footer .frous{
+	width:310px;
+	height:300px;
+	float:left;
+}
+#footer .frous dd{
+	padding-right:50px;
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>诗和远方</title>
+	</head>
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_774344_x5gkrxuilzs.css" />
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_746510_0w3vo6372tqd.css"/>
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_746510_cwc7shyvza7.css"/>
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullPage.css"/>
+		<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/jquery.fullPage.min.js" ></script>
+		<script type="text/javascript" src="lib/vue.js" ></script>
+		<script type="text/javascript" src="lib/vue-resource.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/lijiang.css"/>
+	
+	
+	<body>
+		<div id="box">
+			<div class="nav-top">
+				<nav id="nav-t">
+					<ul class="nav-ul">
+						<li style="padding: 0;"><a href="index.html"><img src="img/login.png"/ width="100px" style="transform: translateY(50%);"></a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="destination.html">目的地</a></li>
+						<li><a href="strategy.html">旅游攻略</a></li>
+						<li id="xiala" class="dropdown">
+							<a data-toggle="dropdown" href="#">旅行商城<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li><a href="liberty.html">自由行</a></li>
+								<li><a href="#">跟团游</a></li>
+								<li><a href="localtion.html">当地游</a></li>
+								<li><a href="#">国内机票</a></li>
+								<li><a href="#">签证</a></li>
+								<li><a href="insurance.html">保险</a></li>
+							</ul>
+						</li>
+						<li><a href="#">酒店</a></li>
+						
+						<li id="xiala2" class="dropdown">
+							<a data-toggle="dropdown" href="#">社区<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>
+									<ul class="fl xl-left">
+										<li><a class="active" href="exchange.html">问答</a></li>
+										<li><a href="#">诗和远方周边</a></li>
+										<li><a href="jub.html">蜂首俱乐部</a></li>
+										<li><a href="travel.html">结伴</a></li>
+									</ul>
+								</li>
+								
+								
+								<li>
+									<ul class="fr xl-right">
+										<li><a href="#">小组论坛</a></li>
+										<li><a href="#">分舵同城</a></li>
+										<li><a href="#">诗和远方拍卖行</a></li>
+										<li><a href="detailed.html">照片PK</a></li>
+										<li><a href="#">真人兽</a></li>
+										<li><a href="#">照道具商城</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li id="ipt" style="margin-right:24px ;">
+							<p class="clearfix">
+								<input id="ss" type="text" @keydown.down="down()"  @keydown.up.prevent="up()" @keyup="search()" @click="search()" v-model="msg" name="" id="" value="" />
+								<input  type="button"  value="搜 索"/>
+							</p>
+							<ul id="list" :class="{bor:flag}">
+								<li :class="{active:index==noIndex}" v-for="(item,index) in arr">{{item}}</li>
+							</ul>
+						</li>
+						<li class="r-li">
+							<a href="#" class="iconfont icon-weibo" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-qq" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-weixin" style="font-size: 28px;"></a>
+							<div class="dr">
+								<a href="#">登录</a>
+								<span>|</span>
+								<a href="#">注册</a>
+							</div>	
+						</li>	
+					</ul>
+					<div class="shadow"></div>
+				</nav>
+				
+				
+				
+			<!--景区详情-->
+				<div class="daotu">
+					<div class="dt-cnt">
+						<ul class="fl">
+							<li><a href="destination.html">目的地</a></li>
+							<li><span>></span></li>
+							<li>玉龙纳西族自治县</li>
+							<li><span>></span></li>
+							<li><span>玉龙纳西族自治县景点</span></li>
+						</ul>
+						<ul class="fr">
+							<li><a href="#" class="iconfont icon-tianqi"></a></li>
+							<li><a href="#">多云</a></li>
+							<li><a href="#">16°C~28°C</a></li>
+						</ul>
+					</div>
+				
+					<h2>丽江千古情景区</h2>
+					<div id="dt-xuan" class="fl">
+						<div class="b-top">
+							<a href="#" class="on">概况</a>
+							<a href="#">点评</a>
+						</div>
+						<div class="dt-content">
+							<div class="dong a1" style="display: block;">
+								<span class="dt-left iconfont icon-zuojiantou" style="position: absolute ; left:0;top: 40%; z-index: 2; font-size: 48px; transform: translateY(-50%); color: #fff; opacity: 0.6;"></span>
+								<span class="dt-right iconfont icon-arrow-right" style="position: absolute ; right:0;top: 40%; z-index: 2; font-size: 48px;transform: translateY(-50%); color: #fff; opacity: 0.6;"></span>
+								<ul id="lr">
+									<li><img src="img/lj-3.jpeg"/></li>
+									<li><img src="img/1.jpeg"/></li>
+									<li><img src="img/lj-1.jpeg"/></li>
+									<li><img src="img/lj-2.jpeg"/></li>
+									<li><img src="img/lj-3.jpeg"/></li>
+									<li><img src="img/1.jpeg"/></li>
+								</ul>
+								<p style="font-size: 16px; padding-top: 12px; position: absolute; top:80%; padding:0 12px;">丽江千古情景区距丽江古城6公里，毗邻文笔海自然景观，与玉龙雪山遥相呼应，地理环境优越。
+									旅游区深度挖掘丽江独特的本土文化元素，打造了以《丽江千古情》、《丽江恋歌》等为代表的十大演艺秀与二十大项目。
+									景区内随处可见展示丽江千年文化历史风情的歌舞演出，是一座穿越时空、活着的茶马古城，是丽江旅游的理想目的地。
+								</p>
+							</div>
+							<div class="ping a1">
+								<input type="text" name="" id="liuyan" autofocus="autofocus" placeholder="请输入评论内容..." value="" />
+								<button id="btn">提交点评</button>
+								<div id="dome">
+									<div class="comment">
+										
+									</div>
+								</div>
+								<div id="cuo" style="display: none;">！输入内容不能为空...</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="dt-txt">
+						<h3 >景点位置</h3>
+						<p style="color: #ccc;">丽江市玉龙县玉兴西路88号</p>
+						<img src="img/ditu.png" width="580" height="245">
+					</div>
+				
+					<!--热门优惠部分-->
+					<div class="fr youhui" >
+						<h3>热门优惠</h3>
+						<table>
+							<tr>
+								<td>类型</td>
+								<td></td>
+								<td style="text-align: center; color: #333;">价格</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>演出展览</td>
+								<td><a href="travelCustomize.html">省心优选 丽江宋城千古情景区演出票 （不是贵宾AB区我赔你+精品小车接送+赠送丽江恋歌）</a></td>
+								<td>￥260起</td>
+								<td><a href="travelCustomize.html">预定</a></td>
+							</tr>
+							<tr>
+								<td>演出展览</td>
+								<td><a href="travelCustomize.html">口碑优选·丽江宋城千古情VIP贵宾票ABC区座位（赠送丽江恋歌+篝火狂欢+民族服装拍照+小车包接送）您给我一天我还您一千年！</a></td>
+								<td>￥255起</td>
+								<td><a href="travelCustomize.html">预定</a></td>
+							</tr>
+							<tr>
+									<td>丽江客栈</td>
+								<td><a href="reserve.html">口碑优选·丽江宋城千古情VIP贵宾票ABC区座位（赠送丽江恋歌+篝火狂欢+民族服装拍照+小车包接送）您给我一天我还您一千年</a></td>
+								<td>￥260起</td>
+								<td><a href="reserve.html">预定</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<!--底部部分-->
+			<div class="container-btm">
+				<div class="txt-btm">
+					<ul class="fl btm-ul-1">
+						<li style=" margin-bottom:8px ;">全球旅游消费指南</li>
+						<li>覆盖全球200多个国家和地区</li>
+						<li><span>100,000,000</span> 位旅行者</li>
+						<li><span>920,000 </span>家国际酒店</li>
+						<li><span>21,000,000</span>条真实点评</li>
+						<li><span>382,000,000</span> 次攻略下载</li>
+						<li><span>中国旅游行业第一部“玩法”</span></li>
+					</ul>
+					<ul class="fl btm-ul-2">
+						<li style=" margin-bottom:8px ;">关于我们</li>
+						<li>
+							<a href="#">关于诗和远方</a>
+							<a href="#">联系我们</a>
+						</li>
+						
+						<li>
+							<a href="#">隐私政策</a>
+							<a href="#">商标声明</a>
+						</li>
+						
+						<li>
+							<a href="#">服务协议</a>
+							<a href="#">游记协议</a>
+						</li>
+						
+						<li><a href="#">商城平台服务协议</a></li>
+						<li><a href="#">网络信息侵权通知指引</a></li>
+						<li>
+							<a href="#">网站地图</a>
+							<a href="#"><span>加入诗和远方</span></a>
+						</li>
+					</ul>
+					<ul class="fl btm-ul-3">
+						<li style="text-align: center; margin-left:-22px ; margin-bottom:8px ;">旅行服务</li>
+						<li>
+							<a href="#">旅游攻略</a>
+							<a href="#">酒店预订</a>
+						</li>
+						<li>
+							<a href="#">旅游特价</a>
+							<a href="#">国际租车</a>
+						</li>
+						<li>
+							<a href="#">旅游问答</a>
+							<a href="#">旅游保险</a>
+						</li>
+						<li>
+							<a href="#">旅游指南</a>
+							<a href="#">订火车票</a>
+						</li>
+						<li>
+							<a href="#">旅游资讯</a>
+							<a href="#">APP下载</a>
+						</li>
+						<li><a href="#"><span>旅行商城全球商家入驻</span></a></li>
+					</ul>
+					<ul class="fr btm-ul-4"  style="margin-top:28px ; padding-left:24px ;">
+						<li class="fl">
+							<img src="img/123.gif"/>
+							<p style="width:80px; text-align: center;">诗和远方旅游订阅号</p>
+						</li>
+						<li class="fr">
+							<img src="img/456.png"/>
+							<p style="width:80px; text-align: center;">诗和远方良品官方服务号</p>
+						</li>
+					</ul>
+					<hr style="height: 1px; color: #fdfdfd;"/>
+				</div>
+			</div>
+		</div>
+			
+		
+		<script type="text/javascript" src="js/lijiang.js" ></script>
+	</body>
+</html>

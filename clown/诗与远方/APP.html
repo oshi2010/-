@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>诗和远方</title>
+	</head>
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_774344_x5gkrxuilzs.css" />
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_746510_cwc7shyvza7.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullPage.css"/>
+		<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/jquery.fullPage.min.js" ></script>
+		<script type="text/javascript" src="lib/vue.js" ></script>
+		<script type="text/javascript" src="lib/vue-resource.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/App.css"/>
+	<body>
+		<div id="box">
+			<div class="nav-top">
+				<nav id="nav-t">
+					<ul class="nav-ul">
+						<li style="padding: 0;"><a href="index.html"><img src="img/login.png"/ width="100px" style="transform: translateY(50%);"></a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="destination.html">目的地</a></li>
+						<li><a href="strategy.html">旅游攻略</a></li>
+						<li id="xiala" class="dropdown">
+							<a data-toggle="dropdown" href="#">旅行商城<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li><a href="liberty.html">自由行</a></li>
+								<li><a href="#">跟团游</a></li>
+								<li><a href="localtion.html">当地游</a></li>
+								<li><a href="#">国内机票</a></li>
+								<li><a href="#">签证</a></li>
+								<li><a href="insurance.html">保险</a></li>
+							</ul>
+						</li>
+						<li><a href="#">酒店</a></li>
+						
+						<li id="xiala2" class="dropdown">
+							<a data-toggle="dropdown" href="#">社区<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>
+									<ul class="fl xl-left">
+										<li><a class="active" href="#">问答</a></li>
+										<li><a href="#">诗和远方周边</a></li>
+										<li><a href="jub.html">蜂首俱乐部</a></li>
+										<li><a href="travel.html">结伴</a></li>
+									</ul>
+								</li>
+								
+								
+								<li>
+									<ul class="fr xl-right">
+										<li><a href="#">小组论坛</a></li>
+										<li><a href="#">分舵同城</a></li>
+										<li><a href="#">诗和远方拍卖行</a></li>
+										<li><a href="detailed.html">照片PK</a></li>
+										<li><a href="#">真人兽</a></li>
+										<li><a href="#">照道具商城</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li id="ipt" style="margin-right:24px ;">
+							<p class="clearfix">
+								<input id="ss" type="text" @keydown.down="down()" @keydown.up.prevent="up()" @keyup="search()" @click="search()" v-model="msg" name="" id="" value="" />
+								<input  type="button"  value="搜 索"/>
+							</p>
+							<ul id="list" :class="{bor:flag}">
+								<li :class="{active:index==noIndex}" v-for="(item,index) in arr"></li>
+							</ul>
+						</li>
+						<li class="r-li">
+							<a href="#" class="iconfont icon-weibo" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-qq" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-weixin" style="font-size: 28px;"></a>
+							<div class="dr">
+								<a href="login.html">登录</a>
+								<span>|</span>
+								<a href="register.html">注册</a>
+							</div>	
+						</li>	
+					</ul>
+				</nav>
+				<div class="shadow"></div>
+				
+				<!--轮播-->
+				<div class="focus">
+					<ul class="silde">
+						<li>
+							<img src="img/l-1.jpg"/>
+						</li>
+						<li>
+							<img src="img/l-2.jpg"/>
+						</li>
+						<li>
+							<img src="img/l-3.jpg"/>
+						</li>
+						<li>
+							<img src="img/l-1.jpg"/>
+						</li>
+					</ul>
+					<ul class="silde-page">
+						<li class="on"></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<div class="l-log"><img src="img/l-4.png"/></div>
+					
+			<!--手机部分-->
+					<div class="sj">
+						<ul>
+							<li class="t-1"></li>
+							<li class="t-2">
+								<ul class="ctn-2">
+									<li class="fl"></li>
+									<li class="fr"></li>
+								</ul>
+							</li>
+							<li class="t-3"></li>
+							<li class="t-4"></li>
+						</ul>
+					</div>
+					
+					<style>
+						
+					</style>
+					<div class="xiazai">
+						<ul class="xz-btn">
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+						</ul> 
+					</div>
+				</div>
+			</div>
+			
+				
+			<div class="txt-app">
+				<h3>全球旅游攻略首选，1亿用户信赖，旅行必备</h3>
+				<ul class="fr">
+					<li>- 旅游攻略：目的地攻略、酒店攻略、自由行攻略，靠谱实用</li>
+					<li>- 游记点评：用户亲身旅行经历，吃住游购值得参考</li>
+					<li>- 超值特卖：机票+酒店、当地游、门票、签证、保险等一应俱全，省钱省心</li>
+					<li>- 旅行途中随时查询周边吃住玩乐；嗡嗡分享，留存记忆</li>
+					<li>- 荣誉：AppStore精品旅行App；腾讯应用宝星App入围应用</li>
+				</ul>
+				<div class="fl img-fr">
+					<img src="img/rwm.png"/ width="180px" height="180px">
+					<p style="font-size:20px ; margin-top:12px ;">APP二维码扫描下载</p>
+				</div>
+			</div>
+			
+			<!--底部部分-->
+			<div class="container-btm">
+				<div class="txt-btm">
+					<ul class="fl btm-ul-1">
+						<li style=" margin-bottom:8px ;">全球旅游消费指南</li>
+						<li>覆盖全球200多个国家和地区</li>
+						<li><span>100,000,000</span> 位旅行者</li>
+						<li><span>920,000 </span>家国际酒店</li>
+						<li><span>21,000,000</span>条真实点评</li>
+						<li><span>382,000,000</span> 次攻略下载</li>
+						<li><span>中国旅游行业第一部“玩法”</span></li>
+					</ul>
+					<ul class="fl btm-ul-2">
+						<li style=" margin-bottom:8px ;">关于我们</li>
+						<li>
+							<a href="#">关于诗和远方</a>
+							<a href="#">联系我们</a>
+						</li>
+						
+						<li>
+							<a href="#">隐私政策</a>
+							<a href="#">商标声明</a>
+						</li>
+						
+						<li>
+							<a href="#">服务协议</a>
+							<a href="#">游记协议</a>
+						</li>
+						
+						<li><a href="#">商城平台服务协议</a></li>
+						<li><a href="#">网络信息侵权通知指引</a></li>
+						<li>
+							<a href="#">网站地图</a>
+							<a href="#"><span>加入诗和远方</span></a>
+						</li>
+					</ul>
+					<ul class="fl btm-ul-3">
+						<li style="text-align: center; margin-left:-22px ; margin-bottom:8px ;">旅行服务</li>
+						<li>
+							<a href="#">旅游攻略</a>
+							<a href="#">酒店预订</a>
+						</li>
+						<li>
+							<a href="#">旅游特价</a>
+							<a href="#">国际租车</a>
+						</li>
+						<li>
+							<a href="#">旅游问答</a>
+							<a href="#">旅游保险</a>
+						</li>
+						<li>
+							<a href="#">旅游指南</a>
+							<a href="#">订火车票</a>
+						</li>
+						<li>
+							<a href="#">旅游资讯</a>
+							<a href="#">APP下载</a>
+						</li>
+						<li><a href="#"><span>旅行商城全球商家入驻</span></a></li>
+					</ul>
+					<ul class="fr btm-ul-4"  style="margin-top:28px ; padding-left:24px ;">
+						<li class="fl">
+							<img src="img/123.gif"/>
+							<p style="width:80px; text-align: center;">诗和远方旅游订阅号</p>
+						</li>
+						<li class="fr">
+							<img src="img/456.png"/>
+							<p style="width:80px; text-align: center;">诗和远方良品官方服务号</p>
+						</li>
+					</ul>
+					<hr style="height: 1px; color: #fdfdfd;"/>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/App.js" ></script>
+	</body>
+</html>

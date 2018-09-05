@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>诗和远方</title>
+	</head>	
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_774344_x5gkrxuilzs.css" />
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_746510_cwc7shyvza7.css"/>
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullPage.css"/>
+		<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/jquery.fullPage.min.js" ></script>
+		<script type="text/javascript" src="lib/vue.js" ></script>
+		<script type="text/javascript" src="lib/vue-resource.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/background.css"/>
+	<body>	
+	<!--导航部分-->
+		<div id="box">
+			<div class="nav-top">
+				<nav id="nav-t">
+					<ul class="nav-ul">
+						<li style="padding: 0;"><a href="index.html"><img src="img/login.png"/ width="100px" style="transform: translateY(50%);"></a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="destination.html">目的地</a></li>
+						<li><a href="strategy.html">旅游攻略</a></li>
+						<li id="xiala" class="dropdown">
+							<a data-toggle="dropdown" href="#">旅行商城<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li><a href="liberty.html">自由行</a></li>
+								<li><a href="#">跟团游</a></li>
+								<li><a href="localtion.html">当地游</a></li>
+								<li><a href="#">国内机票</a></li>
+								<li><a href="#">签证</a></li>
+								<li><a href="insurance.html">保险</a></li>
+							</ul>
+						</li>
+						<li><a href="#">酒店</a></li>
+						
+						<li id="xiala2" class="dropdown">
+							<a data-toggle="dropdown" href="#">社区<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>
+									<ul class="fl xl-left">
+										<li><a class="active" href="exchange.html">问答</a></li>
+										<li><a href="#">诗和远方周边</a></li>
+										<li><a href="jub.html">蜂首俱乐部</a></li>
+										<li><a href="travel.html">结伴</a></li>
+									</ul>
+								</li>
+								
+								
+								<li>
+									<ul class="fr xl-right">
+										<li><a href="#">小组论坛</a></li>
+										<li><a href="#">分舵同城</a></li>
+										<li><a href="#">诗和远方拍卖行</a></li>
+										<li><a href="detailed.html">照片PK</a></li>
+										<li><a href="#">真人兽</a></li>
+										<li><a href="#">照道具商城</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li id="ipt" style="margin-right:24px ;">
+							<p class="clearfix">
+								<input id="ss" type="text" @keydown.down="down()"  @keydown.up.prevent="up()" @keyup="search()" @click="search()" v-model="msg" name="" id="" value="" />
+								<input  type="button"  value="搜 索"/>
+							</p>
+							<ul id="list" :class="{bor:flag}">
+								<li :class="{active:index==noIndex}" v-for="(item,index) in arr">{{item}}</li>
+							</ul>
+						</li>
+						<li class="r-li">
+							<a href="#" class="iconfont icon-weibo" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-qq" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-weixin" style="font-size: 28px;"></a>
+							<div class="dr">
+								<a href="login.html">登录</a>
+								<span>|</span>
+								<a href="register.html">注册</a>
+							</div>	
+						</li>	
+					</ul>
+					<div class="shadow"></div>
+				</nav>
+				
+				
+				<!--文本部分-->
+				<div class="txt-content">
+					<div  class="txt-l fl">
+						<p><a href="index.html">首页</a>&gt;<a href="background.html">衢州</a>&gt;<span style="color: orange;">自由行攻略</span></p>
+						<h2 style="font-size:36px ;padding-bottom:20px ;border-bottom:1px solid #eee;">衢江：曾登上《中国国家旅游》封面，森林覆盖率达70%！</h2>
+						<div>
+							位于闽浙赣皖四省交界处，<br/>
+							森林覆盖率70%+，<br/>
+							曾荣登《中国国家旅游》杂志封面，<br/>
+							距离杭州自驾仅2.5h，<br/>
+							还有数之不尽的美食。<br/>
+							<br/>
+							这便是——<b>衢州市衢江区</b><br/>，
+							悄悄告诉你，<br/>
+							这个夏天它就要火了！<br/>
+						</div>
+						<h2>- 当地人才知道的衢江玩法 -</h2>
+						<div>
+							<h3>◆ 东坪村</h3>
+							<img src="img/dp-1 (1).jpeg" alt=""> 
+							<p>东坪村位于衢江区峡川镇境内、千里岗山脉末端，海拔518米，以“古道、古树、古村落、红枫、红柿、红辣椒”而闻名遐迩。</p>
+							<img src="img/dp-1 (2).jpeg" alt=""> 
+							<p>这里一年四季风景如画，春天油菜花的金黄、夏天古树的翠绿、秋天枫叶柿子的烂红、冬天瑞雪的银白，使得游客流连忘返。</p>
+							<img src="img/dp-3.jpeg" alt=""> 
+							<p>这里还有一条古道，相传已有1300多年历史。石块的棱角渐渐被山民的脚步磨去，变得十分光滑。山道两旁也已长满厚厚一层青苔，枝干粗壮的古樟，荫蔽了这里一代又一代的村民。</p>
+						</div>
+						<div>
+							<h3>◆ 药王山</h3>
+							<img src="img/yw-1.jpeg" alt=""> 
+							<p>相传先有炎帝留有神农谷古迹，后有李时珍、扁鹊、华佗相继在此采药、居住，并留有“药王居”遗迹，故得名“药王山”。</p>
+							<img src="img/yw-2.jpeg" alt=""> 
+							<p>这里森林覆盖率高达87%，漫步观光，千峦竞秀、百川争流、竹木青翠、鸟语花香，自然资源之丰富令人叹为观止。</p>
+							<img src="img/yw-3.jpeg" alt=""> 
+							<p>除此之外，这里还藏着总长约5公里的漂流道，首位落差280米，多个双S回旋弯赛道及精心的赛道设计让人真正体验到挑战自我的乐趣，也为夏日增添了一丝清凉~</p>
+						</div>
+						<div>
+							<h2>◆ 天脊龙门</h2>
+							<img src="img/tl-1.jpeg" alt=""> 
+							<p>景区集奇山异石、天然洞府、幽谷川流和自然园林景观于一体，聚山、林、泉、瀑、云、雾等奇观于一谷，形成了险、雄、奇、秀、幽之形胜。</p>
+							<img src="img/tl-2.jpeg" alt=""> 
+							<p>景区内有5座龙桥、9个龙亭，还有鲤鱼跃龙门、东海龙宫以及龙涎温泉、龙潭飞瀑、飞天索桥等以“龙”为主题的景观，令人惊叹。</p>
+							<img src="img/tl-3.jpeg" alt=""> 
+							<p>而最有名的莫过于高空索桥，悬于龙门峡谷之间，架在龙潭飞瀑之上，长108米，高100米，美景尽收眼底的同时，脚下则是万丈深渊，体会一次心惊胆战的感觉。</p>
+						</div>
+						<div>
+							<h3>◆ 浙西大草原</h3>
+							<img src="img/cy-1.jpeg" alt=""> 
+							<p>习惯了小桥流水的雅致，在南方看到这样一片自然生长的大草原数稀罕。</p>
+							<img src="img/cy-2.jpeg" alt=""> 
+							<p>浙西大草原，位于衢江区高家镇中央徐村，内有以千年古樟树为主题的神木公园，以溪流、草坪为背景，具有别样情趣的田园风光。</p>
+							<img src="img/cy-3.gif" alt=""> 
+							<p>这里也是电视剧《琅琊榜》《太平公主》的拍摄地，古朴原始的溪流和草原，经过镜头的拍摄和后期，嫣然多了塞外风情。</p>
+						</div>
+						<h2>- 舌尖上的衢江 -</h2>
+						<div>
+							<h3>◆ 岭洋渔村大坝鱼头</h3>
+							<img style="margin-bottom: 12px;" src="img/yt-1.gif" alt=""> 
+							<img src="img/yt-2.jpeg" alt=""> 
+							<p>和别的地方烹制的鱼头不同，岭洋渔村的大坝鱼头制作方法非常豪爽。不清洗不腌制，直接扔到大锅里加入调料，煮个四五十分钟，出来便是美味。鱼是水库上游的新鲜鱼，没有任何的土腥味~</p>
+						</div>
+						<div>
+							<h3>◆ 上方鸡蛋馃</h3>
+							<img style="margin-bottom: 12px;" src="img/jd-1.jpeg" alt=""> 
+							<img src="img/dd-2.jpeg" alt=""> 
+							<p>上方鸡蛋馃用肉馅和鸡蛋做成。手工擀好面皮后放入肉馅，加入一把小葱，裹成包子形状捏扁放入油锅里炸，将鸡蛋从上面的口中灌入，炸至两面金黄，外酥里嫩，味道历久弥新。</p>
+						</div>
+						<div>
+							<h3>◆ 双桥粉干</h3>
+							<img style="margin-bottom: 12px;" src="img/f-1.jpeg" alt=""> 
+							<img src="img/f-2.jpeg" alt=""> 
+							<p>双桥粉干玉白细腻，晶莹透亮，形状比普通的粉干要粗一些，久煮不断，口感软滑清香，令土生土长的衢州人百食不厌。</p>
+						</div>
+						<div>
+							<h3>◆ 杜泽桂花饼</h3>
+							<img style="margin-bottom: 12px;" src="img/gh-1.jpeg" alt=""> 
+							<img src="img/gh-2.jpeg" alt=""> 
+							<p>桂花饼是杜泽镇的一大特色食品，形状像是馒头，但里面是空心的，有桂花撒于其内，散发出浓郁的花香味。口感松脆，甜而不腻。</p>
+						</div>
+						<p style="margin: 36px 0 36px 0;">图片来源于网络，版权归原作者所有</p>
+					</div>
+					
+					<div class="fr txt-r">
+						<h3 style="color: #000;">攻略目录</h3>
+						<ul>
+							<li><h3 style="font-size: 16px; color: #333;">- 当地人才知道的衢江玩法 -</h3></li>
+							<li><a id="tiao-1" href="#">◆ 东坪村</a></li>
+							<li><a id="tiao-2" href="#">◆ 药王山</a></li>
+							<li><a id="tiao-3" href="#">◆ 天脊龙门</a></li>
+							<li><a id="tiao-4" href="#">◆ 浙西大草原</a></li>
+							<li><h3 style="font-size: 16px; color: #333;">- 舌尖上的衢江 -</h3></li>
+							<li><a id="tiao-5" href="#">◆ 岭洋渔村大坝鱼头</a></li>
+							<li><a id="tiao-6" href="#">◆ 上方鸡蛋馃</a></li>
+							<li><a id="tiao-7" href="#">◆ 双桥粉干</a></li>
+							<li><a id="tiao-8" href="#">◆ 杜泽桂花饼</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
+		<!--底部部分-->
+			<div class="container-btm">
+				<div class="txt-btm">
+					<ul class="fl btm-ul-1">
+						<li style=" margin-bottom:8px ;">全球旅游消费指南</li>
+						<li>覆盖全球200多个国家和地区</li>
+						<li><span>100,000,000</span> 位旅行者</li>
+						<li><span>920,000 </span>家国际酒店</li>
+						<li><span>21,000,000</span>条真实点评</li>
+						<li><span>382,000,000</span> 次攻略下载</li>
+						<li><span>中国旅游行业第一部“玩法”</span></li>
+					</ul>
+					<ul class="fl btm-ul-2">
+						<li style=" margin-bottom:8px ;">关于我们</li>
+						<li>
+							<a href="#">关于诗和远方</a>
+							<a href="#">联系我们</a>
+						</li>
+						
+						<li>
+							<a href="#">隐私政策</a>
+							<a href="#">商标声明</a>
+						</li>
+						
+						<li>
+							<a href="#">服务协议</a>
+							<a href="#">游记协议</a>
+						</li>
+						
+						<li><a href="#">商城平台服务协议</a></li>
+						<li><a href="#">网络信息侵权通知指引</a></li>
+						<li>
+							<a href="#">网站地图</a>
+							<a href="#"><span>加入诗和远方</span></a>
+						</li>
+					</ul>
+					<ul class="fl btm-ul-3">
+						<li style="text-align: center; margin-left:-22px ; margin-bottom:8px ;">旅行服务</li>
+						<li>
+							<a href="#">旅游攻略</a>
+							<a href="#">酒店预订</a>
+						</li>
+						<li>
+							<a href="#">旅游特价</a>
+							<a href="#">国际租车</a>
+						</li>
+						<li>
+							<a href="exchange.html">旅游问答</a>
+							<a href="insurance.html">旅游保险</a>
+						</li>
+						<li>
+							<a href="#">旅游指南</a>
+							<a href="#">订火车票</a>
+						</li>
+						<li>
+							<a href="#">旅游资讯</a>
+							<a href="#">APP下载</a>
+						</li>
+						<li><a href="#"><span>旅行商城全球商家入驻</span></a></li>
+					</ul>
+					<ul class="fr btm-ul-4"  style="margin-top:28px ; padding-left:24px ;">
+						<li class="fl">
+							<img src="img/123.gif"/>
+							<p style="width:80px; text-align: center;">诗和远方旅游订阅号</p>
+						</li>
+						<li class="fr">
+							<img src="img/456.png"/>
+							<p style="width:80px; text-align: center;">诗和远方良品官方服务号</p>
+						</li>
+					</ul>
+					<hr style="height: 1px; color: #fdfdfd;"/>
+				</div>
+			</div>
+		
+		
+		<!--点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical" style="display: none ;">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin"></i>
+			</span>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/background.js" ></script>
+	</body>
+</html>

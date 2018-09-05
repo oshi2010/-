@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="lib/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="lib/1-iconfont/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullPage.css"/>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/jquery.fullPage.min.js" ></script>
+		<script type="text/javascript" src="lib/vue.js" ></script>
+		<script type="text/javascript" src="lib/vue-resource.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color:white
+			}
+			.fl{
+				float: left;
+			}
+			.fr{
+				float: right;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			ul li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.nav-top{
+				width: 100%;
+				height: 834px;
+				position: relative;
+			}
+			#nav-t{
+				width: 100%;
+				height: 62px;
+				box-sizing: border-box;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translateX(-50%);	
+			}
+			#box{
+				position: relative;
+			}
+			#nav-t>ul>li>a{
+				color: #fff;
+				font-size:16px ;
+			}
+			#nav-t:hover a{
+				color: #000;
+			}
+			#nav-t:hover .nav-ul>li.active a{
+				color: #fff;
+			}
+			#nav-t:hover{
+				background: #fff;
+			}
+			.nav-top .nav-ul{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.nav-top .nav-ul>li{
+				float: left;
+				padding: 20px 18px;
+				box-sizing: border-box !important;	
+			}
+			#nav-t>.nav-ul li:hover a{
+				color: orange;
+				text-decoration: none;
+			}
+			.nav-top .nav-ul>li a{
+				color: #000;
+			}
+			#nav-t>.nav-ul>.active:hover a{
+				color: #fff !important;
+			}
+			#nav-t>.nav-ul>li.active{
+				background: orange;
+				color: #fff !important;
+			}
+			#ipt{
+				width:300px;
+				height:62px;
+				position: relative;
+			}
+			#ipt input[type="text"]{
+				width:75%;
+				height:36px;
+				border:1px solid burlywood;
+				text-indent: 2em;
+				border-right: none;
+				box-sizing: border-box;
+				outline: none;
+				position: absolute;
+				top: 13px;
+			}
+			#ipt input[type="button"]{
+				width: 25%;
+				height:36px;
+				border:1px solid burlywood;
+				outline: none;
+				box-sizing: border-box;
+				cursor: pointer;
+				color:#fff;
+				background: deepskyblue;
+				position: absolute;
+				top: 13px;
+				left: 75%;
+			}
+			#list{
+				width:288px;
+				position: absolute;
+				top:50px ;
+				border:1px solid transparent;
+				box-sizing: border-box;
+			}
+			#list li{
+				height:24px;
+				line-height: 24px;
+				padding-left: 24px;
+				background: #fff;
+				box-sizing: border-box;
+			}
+			#list li.active{
+				background: orange;
+			}
+			#list.bor{
+				border-color: burlywood;
+			}
+			
+			/*导航登录注册部分*/
+			#nav-t>.nav-ul>.r-li{
+				width: 200px;
+				height:62px;
+	            overflow:hidden;
+	            vertical-align:middle;
+				line-height: 62px;
+				padding: 0;
+				position: relative;
+				color: orange;
+			}
+			#nav-t>.nav-ul>.r-li>.dr{
+				display: inline-block; 
+				position: absolute; 
+				left:108px;
+				top: 0;
+			}
+			#nav-t>.nav-ul>.r-li a{
+				font-size:16px ;
+				color: orange;
+			}
+			#nav-t>.nav-ul>.r-li a:hover{
+				color: red;
+			}
+			/*下拉菜单*/
+			#nav-t .xiala{
+				position: absolute;
+				top: 60px;
+				border-radius:0 ;
+				border:#fff ;
+				background: white;
+			}	
+			#nav-t .xiala li a{
+				background-color: white;
+			}
+			#nav-t .xiala li{
+				height:32px;
+				line-height: 32px;
+				padding-left:24px ;
+			}
+			
+			#nav-t #xiala li a:hover{
+				color: orangered;
+				cursor: pointer;
+			}
+			#nav-t #xiala li :hover{
+				cursor: pointer;
+			}
+			#nav-t #xiala:hover{
+				background: #eee;
+			}
+			/*下拉菜单2*/
+			#xiala2 .xiala{
+				width:320px;
+				padding-top: 16px;
+			}
+			#xiala2:hover{
+				background: #eee;
+			}
+			#xiala2 .xl-left{
+				margin-left: -26px;
+				font-size:18px ;
+				color: #666;
+			}
+			#xiala2 .xl-left li{
+				margin-bottom:36px ;
+			}
+			#xiala2 .xl-right{
+				margin-right:42px;
+				margin-top:-34px ;
+			}
+			#xiala2 .xl-right li{
+				margin-bottom: 6px;
+			}
+			#xiala2 .xl-left>.active{
+				color: orange;
+			}
+			#xiala2 .xl-right>li:hover{
+				color: orange;
+				cursor: pointer;
+			}
+			#xiala2 .xl-left>li:hover{
+				color: orange;
+				cursor: pointer;
+			}
+
+			.aug-2018 h3{
+				display: inline-block;
+				color: white;
+			}
+			.aug-2018 h3:hover{
+				color: orange;
+			}
+			.aug-2018 .bor{
+				font-size: 34px;
+			}
+			.aug-2018{
+				position: absolute;
+				left: 900px;
+				top: 70px;
+			}
+			.nav-ul{
+				position: relative;
+			}
+			#huangbiaoti{
+				position: absolute;
+				left: -99px;
+				top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--导航部分-->
+		<div id="box">
+			<div class="nav-top">
+				<div class="aug-2018 ">
+					<h3><span class="bor">7</span>/Aug.2018</h3><br />
+					<h3>喜欢石塘的N个理由|过一个海盐味的夏天</h3>
+				</div>
+				<a href="#"><img src="img/3762-1.jpeg" style="height: 750px ;width: 100%;" ></a>
+				<nav id="nav-t" style=";">
+					<ul class="nav-ul" style="margin:0 auto;background:red;width: 1000px">
+						<li style="width: 100px;height:100%"><a href="#"><img src="img/login.png" style=";" id="huangbiaoti"/></a></li>
+						<li class="active"><a href="index.html">首页</a></li>
+						<li ><a href="destination.html">目的地</a></li>
+						<li><a href="strategy.html">旅游攻略</a></li>
+						<li id="xiala" class="dropdown">
+							<a data-toggle="dropdown" href="liberty.html">旅行商城<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li><a href="liberty.html">自由行</a></li>
+								<li><a href="#">跟团游</a></li>
+								<li><a href="localtion.html">当地游</a></li>
+								<li><a href="#">国内机票</a></li>
+								<li><a href="#">签证</a></li>
+								<li><a href="insurance.html">保险</a></li>
+							</ul>
+						</li>
+						<li><a href="#">酒店</a></li>
+						<li id="xiala2" class="dropdown">
+							<a data-toggle="dropdown" href="exchange.html">社区<span class="caret"></span></a>
+							<ul class="xiala dropdown-menu">
+								<li>
+									<ul class="fl xl-left">
+										<li ><a href="exchange.html">问答</a></li>
+										<li><a href="#">周边</a></li>
+										<li><a href="jub.html">俱乐部</a></li>
+										<li><a href="travel.html">结伴</a></li>
+									</ul>
+								</li>
+								<li>
+									<ul class="fr xl-right">
+										<li><a href="#">小组论坛</a></li>
+										<li><a href="#">分舵同城</a></li>
+										<li><a href="#">拍卖行</a></li>
+										<li><a href="detailed.html"r>照片PK</a></li>
+										<li><a href="#">真人兽</a></li>
+										<li><a href="#">照道具商城</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li id="xiala2" class="dropdown">
+							<a  href="../xzf/APP.html">APP</a>
+						</li>	
+						<li style="width:100px;"></li>
+						
+						<!--<li id="ipt" style="margin-right:24px ;">
+							<p class="clearfix">t
+								<input id="ss" type="text" @keydown.down="down()" @keydown.up.prevent="up()" @keyup="search()" @click="search()" v-model="msg" name="" id="" value="" />
+								<input  type="button"  value="搜 索"/>
+							</p>
+							<ul id="list" :class="{bor:flag}">
+								<li :class="{active:index==noIndex}" v-for="(item,index) in arr">{{item}}</li>
+							</ul>
+						</li>-->
+						<li class="r-li">
+							<a href="#" class="iconfont icon-xinlang1" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-qq2" style="font-size: 28px;"></a>
+							<a href="#" class="iconfont icon-weixin1" style="font-size: 28px;"></a>
+							<div class="dr">
+								<a href="login.html">登录</a>
+								<span>|</span>
+								<a href="register.html">注册</a>
+							</div>	
+						</li>	
+					</ul>
+				</nav>
+				<p id="xia" class="xiala-log"></p>
+			</div>	
+			
+			<!--旅行家专栏开始-->
+				<div style="height: 80px; width: 1100px;margin: 0 auto;" class="clearfix">
+					<div class="fl" style="height: 60px; line-height: 60px; font-size: 24px;color: orange;margin-right: 65px;">诗与远方专栏</div>
+					<div class="fl" style="height: 60px; line-height: 60px; font-size: 16px;color: orange;margin-right: 65px;">专栏首页</div>
+					<div class="fl" style="height: 60px; line-height: 60px; font-size: 24px;color: orange;margin-right: 65px;">爆款热卖</div>
+				</div>
+				<style>
+					#box-lvxinn{
+						width: 1100px;
+						margin: 0px auto;
+						height: 280px;
+					}
+					.box-lvxing{
+						width: 250px;
+						margin-right: 25px;
+					}
+
+					.box-lvxing img{
+						border-radius: 8px;
+					}
+					.box-lvxing img:hover{
+						transform:scale(1.2);
+						transition: all 0.5s ease-in-out;
+						border-radius: 35px;
+						border: 4px solid orange;
+					}
+					.box-lvxing:hover{
+						color: orange;
+					}
+				</style>
+				<div id="box-lvxinn" class="clearfix">
+					<div class="box-lvxing fl">
+						<p><img src="img/1520-10.jpeg" style="width: 250px;height: 200px;"/></p>
+						<p style="text-indent: 2em;">所有的房间只属于黑夜，黑夜给了我思绪万千的权利，对黑夜笑一笑，一切又平静下来</p>
+					</div>
+					<div class="box-lvxing fl">
+						<p><img src="img/1520-4.jpeg" alt=""  style="width: 250px;height: 200px;"/></p>
+						<p style="text-indent: 2em;">所有的房间只属于黑夜，黑夜给了我思绪万千的权利，对黑夜笑一笑，一切又平静下来</p>
+					</div>
+					<div class="box-lvxing fl">
+						<p><img src="img/1520-7.jpeg" style="width: 250px;height: 200px;"/></p>
+						<p style="text-indent: 2em;">所有的房间只属于黑夜，黑夜给了我思绪万千的权利，对黑夜笑一笑，一切又平静下来</p>
+					</div>
+					<div class="box-lvxing fl">
+						<p><img src="img/1520-2.jpeg" style="width: 250px;height: 200px;"/></p>
+						<p style="text-indent: 2em;">所有的房间只属于黑夜，黑夜给了我思绪万千的权利，对黑夜笑一笑，一切又平静下来</p>
+					</div>
+				</div>
+			<!--旅行家专栏结束-->
+			<style>
+		        .media-body p{
+		            font-size: 12px;
+		            margin-top: 10px;
+		        }
+		        .youji>span{
+		        	display: inline-block;
+		        	font-size: 24px;
+		        	color: orange;
+		        	margin-right: 80px;
+		        }
+				.media:hover{
+					background-color:orange;
+				}
+				.media{
+					padding: 10px;
+				}
+				.media-body:hover{
+					color: white;
+				}
+				.youji{
+					margin-top: 15px;
+				}
+		    </style>		
+			
+			
+			<style>
+				#heshang{
+					margin: 0 auto;
+					width: 1100px;
+
+				}
+				.heshang-box1{
+					width: 370px;
+					height:1045px;
+				}
+				.heshang-box2{
+					width: 710px;
+					height: 1045px;
+				}
+			</style>
+			<div id="heshang" class="clearfix">
+				<div class="heshang-box1 fl">
+					<div class="zuihuo">
+					<p style="font-size: 24px;height: 35px;line-height: 35px;color: orange;margin-top: 15px;">最新活动</p>
+					<hr style="width: 88%;"/>
+					<p><img src="img/123456789q.gif" style="width: 330px;height: 270px;border-radius: 10px;"/></p>
+					<p style="text-indent: 2em;font-size: 15px;color:#000000;width: 330px;">日本单次旅游签证(TOT商家无拒签+++拒一赔三+++日本使馆指定送签社+++可免机酒行程单+赠免税店优惠券+++1对1）</p>
+					<hr style="width: 88%;"/>
+					<p style="font-size: 24px; height: 25px;color: orange;" >加入诗与远方</p>
+					<p><img src="img/qwert.jpg" style="width: 330px; height: 270px; border-radius: 10px; margin-top: 15px;"/></p>
+					<hr style="width: 88%;"/>
+					<p  style="color:#000000;font-size: 14px; text-indent: 2em;" >广告销售经理</p>
+					<hr style="width: 88%;"/>
+					<p  style="color:#000000;font-size: 14px; text-indent: 2em;" >资深PHP开发工程师</p>
+					<hr style="width: 88%;"/>
+					<p 	style="color:#000000;font-size: 14px; text-indent: 2em;" >广告执行经理</p>
+					<hr style="width: 88%;"/>
+				</div>
+				</div>
+				<div class="heshang-box2 fl">
+					<div class="youji">
+		       			<span>热门游记</span>
+		       			<span class="fr"><button class="oranger" style="background: orange; color: white;border: none; width: 150px;height: 35px; line-height: 35px; border-radius: 8px;">写游记</button></span>
+		       		</div>
+		       		<hr />
+		       		<div class="media">
+		               <div class="media-left">
+		                   <a href="#">
+		                       <img class="media-object" src="img/1520-6.gif" style="width: 200px;height: 150px;">
+		                   </a>
+		               </div>
+		               <div class="media-body">
+		                   <h4 class="media-heading" > 燃遍东京的色彩。【东京旅行记】</h4>
+		                   <p style="font-size: 4px;text-indent: 3em;">2000年9月27日 13:14 </p>
+		                   <p style="font-size: 16px;text-indent: 2em;">
+		                   		【把记忆交给文字】一把蒲河，一袋绿茶，一勺白糖，一杯沸水，水雾中，仿若回到那个，
+		                   		异域的，古老的，浓郁的，属于长袍精灵的童话王国，摩洛哥。从摩洛哥回来后爱上薄荷茶。在...
+		                   </p>
+		               </div>
+		           </div>
+		           <div class="media">
+		               <div class="media-left">
+		                   <a href="#">
+		                       <img class="media-object" src="img/20.jpeg"  style="width: 200px;height: 150px;">
+		                   </a>
+		               </div>
+		               <div class="media-body">
+		                   <h4 class="media-heading">自由之旅。【韩国九日行记】</h4>
+		                    <p style="font-size: 4px;text-indent: 3em;">2000年9月27日 13:14 </p>
+		                   <p style="font-size: 16px;text-indent: 2em;">
+		                   		【把记忆交给文字】一把蒲河，一袋绿茶，一勺白糖，一杯沸水，水雾中，仿若回到那个，
+		                   		异域的，古老的，浓郁的，属于长袍精灵的童话王国，摩洛哥。从摩洛哥回来后爱上薄荷茶。在...
+		                   </p>
+		               </div>
+		           </div>
+		           <div class="media">
+		               <div class="media-left">
+		                   <a href="#">
+		                       <img class="media-object" src="img/152032132.jpeg"  style="width: 200px;height: 150px;">
+		                   </a>
+		               </div>
+		               <div class="media-body">
+		                   <h4 class="media-heading">那年春夏秋冬我都走过【普吉岛记】</h4>
+		                    <p style="font-size: 4px;text-indent: 3em;">2000年9月27日 13:14 </p>
+		                   <p style="font-size: 16px;text-indent: 2em;">
+		                   		【把记忆交给文字】一把蒲河，一袋绿茶，一勺白糖，一杯沸水，水雾中，仿若回到那个，
+		                   		异域的，古老的，浓郁的，属于长袍精灵的童话王国，摩洛哥。从摩洛哥回来后爱上薄荷茶。在...
+		                   </p>
+		               </div>
+		           </div>
+		           <div class="media">
+		               <div class="media-left">
+		                   <a href="#">
+		                       <img class="media-object" src="img/18.jpeg"  style="width: 200px;height: 150px;">
+		                   </a>
+		               </div>
+		               <div class="media-body">
+		                   <h4 class="media-heading">我在韩国的130天。【交换生的旅行记】</h4>
+		                    <p style="font-size: 4px;text-indent: 3em;">2000年9月27日 13:14 </p>
+		                   <p style="font-size: 16px;text-indent: 2em;">
+		                   		【把记忆交给文字】一把蒲河，一袋绿茶，一勺白糖，一杯沸水，水雾中，仿若回到那个，
+		                   		异域的，古老的，浓郁的，属于长袍精灵的童话王国，摩洛哥。从摩洛哥回来后爱上薄荷茶。在...
+		                   </p>
+		               </div>
+		           </div>
+		           
+		           <div class="media">
+		               <div class="media-left">
+		                   <a href="#">
+		                       <img class="media-object" src="img/11.jpeg"  style="width: 200px;height: 150px;">
+		                   </a>
+		               </div>
+		               <div class="media-body">
+		                   <h4 class="media-heading">长袍精灵的童话国度。【五月摩洛哥行记】</h4>
+		                   <p style="font-size: 4px;text-indent: 8em;">2000年9月27日 13:14 </p>
+		                   <p style="font-size: 16px; text-indent: 2em;">
+		                   		【把记忆交给文字】一把蒲河，一袋绿茶，一勺白糖，一杯沸水，水雾中，仿若回到那个，
+		                   		异域的，古老的，浓郁的，属于长袍精灵的童话王国，摩洛哥。从摩洛哥回来后爱上薄荷茶。在...
+		                   </p>
+		               </div>
+		           </div>
+				</div>
+				
+			</div>
+
+			
+			<style>
+			.gallery>div{
+				width:200*1.3px;
+				height:200*1.3px;
+				float:left;
+				overflow: hidden;
+				position: relative;
+				border-right:1px solid #fff;
+				border-bottom:1px solid #fff;
+				box-sizing: border-box;
+				transition:all .3s;
+			}
+			.gallery>div img{
+				/*居中显示的代码*/
+				width: 100%;
+				height: 100%;
+				position:absolute;
+				left:50%;
+				top:50%;
+				transform:translate(-50%,-50%);
+			}
+			.gallery .text{
+				position: absolute;
+				left:0;
+				bottom:0;
+				padding:20px 10px;
+				box-sizing: border-box;
+				background: rgba(255,255,255,0.3);
+				color:#fff;
+				transform:translateY(100%);
+				transition:all .5s .3s;
+				opacity: 0;
+			}
+			.gallery>div.active .text{
+				transform:translateY(0);
+				opacity: 1;
+			}
+			.gallery{
+				margin: 0 auto;
+			}
+			.text>h2{
+				color: orange;
+			}
+			.text>p{
+				color:  orange;
+			}
+			.zhanshi-box{
+				width: 1100px;
+				margin: 0 auto;
+			}
+			.zhanshi-box>p{
+				height: 45px;
+				display: inline-block;
+				font-size: 25px;
+				margin-right: 50px;
+				color: orange;
+			}
+			#zhanshi{
+				height: 800px;
+			}
+		</style>
+			<div id="zhanshi" >
+				<div class="zhanshi-box">
+					<p>旅客展示</p>
+					<hr />
+				</div>
+				<div class="gallery" id="gallery" >
+						<div>
+							<img src="img/image3.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image2.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image1.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image6.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image5.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image4.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image7.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image8.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image9.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image10.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image11.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image12.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image13.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image14.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image15.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image16.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image17.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image18.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image19.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+						<div>
+							<img src="img/image20.jpg" alt="" />
+							<div class="text">
+								<h2>诗与远方</h2>
+								<p>
+									云想衣裳花想容， 春风拂槛露华浓。若非群玉山头见， 会向瑶台月下逢。
+									 一枝红艳露凝香，云雨巫山枉断肠。借问汉宫谁得似？ 可怜飞燕倚新妆。
+									  名花倾国两相欢，长得君王带笑看。解释春风无限恨，沉香亭北倚阑干。
+								</p>
+							</div>
+						</div>
+					</div>
+					
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		<script>
+			var gallery = new XyGallery("gallery",{width:5,height:4});
+			function XyGallery(id,option){
+				var container = document.getElementById(id);
+				if(container.className.indexOf("gallery")==-1) container.className += " gallery";
+				var defaultOption = {
+					activeWidth:340*1.3,
+					activeHeight:400*1.3,
+					defaultWidth:130*1.3,
+					defaultHeight:40*1.3
+				}
+				option = Object.assign({},defaultOption,option);
+				if(!option.width) throw "width not defined!";
+				if(!option.height) throw "height not defined!";
+				if(option.width && option.height && option.width*option.height!=container.children.length) throw "width and height not match children length!";
+				var lastTime = new Date(0); 
+				var runId = 0;
+				//激活图片的方法
+				var activePicture = function(index){
+					//清除定时器
+					clearTimeout(runId);
+					//获取现在的时间
+					var currentTime = new Date();
+					//判断时间差是否小于.3s 如果小于让他执行.3s后继续操作
+					if(currentTime - lastTime < 300){
+						runId = setTimeout(function(){
+							activePicture(index);
+						},300);
+						return;//阻止后续代码执行
+					}
+					lastTime = currentTime;
+					//设置容器宽度
+					container.style.width = (option.width-1)*option.defaultWidth+option.activeWidth+"px";
+					//获取激活元素的对应下标
+					var cx = index%option.width;//0
+					var cy = Math.floor(index/option.width);//0
+					for(var y=0;y<option.height;y++){//4
+						for(var x=0;x<option.width;x++){//5
+							//获取每个div的元素
+							var cindex = y*option.width+x;
+							var item = container.children[cindex];
+							if(cx==x && cy==y){//如果为激活元素
+								item.className = "active";
+								item.style.width = option.activeWidth+"px";
+								item.style.height = option.activeHeight+"px";
+							}else if(cy==y){//如果与激活元素处于同一行
+								item.className = "";
+								item.style.width = option.defaultWidth+"px";
+								item.style.height = option.activeHeight+"px";
+							}else if(cx==x){//如果与激活元素处于同一列
+								item.className = "";
+								item.style.width = option.activeWidth+"px";
+								item.style.height = option.defaultHeight+"px";
+							}else{
+								item.className = "";
+								item.style.width = option.defaultWidth+"px";
+								item.style.height = option.defaultHeight+"px";
+							}
+						}
+					}
+				}
+				//调用激活的方法
+				activePicture(0);//激活下标为0的图片 0
+				//鼠标移入图片的时候，对应图片会激活
+				Array.prototype.forEach.call(container.children,function(item,index){
+					//mouseover   mouseout
+					//mouseenter  mouseleave
+					item.addEventListener("mouseenter",function(){
+						activePicture(index);
+					})
+				});
+				return {
+					active:activePicture
+				};
+			}
+		</script>
+			</div>
+		</div>
+
+		
+		<script>
+				var vm = new Vue({
+				el:"#ipt",
+				data:{
+					arr:[],
+					flag:false,
+					msg:"",
+					noIndex:-1,
+				},
+				methods:{
+					search:function(){
+						this.$http.jsonp(url,{params:{wd:this.msg},jsonp:"cb"}).then(function(res){
+							this.arr = res.data.s;
+							if(this.arr.length>0){
+								this.flag=true;
+							}else{
+								this.flag=false;
+							}
+						},function(){
+							alert("请求失败！")
+						})
+					},
+					//鼠标按住下键时
+					down:function(){
+						this.noIndex++;
+						if(this.noIndex>this.arr.length-1){
+							this.noIndex = 0;
+						}
+					},
+					//键盘按住时
+					up:function(){
+						this.noIndex--;
+						if(this.noIndex<0){
+							this.noIndex = this.arr.length-1;
+						}
+					},
+				},		
+			});
+			//下拉菜单
+			$("#xiala").hover(function(){
+				$(".xiala").eq(0).fadeIn().show();
+			},function(){
+				$(".xiala").eq(0).hide()
+			});
+			//下拉菜单2
+			$("#xiala2").hover(function(){
+				$(".xiala").eq(1).fadeIn().show();
+			},function(){
+				$(".xiala").eq(1).hide()
+			})
+			//选项卡切换JQ
+			$("#remen .on").hover(function(){
+					//console.log($(this).index());
+					var $i = $(this).index();
+					$(this).siblings().removeClass("active");
+					$(this).addClass("active");
+					var i = $i/2;
+					//console.log(i)
+					$(".col").eq(i).siblings().css("display","none");
+					$(".col").eq(i).css("display","block")
+			})
+
+		/*瀑布流效果*/
+		</script>
+		<script type="text/javascript" src="lib/data.js" ></script>
+		<script>
+			$(function(){
+				var $wrap = $('#wrap');
+				var $li = $("#wrap li");
+				var index = -1;
+				//动态显示图片
+				function show(num){
+					index++;//0
+					var $div = createDiv(index);//创建div
+					if(!$div) return;
+					var i = getShort();//获取需要追加在li的最小的索引
+					$div.fadeIn(1000);//让div淡入一下
+					$li.eq(i).append($div);//在最小索引的li上面追加div
+					var $oImg = $div.find("img");//获取div里面的img对象（jquery）
+					$oImg.load(function(){//图片加载完毕的时候
+						if(index<num){//与num进行比较，如果不满足递归执行函数
+							show(num);
+						}
+					});
+				}
+				show(10);//调用显示图片的方法
+				//获取最小的索引
+				function getShort(){
+					var minIndex = 0;
+					var minLiHeight = $li.eq(0).height();
+					for(var i=1;i<$li.length;i++){
+						var otherLiHeight = $li.eq(i).height();
+						if(otherLiHeight<minLiHeight){
+							minLiHeight = otherLiHeight;
+							minIndex = i;
+						}
+					}
+					return minIndex;
+				}
+						
+				//创建div元素
+				function createDiv(index){
+					if(imgData[index]){
+						var divDom = "<div class='detail'>"						+
+						"<div class='imgbox'>"+
+						"<a href='#'><img src='"+imgData[index].src+"' alt='' /></a>"+
+						"<div class='timebox'>"+
+						"<a href='#' class='dec'>"+imgData[index].dec+"<p>"+imgData[index].time+"</p></a>"+
+						"</div>"+
+						"</div>"+
+						"</div>";
+						return $(divDom);
+					}
+				}
+			});
+
+
+		</script>
+		
+		<!--底部开始-->
+		<style>
+			#dididi{
+				height:620px;
+				background-color:#3c3c3c;
+			}
+			.dididi{
+				width: 1100px;
+				margin: 0 auto;
+				padding: 50px;
+			}
+			.dididi-dl{
+				height: 155px;
+				margin-right: 130px;
+			}
+			.bianse{
+				color: orange;
+			}
+		</style>
+		<div id="dididi">
+			<div class="dididi">
+				<dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">全球旅游消费指南 </dt>
+			        <dd style="color: white;">覆盖全球200多个国家和地区</dd>
+			        <dd><strong><span class="bianse">100,000,000</span></strong> <span style="color: white;">位旅行者</span></dd>
+			        <dd><strong><span class="bianse">920,000</span></strong> <span style="color: white;">家国际酒店</span></dd>
+			        <dd><strong><span class="bianse">21,000,000</span></strong> <span style="color: white;">条真实点评</span></dd>
+			        <dd><strong><span class="bianse"class="bianse">382,000,000</span></strong> <span style="color: white;">次攻略下载</span></dd></dd>
+			        <dd><span><a href="#" class="bianse">中国旅游行业第一部“玩法”</a></span></dd>
+			    </dl>
+			    <dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">关于我们</dt>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">关于马蜂窝</a><a href="#" style="color: white;">联系我们</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">隐私政策</a><a href="#" style="color: white;">商标声明</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">服务协议</a><a href="#" style="color: white;">游记协议</a></dd>
+			        <dd><a href="#" style="color: white;">商城平台服务协议</a></dd>
+			        <dd><a href="#" style="color: white;">网络信息侵权通知指引</a></dd>
+			        <dd><a href="#" style="margin-right: 18px;color: white;">网站地图</a><span ><a href="#" class="bianse">加入诗与远方</a></span></dd>
+			    </dl>
+			    <dl class="dididi-dl fl">
+			        <dt style="margin-bottom: 5px; color: white;">旅行服务</dt>
+			        <dd>
+			            	<dd><a href="#" style="margin-right: 18px;color: white;">旅游攻略</a><a href="#" style="color: white;">酒店预订</a></dd>
+							<dd><a href="#" style="margin-right: 18px;color: white;">旅游特价</a><a href="#" style="color: white;">国际租车</a></dd>
+			               	<dd><a href="#" style="margin-right: 18px;color: white;">旅游问答</a><a href="#" style="color: white;">旅游保险</a></dd>
+			                <dd><a href="#" style="margin-right: 18px;color: white;">旅游指南</a><a href="#" style="color: white;">订火车票</a></dd>
+			                <dd><a href="#" style="margin-right: 18px;color: white;">旅游资讯</a><a href="#" style="color: white;">APP下载</a></dd>
+			                <dd><span ><a href="#" class="bianse">旅行商城全球商家入驻</a></span></dd>
+			        </dd>
+			    </dl>
+			    <div class="fenseerweima" >
+			    	<span><img src="img/1520878379.jpeg.png" style="width: 120px; height: 120px; margin-bottom: 5px;"/></span>
+					<p style="color: orange;">【诗与远方订阅号】</p>
+			    </div>
+			</div>
+			<div style="width: 1000px; margin: 0 auto;height: 70px;">
+		    	<p style="text-align: center; color: orange;font-size:18px;">向崇尚自由的加勒比海盗致敬！</p>
+		    </div>
+		    <div style="width: 1000px; margin: 0 auto;"><hr /></div>
+		    <div style="width: 1000px; margin: 0 auto;" id="leilei">
+		    	<style>
+		    		#leilei span{
+		    			margin-right: 14px;
+		    			color: white;
+		    		}
+		    	</style>
+		    	<span>马可波罗</span>
+		    	<span>Onlylady女人志</span>
+		    	<span>艺龙旅游指南</span>
+		    	<span>欣欣旅游网</span>
+		    	<span>户外运动</span>
+		    	<span>360音乐</span>
+		    	<span>旅游网</span>
+		    	<span>小说网</span>
+		    	<span>学习啦</span>
+		    	<span>游多多</span>
+		    	<span>问答</span>
+		    	<span>火车时刻表</span>
+		    	<span>驴妈妈旅游网</span>
+		    	<span>靖江旅游</span>
+		    	<span>YunOs</span>
+		    	<span>携程旅游</span>
+		    	<span>火车票</span>
+		    	<span>天气预报</span>
+		    	<span>上海地图</span>
+		    	<span>手机浏览器</span>
+		    	<span>SUV联合越野</span>
+		    	<span>图吧</span>
+		    	<span>途牛旅游</span>
+		    	<span>绿野户外</span>
+		    	<span>二手车</span>
+		    	<span>好豆</span>
+		    	<span>美食网</span>
+		    	<span>TripAdvisor</span>
+		    	<span>天巡网</span>
+		    	<span>租租车</span>
+		    	<span>短租房</span>
+		    	<span>五分旅游网</span>
+		    	<span>爱旅行</span>
+		    	<span>酒店预订</span>
+		    	<span>旅游网</span>
+		    	<span>wed114结婚网</span>
+		    	<span>车讯网</span>
+		    	<span>遨游旅游</span>
+		    	<span>手机</span>
+		    	<span>更多友情链接>>></span>
+		    </div>
+		    <div style="width:950px; margin: 0 auto;"><hr /></div>
+		    <div style="width: 1000px; margin: 0 auto;" id="wanwanchengcheng">
+		    	<style>
+		    		#wanwanchengcheng p{
+		    			text-align: center;
+		    			color: white;
+		    		}
+		    	</style>
+		    	<p>
+		    		@2018Madengwo.cn京ICP备11015476号&nbsp;&nbsp;&nbsp;
+		    		京公网安备11010502013401号京ICP证110318号&nbsp;&nbsp;&nbsp;
+		    		网络出版服务许可证：(总)网出证(京)字第131号
+		    	</p>
+		    	<p>
+		    		增值电信业务经营许可证：京B2-20180228&nbsp;&nbsp;&nbsp;营业执照&nbsp;&nbsp;&nbsp;帮助中心&nbsp;&nbsp;&nbsp;诗与远方客服：
+		    		国内&nbsp;&nbsp;&nbsp;<span style="color: orange;">4006-345-678</span>&nbsp;&nbsp;&nbsp;海外&nbsp;&nbsp;&nbsp; <span style="color: orange;">+86-10-5922-2799</span>
+		    	</p>
+		    </div>
+		    <div style="width: 1000px; margin: 0 auto;margin-top: 15px;">
+		    	<p style="text-align: center;"><img src="img/niubi.png"/></p>
+		    </div>	
+		</div>
+		<!--底部结束-->
+		
+	</body>
+</html>

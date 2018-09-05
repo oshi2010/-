@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>云南景点</title>
+		<link rel="stylesheet" type="text/css" href="css/ynScene.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css"/>
+		<link rel="stylesheet" href="lib/1-iconfont/iconfont.css" />
+		<script src="lib/jquery-1.12.3.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+		<script src="lib/jquery.lazyload.min.js"></script>
+		<script src="lib/vue.js"></script>
+		<script src="lib/vue-resource.js"></script>
+	</head>
+	<body>
+	
+		<!--头部-->
+		<div id="header">
+			<div class="syyf-header " style="margin: 5px auto;">
+				<div class="box fl">
+					<a href="index.html">
+						<img src="img/login.png" alt="诗与远方" title="诗与远方" />
+					</a>
+				</div>
+				<!--头部导航-->
+				<div class="header-list fl">
+					<a href="index.html" class="fl" >首页</a>
+					<a href="destination.html" class="fl active" >目的地</a>
+					<a href="strategy.html" class="fl" >旅游攻略</a>
+					<a href="liberty.html"  class=" fl ">商城
+						<i class="iconfont icon-xiala"></i>
+					</a>
+					<a href="#" class="fl" >酒店</a>
+					<a href="exchange.html" class="fl community-nav" >社区<i class="iconfont icon-xiala"></i></a>
+					<div class="community no" >
+                        <div class="panel-wrapper">
+                            <ul class="nav-list clearfix fl">
+                                <li class="h"><a href="exchange.html" target="_blank" title="问答" data-cs-p="wenda">问答<i class="iconfont icon-hot"></i></a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/things.php" target="_blank" title="马蜂窝周边" data-cs-p="things">周边<i class="iconfont icon-new"></i></a></li>
+                                <li><a href="jub.html" target="_blank" title="蜂首俱乐部" data-cs-p="club">蜂首俱乐部</a></li>
+                                <li><a href="travel.html" target="_blank" title="结伴" data-cs-p="together">结伴</a></li>
+                            </ul>
+                            <ul class="nav-list-sub clearfix fr">
+                                <li><a href="http://www.mafengwo.cn/group/" target="_blank" title="马蜂窝旅行家" data-cs-p="group">小组论坛</a></li>
+                                <li><a href="http://www.mafengwo.cn/rudder/" target="_blank" title="分舵同城" data-cs-p="rudder">分舵同城</a></li>
+                                <li><a href="http://www.mafengwo.cn/auction/" target="_blank" title="马蜂窝拍卖行" data-cs-p="paimai">拍卖行</a></li>
+                                <li><a href="http://www.mafengwo.cn/postal/" target="_blank" title="游记纪念工厂" data-cs-p="postal">游记纪念工厂</a></li>
+                                <li><a href="detailed.html" target="_blank" title="照片PK" data-cs-p="photo_pk">照片PK</a></li>
+                                <li><a href="http://www.mafengwo.cn/focus/" target="_blank" title="真人兽" data-cs-p="focus">真人兽</a></li>
+                                <li><a href="http://www.mafengwo.cn/mall/virtual_goods.php" target="_blank" title="道具商店" data-cs-p="virtual">道具商店</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+				
+				<!--搜索-->
+				<div class="search ">
+					<div class="input-group " >
+						<input type="text" class="form-control"  @click="searA()" v-model="msgA"/>
+						<span class="input-group-addon iconfont icon-search"></span>
+						<div class="search-list">
+							
+						</div>
+						
+					</div>
+				</div>
+			
+				<!--登录-->
+				<div class="login fr">
+					<a href="#" class="ico">
+						<span class="iconfont icon-xinlang1"></span>
+					</a>
+					<a href="#"  class="ico">	
+						<span class="iconfont icon-qq2"></span>
+					</a>
+					<a href="#"  class="ico">
+						<span class="iconfont icon-weixin"></span></a>
+					<a href="login.html">
+					 	<span>登录</span>
+					</a>
+					<span>|</span>
+					<a href="register.html">
+						<span>注册</span>
+					</a>
+				</div>
+			</div>
+			<div class="shadow "></div>
+			<div class="content container" >
+				<div class="con-path clearfix">
+					<ul>
+						<li class="fl"><a href="destination.html">目的地</a></li>
+						<i class="iconfont icon-fanyedajiantou-you fl"></i>
+						<li class="fl">
+							<a href="#">中国</a>
+							<i class="iconfont icon-xiala"></i>
+						</li class="fl">
+						<i class="iconfont icon-fanyedajiantou-you fl"></i>
+						<li class="fl">
+							<a href="#">云南</a>
+							<i class="iconfont icon-xiala"></i>
+						</li class="fl">
+						<i class="iconfont icon-fanyedajiantou-you fl"></i>
+						<li class="fl"><a href="#">云南景点</a></li>
+					</ul>
+				</div>
+				<div class="con-nav ">
+					<a href="#" style="border-bottom:0 solid #6A4504;">
+						<i class="iconfont icon-ziliao-copy" style="color:#6A4504;"></i>
+						<span>首页</span>
+					</a>
+					<a href="#" style="border-bottom:0 solid #6159EE;">
+						<i class="iconfont icon-luxian2" style="color:#6159EE;"></i>
+						<span>玩法路线</span>
+					</a>
+					<a href="#" class="" style="position: relative;">
+						<i class="iconfont icon-mudedi" style="color:#0066CC;"></i>
+						<span>目的地</span>
+						<i class="iconfont icon-youxiajiao"></i>
+						<!--<div class="xia">
+							<a href="#">热门城市</a>
+							<a href="#">餐饮</a>
+							<a href="#">购物</a>
+							<a href="#">娱乐</a>
+						</div>-->
+					</a>
+					<a href="#" style="border-bottom:0 solid #008000;">
+						<i class="iconfont icon-jiudian1" style="color:#008000;"></i>
+						<span>酒店</span>
+					</a>
+					<a href="#" style="border-bottom:0 solid #FD6B24;">
+						<i class="iconfont icon-youhuijingqu" style="color:#FD6B24;" ></i>
+						<span>当地玩乐</span>
+						<i class="iconfont icon-youxiajiao"></i>
+						<!--<div class="xia">
+							<a href="#">门票</a>
+							<a href="#">一日游</a>
+							<a href="#">多日游</a>
+							<a href="#">酒店套餐</a>
+						</div>-->
+					</a>
+					<a href="#" style="border-bottom:0 solid greenyellow;">
+						<i class="iconfont icon-jipiaoyewu" style="color:greenyellow;"></i>
+						<span>特价机票</span>
+						<i class="iconfont icon-youxiajiao"></i>
+						<!--<div>
+							<a href="#">机+酒</a>
+							<a href="#">半自由行</a>
+							<a href="#">机票</a>
+							<a href="#">旅游保险</a>
+						</div>-->
+					</a>
+					<a href="#" style="border-bottom:0 solid #BF2462;">
+						<i class="iconfont icon-shequhudong " style="color:#BF2462;"></i>
+						<span>社区</span>
+						<i class="iconfont icon-youxiajiao"></i>
+						<!--<div>
+							<a href="#">游记</a>
+							<a href="#">行程</a>
+							<a href="#">问答</a>
+						</div>-->
+					</a>
+					<a href="#" style="border-bottom:0 solid#F4E0A8;">
+						<i class="iconfont icon-gonglve" style="color:#F4E0A8;"></i>
+						<span>攻略</span>
+					</a>
+					<a href="#" style="border-bottom:0 solid #795DA3;">
+						<i class="iconfont icon-luxian1" style="color:#795DA3;"></i>
+						<span>地图</span>
+					</a>
+					
+				</div>
+			</div>
+			<div class="summarize">
+				<div class="sum-box content">
+					<h2>景观概述</h2>
+					<div>
+                        <p style="display: block;">彩云之南，这里有希尔顿书中的香巴拉，有洛克眼中的世外桃源，有藏族人心中神圣的梅里雪山，这里四季花长开，景色四季不同，高山、湖泊、花海、雪山、梯田、各种事物组成了这里最美的风景。
+ 
+						<a href="lijiang.html">云南主要旅游地</a>
+						昆明
+						云南省的省会，四季...<a class="bt-qie" style="color:#ff9d00;">展开全部</a></p>
+						                        <span id="mdd_poi_desc" style="display: none;">彩云之南，这里有希尔顿书中的香巴拉，有洛克眼中的世外桃源，有藏族人心中神圣的梅里雪山，这里四季花长开，景色四季不同，高山、湖泊、花海、雪山、梯田、各种事物组成了这里最美的风景。<br>
+						 <br>
+						<a href="lijiang.html">云南主要旅游地</a><br>
+						昆明<br>
+						云南省的省会，四季如春，风景优美，著名的滇池碧波渺渺，登山西山俯瞰，整个滇池尽收眼底，每年春天，圆通山、云南大学等地的樱花落樱缤纷，无数西伯利亚飞来的红嘴鸥在昆明上空徘徊，人们纷纷前往翠湖公园观赏这些美丽的精灵。<br>
+						主要景点：东川红土地、滇池、西山、大观楼、金殿、官渡古镇、翠湖公园、圆通山、云南大学、民族村、世博园<br>
+						昆明推荐景点 &gt; <br>
+						 <br>
+						<a href="lijiang.html">丽江</a><br>
+						这座历史悠久的古镇有着很多风景名胜，是纳西族人的主要聚居地，动人的纳西古乐、灵动温婉的玉龙雪山、美丽的束河、徒步天堂虎跳峡都在这里，也是中国著名古镇之一。<br>
+						主要景点：大研古镇、束河、虎跳峡、玉龙雪山、宝山石头城、老君山等<br>
+						<a href="../xzf/lijiang.html">丽江</a>推荐景点 &gt;<br>
+						 <br>
+						大理（白族自治州）<br>
+						是云南最早文化的发祥地，有着辉煌灿烂的历史和文化，主要为白族聚居地，风花雪月是大理著名四景，洱海、苍山、双廊、喜洲是必游之地，另外还有、崇圣寺、蝴蝶泉等著名景点。<br>
+						主要景点：洱海、苍山、大理影视城、喜洲、双廊、诺邓古镇、巍山古城、鸡足山、沙溪古镇、崇圣寺、蝴蝶泉等<br>
+						大理推荐景点 &gt;<br>
+						 <br>
+						西双版纳（傣族自治州）<br>
+						一个具有着亚热带风情的地方，是孔雀和大象的故乡，也是傣家人的聚集地，这里有神秘的热带雨林和众多佛寺，多情美丽的傣家少女和热情洋溢的民俗节日。<br>
+						主要景点：植物园、热带雨林谷、望天树、基诺山寨、野象谷等<br>
+						西双版纳推荐景点 &gt;<br>
+						迪庆藏族自治州（香格里拉）<br>
+						这里是希尔顿眼中的世外桃源，也是朝拜圣地，徒步天堂，藏族人的聚居地。神圣的梅里雪山、美丽的鲜花和高山草甸都会让你深深的爱上这里。<br>
+						主要景点：梅里雪山、松赞林寺、雨崩等<br>
+						香格里拉推荐景点 &gt;<br>
+						 <br>
+						红河（哈尼族彝族自治州）<br>
+						这里最著名的要数哈尼族人创造的梯田，元阳梯田是中国著名的梯田之一，是摄影爱好者的天堂。<br>
+						主要景点：元阳梯田、建水古镇、泸西阿庐古洞、大围山等<br>
+						 <br>
+						曲靖<br>
+						曲靖是古代爨文化的发祥地，罗平油菜花全国著名，另外还有珠江源、爨龙颜碑、千佛塔、罗平多依河、九龙瀑布群、鲁布革风景区等。<br>
+						其他景点：陆良彩色沙林、会泽万亩草山、爨宝子碑、段氏与三十七部会盟碑等<br>
+						 <br>
+						玉溪<br>
+						玉溪是聂耳的故乡，著名的红塔集团也在这里，玉溪境内有抚仙湖、阳宗海、映月潭等景点。<br>
+						其他景点： 锦屏山、杞麓湖、普光寺、哀牢山等<br>
+						 <br>
+						保山<br>
+						保山最著名景点是腾冲，这里有着丰富的火山、地热资源和悠久的历史文化，和顺也是历史名镇，有侨乡的美誉<br>
+						主要景点：腾冲、和顺、固东镇银杏林、博南古道、 金鸡古镇、玉佛寺等</span>
+                    </div>
+				</div>
+			</div>
+		
+		</div>
+		<div id="container">
+			<div class="ctn-must container">
+				<h2 class="title">必游景点TOP5</h2>
+           	 	<div class="item clearfix">
+                	<div class="info ">
+                        <div class="middle ">
+                            <h4>
+                                <span class="num">1</span>
+                                <a href="/poi/1494.html" target="_blank" title="泸沽湖">泸沽湖</a>
+                                <a href="/poi/1494.html" target="_blank" title="泸沽湖">
+                                    <span class="rev-total "><em>5756</em> 条点评</span>
+                                </a>
+                            </h4>
+                            <p>泸沽湖古称鲁窟海子，被称为“神奇的东方女儿国”。 湖边的居民主要为摩梭人，也有部分纳西族人，摩梭人至今仍然保留着母系氏族婚姻制度。</p>
+                            <div class="links">这里还包含景点：
+                                <a href="/poi/5745910.html" target="_blank">博凹岛</a>
+                                <a href="/ poi/7007254.html" target="_blank">情人滩</a>
+                                <a href="/poi/7007256.html" target="_blank">大落水村</a>
+                                <a href="/poi/7730117.html" target="_blank">里务比岛</a>
+                                <a href="/poi/628.html" target="_blank">格姆女神山</a>
+                                <a href="/poi/7646379.html" target="_blank">花楼恋歌</a>
+                                <a href="/poi/630.html" target="_blank">泸沽湖观景台</a>
+                                <a href="/poi/635.html" target="_blank">草海</a>
+                                <a href="/poi/3575.html" target="_blank">里格岛</a>
+                                <a href="/poi/3588.html" target="_blank">赵家湾(女神湾)</a>
+                                <a href="/poi/19387.html" target="_blank">泸沽湖镇(左所镇)</a>
+                                <a href="/poi/19389.html" target="_blank">小洛水</a>
+                                <a href="/poi/19421.html" target="_blank">走婚桥</a>
+                                <a href="/poi/19434.html" target="_blank">里务比寺</a>
+                                <a href="/poi/19456.html" target="_blank">尼赛村(里色村)</a>
+                                <a href="/poi/19466.html" target="_blank">泸源崖</a>
+                                <a href="/poi/19425.html" target="_blank">好人小吃</a>
+                                <a href="/poi/7080081.html" target="_blank">赵哥老字号</a>
+                                <a href="/poi/6945653.html" target="_blank">馋嘴馆</a>
+                                <a href="/poi/3667.html" target="_blank">里格岛扎西家</a>
+                                <a href="/poi/26006375.html" target="_blank">食光饱盒私房餐厅</a>
+                            </div>
+            			</div>
+                    </div>
+                    <div class="pic">
+                        <a href="/poi/1494.html" target="_blank" title="泸沽湖">
+                            <div class="large">
+                                <img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s5/M00/A6/DC/wKgB3FF2eN-ABcy7ABChbKHc9gk06.jpeg?imageMogr2%2Fthumbnail%2F%21380x270r%2Fgravity%2FCenter%2Fcrop%2F%21380x270%2Fquality%2F100" width="380" height="270">
+                            </div>
+                            <div>
+                                <img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s5/M00/1B/40/wKgB3FD9_06AZWAYAAFztI3byXE13.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                            </div>
+                            <div>
+                                <img src="img/lazyload.gif"class="lazy" data-original="http://p1-q.mafengwo.net/s8/M00/DC/37/wKgBpVUh7xuAWYq9AAcMyMur1FU67.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                    <div class="item clearfix">
+                        <div class="info">
+                            <div class="middle">
+                                <h4>
+                                    <span class="num">2</span>
+                                    <a href="lijiang.html" target="_blank" title="丽江千古情景区">丽江千古情景区
+                                                                            </a><a href="/poi/8475541.html" target="_blank" title="丽江千古情景区">
+                                            <span class="rev-total"><em>697</em> 条点评</span>
+                                        </a>
+                                                                    </h4>
+                                <p></p>
+                                                            </div>
+                        </div>
+                        <div class="pic">
+                            <a href="lijiang.html" target="_blank" title="丽江千古情景区">
+                                                                                                            <div class="large">
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s11/M00/C7/FE/wKgBEFqftiqARQDEADjC29l5ZJI91.jpeg?imageMogr2%2Fthumbnail%2F%21380x270r%2Fgravity%2FCenter%2Fcrop%2F%21380x270%2Fquality%2F100" width="380" height="270">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n4-q.mafengwo.net/s7/M00/A8/69/wKgB6lQWqm2AJWt3AAP9bcwTDI020.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s6/M00/24/82/wKgB4lMC9vOAZhDmAABF1rqE12w74.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                </a>
+                        </div>
+                    </div>
+                                    <div class="item clearfix">
+                        <div class="info">
+                            <div class="middle">
+                                <h4>
+                                    <span class="num">3</span>
+                                    <a href="lijiang.html" target="_blank" title="丽江古城">丽江古城
+                                                                            </a><a href="/poi/5430915.html" target="_blank" title="丽江古城">
+                                            <span class="rev-total"><em>10453</em> 条点评</span>
+                                        </a>
+                                                                    </h4>
+                                <p></p>
+                                                                    <div class="links">这里还包含景点：
+                                                                                                                    <a href="/poi/5431713.html" target="_blank">大水车</a>
+                                                                                                                    <a href="/poi/7103048.html" target="_blank">丽江四方街</a>
+                                                                                                                    <a href="/poi/5427047.html" target="_blank">大研纳西古乐会</a>
+                                                                                                                    <a href="/poi/5428906.html" target="_blank">狮子山</a>
+                                                                                                                    <a href="/poi/184167.html" target="_blank">丽宁十八弯观景台</a>
+                                                                                                                    <a href="/poi/1480.html" target="_blank">木府</a>
+                                                                                                                    <a href="/poi/2993.html" target="_blank">丽水金沙表演</a>
+                                                                                                                    <a href="/poi/1481.html" target="_blank">万古楼</a>
+                                                                                                                    <a href="/poi/19575.html" target="_blank">官门口</a>
+                                                                                                                    <a href="/poi/4149190.html" target="_blank">白马龙潭寺</a>
+                                                                                                                    <a href="/poi/4149329.html" target="_blank">白龙文化广场</a>
+                                                                                                                    <a href="/poi/5428988.html" target="_blank">丽江金塔景区</a>
+                                                                                                                    <a href="/poi/34026976.html" target="_blank">石莲古寺</a>
+                                                                                                                    <a href="/poi/5434542.html" target="_blank">普济寺</a>
+                                                                                                                    <a href="/poi/4156546.html" target="_blank">双石公园</a>
+                                                                                                                    <a href="/poi/4167984.html" target="_blank">丽江市市政广场</a>
+                                                                                                                    <a href="/poi/4208488.html" target="_blank">方国瑜故居</a>
+                                                                                                                    <a href="/poi/6819499.html" target="_blank">东巴观景台</a>
+                                                                                                                    <a href="/poi/10835.html" target="_blank">文昌宫(狮山路)</a>
+                                                                                                                    <a href="/poi/184053.html" target="_blank">普贤寺</a>
+                                                                                                                    <a href="/poi/4153871.html" target="_blank">玉河广场</a>
+                                                                                                                </div>
+                                                            </div>
+                        </div>
+                        <div class="pic">
+                            <a href="/poi/5430915.html" target="_blank" title="丽江古城">
+                                                                                                            <div class="large">
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s5/M00/BF/3B/wKgB3FFuGt2AaZkbAAa9V_96uas42.jpeg?imageMogr2%2Fthumbnail%2F%21380x270r%2Fgravity%2FCenter%2Fcrop%2F%21380x270%2Fquality%2F100" width="380" height="270">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s7/M00/E8/52/wKgB6lQFfuGAZ8n1ABPKprAiY7c47.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s7/M00/3D/E7/wKgB6lTqssqAOYDfAAzt4441CFw47.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                </a>
+                        </div>
+                    </div>
+                                    <div class="item clearfix">
+                        <div class="info">
+                            <div class="middle">
+                                <h4>
+                                    <span class="num">4</span>
+                                    <a href="/poi/956.html" target="_blank" title="洱海">洱海
+                                                                            </a><a href="/poi/956.html" target="_blank" title="洱海">
+                                            <span class="rev-total"><em>6714</em> 条点评</span>
+                                        </a>
+                                                                    </h4>
+                                <p>大理“风花雪月”四景之一，蓝天绿水，云淡风轻，是个适合发呆的惬意之地。</p>
+                                                                    <div class="links">这里还包含景点：
+                                                                                                                    <a href="/poi/5427239.html" target="_blank">洱海游船</a>
+                                                                                                                    <a href="/poi/6817822.html" target="_blank">洱海公园</a>
+                                                                                                                    <a href="/poi/4215493.html" target="_blank">洱海门</a>
+                                                                                                                    <a href="/poi/5427961.html" target="_blank">大理洱海鱼鹰驯化基地</a>
+                                                                                                                    <a href="/poi/9009807.html" target="_blank">洱海月湿地公园(装修中)</a>
+                                                                                                                    <a href="/poi/17043.html" target="_blank">大理古城</a>
+                                                                                                                    <a href="/poi/18067.html" target="_blank">苍山</a>
+                                                                                                                    <a href="/poi/5426333.html" target="_blank">天龙八部影视城</a>
+                                                                                                                    <a href="/poi/17845.html" target="_blank">太和城遗址</a>
+                                                                                                                    <a href="/poi/4208217.html" target="_blank">下关码头</a>
+                                                                                                                    <a href="/poi/8506791.html" target="_blank">上关花风景区</a>
+                                                                        </div>
+                                                            </div>
+                        </div>
+                        <div class="pic">
+                            <a href="/poi/956.html" target="_blank" title="洱海">
+                                                                                                            <div class="large">
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s7/M00/79/3A/wKgB6lSoP1GAMiArAB3lLGJg43o03.jpeg?imageMogr2%2Fthumbnail%2F%21380x270r%2Fgravity%2FCenter%2Fcrop%2F%21380x270%2Fquality%2F100" width="380" height="270">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p1-q.mafengwo.net/s7/M00/7F/05/wKgB6lRu1DaAJu4zAAuscBkGrEA31.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b4-q.mafengwo.net/s6/M00/89/56/wKgB4lOnt6GAcgADAA1pDaKbVdQ42.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                </a>
+                        </div>
+                    </div>
+                                    <div class="item clearfix">
+                        <div class="info">
+                            <div class="middle">
+                                <h4>
+                                    <span class="num">5</span>
+                                    <a href="/poi/1492.html" target="_blank" title="玉龙雪山">玉龙雪山
+                                                                            </a><a href="/poi/1492.html" target="_blank" title="玉龙雪山">
+                                            <span class="rev-total"><em>5422</em> 条点评</span>
+                                        </a>
+                                                                    </h4>
+                                <p>纳西人心中的神山，主峰扇子陡海拔5596米，常年在云雾缠绕之中，是一座未被征服的处女峰。玉龙雪山是离赤道最近的雪山群，也是北半球最南端的大雪山。</p>
+                                                                    <div class="links">这里还包含景点：
+                                                                                                                    <a href="/poi/8749308.html" target="_blank">玉龙雪山大索道</a>
+                                                                                                                    <a href="/poi/6706309.html" target="_blank">雪嵩村</a>
+                                                                                                                    <a href="/poi/3003.html" target="_blank">玉水寨</a>
+                                                                                                                    <a href="/poi/19607.html" target="_blank">蓝月谷</a>
+                                                                                                                    <a href="/poi/2995.html" target="_blank">甘海子</a>
+                                                                                                                    <a href="/poi/3000.html" target="_blank">冰川公园</a>
+                                                                                                                    <a href="/poi/18141.html" target="_blank">云杉坪(殉情谷)</a>
+                                                                                                                    <a href="/poi/23092.html" target="_blank">牦牛坪景区</a>
+                                                                                                                    <a href="/poi/81207.html" target="_blank">白水河</a>
+                                                                                                                    <a href="/poi/33812800.html" target="_blank">扇子陡</a>
+                                                                                                                    <a href="/poi/5429261.html" target="_blank">文笔山风景区</a>
+                                                                                                                    <a href="/poi/7689212.html" target="_blank">猎鹰谷景区</a>
+                                                                                                                    <a href="/poi/1483.html" target="_blank">东巴谷景区</a>
+                                                                        </div>
+                                                            </div>
+                        </div>
+                        <div class="pic">
+                            <a href="/poi/1492.html" target="_blank" title="玉龙雪山">
+                                                                                                            <div class="large">
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s7/M00/60/2F/wKgB6lPp4ZSAdG08AEc6YNGGwiI82.jpeg?imageMogr2%2Fthumbnail%2F%21380x270r%2Fgravity%2FCenter%2Fcrop%2F%21380x270%2Fquality%2F100" width="380" height="270">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s8/M00/C2/71/wKgBpVVywL6ARZnkAAXnTsdx1_I24.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                                                                <div>
+                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s6/M00/1D/46/wKgB4lOjIBeAJL1-ABsKvY0KId483.jpeg?imageMogr2%2Fthumbnail%2F%21185x130r%2Fgravity%2FCenter%2Fcrop%2F%21185x130%2Fquality%2F100" width="185" height="130">
+                                        </div>
+                                                                                                </a>
+                        </div>
+                    </div>
+                            
+			</div>
+			<div class="ctn-hot  ">
+				<div class="wrapper container" style="">
+                	<h2 class="title">热门景点</h2>
+               		<div class="bd">
+                       	<div class="grid grid-two ">
+                            <div class="figure">
+                                <a href="/poi/1486.html" target="_blank" title="束河古镇">
+                                    <img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s10/M00/54/3A/wKgBZ1ovdgaATv2XAALatYdJbG059.jpeg?imageMogr2%2Fthumbnail%2F%21485x320r%2Fgravity%2FCenter%2Fcrop%2F%21485x320%2Fquality%2F100" width="485" height="320">
+                                    <h4 class="title">束河古镇</h4>
+                                    <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>束河古镇</h4>
+                                                <p>与丽江古城相比，这里更加幽静</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid ">
+                            <div class="figure">
+                                <a href="/poi/3110.html" target="_blank" title="普达措国家公园">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b4-q.mafengwo.net/s6/M00/44/39/wKgB4lNSe7-AMFj-ACeZW11IlgQ77.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">普达措国家公园</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>普达措国家公园</h4>
+                                                <p>世界自然遗产“三江并流”风景区的重要组成部分。中国政府确立的第一个国家公园，一年四季景色各不相同，是摄影爱好者的天堂。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                                                                                                                                                                                                    <div class="figure">
+                                <a href="/poi/3111.html" target="_blank" title="噶丹·松赞林寺">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b2-q.mafengwo.net/s6/M00/38/72/wKgB4lOoR4aAAqBlAAqT2NyV2jM91.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">噶丹·松赞林寺</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>噶丹·松赞林寺</h4>
+                                                <p>松赞林寺的外形与西藏的布达拉宫很相似，有“小布达拉宫”之称，也是是云南藏传佛教的首要寺庙。 每年藏历12月26-29日，藏民会在此举行以“跳神”为主的格冬节。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                             </div>
+                                                                                                                                                                                                             <div class="grid">
+                                                                                    <div class="figure">
+                                <a href="/poi/17386.html" target="_blank" title="双廊">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s5/M00/08/05/wKgB3FEvEs-ATrIeAAPsyHnmXgo27.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">双廊</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>双廊</h4>
+                                                <p>双廊古称“栓廊”，临苍山、洱海。因门迎碧波洱海，远眺苍山十九峰，集苍洱风光之精华，素有“大理风光在苍洱，苍洱风光在双廊”的美誉</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                                                                                                                                                                                                    <div class="figure">
+                                <a href="/poi/1558.html" target="_blank" title="翠湖公园">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b3-q.mafengwo.net/s5/M00/59/06/wKgB3FE1vY6AfD8KAChrebElEqs88.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">翠湖公园</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>翠湖公园</h4>
+                                                <p>素以“翠堤春晓”闻名四方，被誉为镶嵌在昆明城的“绿宝石”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                             </div>
+                                                                                                                                                                                                             <div class="grid">
+                                                                                    <div class="figure">
+                                <a href="/poi/947.html" target="_blank" title="崇圣寺三塔">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s5/M00/F3/DB/wKgB3FGnfH6AIZHUAAFxOU8NHR881.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">崇圣寺三塔</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>崇圣寺三塔</h4>
+                                                <p>东对洱海，西靠苍山，大理历史上首个规模最为宏大的古刹，佛教盛行大理的见证</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                                                                                                                                                                                                    <div class="figure">
+                                <a href="/poi/19779.html" target="_blank" title="滇池">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s5/M00/89/66/wKgB3FEiW-2Ac7X-ABZVwlBGDrc93.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">滇池</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>滇池</h4>
+                                                <p>昆明的灵魂，昆明简称“滇”也是来源于此，周围景色绝美，不可错过</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                             </div>
+                                                                                                                                                                            <div class="grid grid-two">
+                                                            <div class="figure">
+                                <a href="/poi/5528658.html" target="_blank" title="拉市海湿地公园">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p3-q.mafengwo.net/s5/M00/B9/29/wKgB3FFCl5KAfVwvAARbx09KHzg37.jpeg?imageMogr2%2Fthumbnail%2F%21485x320r%2Fgravity%2FCenter%2Fcrop%2F%21485x320%2Fquality%2F100" width="485" height="320">
+                                        <h4 class="title">拉市海湿地公园</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>拉市海湿地公园</h4>
+                                                <p>丽江境内最大的高原湖泊，每年都会有3万只水鸟来此过冬</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                            </div>
+                                                                                                                                                                                 <div class="grid">
+                                                                                    <div class="figure">
+                                <a href="lijiang.html" target="_blank" title="云南">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://b3-q.mafengwo.net/s7/M00/D3/EC/wKgB6lT2_7CADxOFAAkfwtWf23w98.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title"><a href="lijiang.html">云南</a></h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4><a href="lijiang.html">云南</a></h4>
+                                                <p>校园里可爱的小松鼠，秋天的银杏大道，春日里的樱花，都让云大更加漂亮</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                                                                                                                                                                                                    <div class="figure">
+                                <a href="/poi/17848.html" target="_blank" title="纳帕海">
+                                                                            <img src="img/lazyload.gif"class="lazy" data-original="http://p3-q.mafengwo.net/s5/M00/A4/1C/wKgB3FDvuzCAb7_MAAW9MqBUAcQ77.jpeg?imageMogr2%2Fthumbnail%2F%21242x155r%2Fgravity%2FCenter%2Fcrop%2F%21242x155%2Fquality%2F100" width="242" height="155">
+                                        <h4 class="title">纳帕海</h4>
+                                                                        <div class="mask-container">
+                                        <div class="mask">
+                                            <div class="middle">
+                                                <h4>纳帕海</h4>
+                                                <p>滇西北最大的春季牧场，四季景色各不相同</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                                                             </div>
+                                                                                        </div>
+            </div>
+			</div>
+			<div class="ctn-all container">
+				<div class="wrapper">
+                <h2 class="title"> 云南全部景点
+                    <a class="btn-add" href="/poi/add.php?iId=12711" target="_blank" title="推荐新的景点"><i>+</i>推荐新的景点</a>
+                </h2>
+                <ul class="nav clearfix">
+                    <li class="active"><a title="全部景点">全部景点</a></li>
+                    <li data-tagid="27956"><a title="徒步游">徒步游</a></li>
+                    <li data-tagid="27953"><a title="镜头美景">镜头美景</a></li>
+                    <li data-tagid="28070"><a title="杂志风景">杂志风景</a></li>
+            	</ul>
+                <div class="bd">
+                    <ul class="scenic-list clearfix" style="display: block;">  
+                    	<li>
+					        <a href="/poi/1494.html" target="_blank" title="泸沽湖">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s5/M00/A6/DC/wKgB3FF2eN-ABcy7ABChbKHc9gk06.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>泸沽湖</h4>
+					        </a>
+						</li>
+					    <li>
+					        <a href="/poi/8475541.html" target="_blank" title="丽江千古情景区">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s11/M00/C7/FE/wKgBEFqftiqARQDEADjC29l5ZJI91.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>丽江千古情景区</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/5430915.html" target="_blank" title="丽江古城">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s5/M00/BF/3B/wKgB3FFuGt2AaZkbAAa9V_96uas42.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>丽江古城</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/956.html" target="_blank" title="洱海">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s7/M00/79/3A/wKgB6lSoP1GAMiArAB3lLGJg43o03.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>洱海</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/17043.html" target="_blank" title="大理古城">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s7/M00/53/AC/wKgB6lTwOY2ASPZqAA1MzaAVrZ053.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>大理古城</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/1492.html" target="_blank" title="玉龙雪山">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s7/M00/60/2F/wKgB6lPp4ZSAdG08AEc6YNGGwiI82.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>玉龙雪山</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/1486.html" target="_blank" title="束河古镇">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s10/M00/54/3A/wKgBZ1ovdgaATv2XAALatYdJbG059.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>束河古镇</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/3110.html" target="_blank" title="普达措国家公园">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b4-q.mafengwo.net/s6/M00/44/39/wKgB4lNSe7-AMFj-ACeZW11IlgQ77.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>普达措国家公园</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/3111.html" target="_blank" title="噶丹·松赞林寺">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b2-q.mafengwo.net/s6/M00/38/72/wKgB4lOoR4aAAqBlAAqT2NyV2jM91.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>噶丹·松赞林寺</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/19607.html" target="_blank" title="蓝月谷">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b3-q.mafengwo.net/s5/M00/A7/CD/wKgB3FC9kP6AZzFcAAGn5uoeib004.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>蓝月谷</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/17386.html" target="_blank" title="双廊">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s5/M00/08/05/wKgB3FEvEs-ATrIeAAPsyHnmXgo27.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>双廊</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/1558.html" target="_blank" title="翠湖公园">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b3-q.mafengwo.net/s5/M00/59/06/wKgB3FE1vY6AfD8KAChrebElEqs88.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>翠湖公园</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/947.html" target="_blank" title="崇圣寺三塔">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s5/M00/F3/DB/wKgB3FGnfH6AIZHUAAFxOU8NHR881.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>崇圣寺三塔</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/18067.html" target="_blank" title="苍山">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p1-q.mafengwo.net/s7/M00/56/48/wKgB6lQSqFiAL_QGAAPQVg2BmmU13.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>苍山</h4>
+					        </a>
+					
+					    </li>
+					    <li>
+					        <a href="/poi/19779.html" target="_blank" title="滇池">
+					            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n2-q.mafengwo.net/s5/M00/89/66/wKgB3FEiW-2Ac7X-ABZVwlBGDrc93.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+					            <h4>滇池</h4>
+					        </a>
+					
+					    </li>
+					</ul>
+                	<ul class="scenic-list clearfix">    <li>
+        <a href="/poi/2628.html" target="_blank" title="虎跳峡">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s5/M00/2A/15/wKgB3FEGB7CAEl14AAGFgPtr5sU63.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>虎跳峡</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6327930.html" target="_blank" title="梅里雪山">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n4-q.mafengwo.net/s5/M00/DC/7E/wKgB3FGLd6yAOv6fAAFa2fIseJI42.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>梅里雪山</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/2664.html" target="_blank" title="雨崩村">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s6/M00/79/46/wKgB4lLbunmATEj3ABdHVaA8zmg54.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>雨崩村</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/5436557.html" target="_blank" title="昆明轿子雪山风景区">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b2-q.mafengwo.net/s5/M00/BE/02/wKgB3FDoLdqAdpFjABJWVRRfMCo46.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>昆明轿子雪山风景区</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/5429877.html" target="_blank" title="丙中洛">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p1-q.mafengwo.net/s5/M00/DC/5F/wKgB3FEu1P6AZmm4AAhld8YqCFE99.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>丙中洛</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6628789.html" target="_blank" title="高黎贡山国家级自然保护区">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s7/M00/C7/18/wKgB6lS1S5eAfLxcAADZ_dcVYW831.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>高黎贡山国家级自然保护区</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/3006.html" target="_blank" title="老君山">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s5/M00/BC/38/wKgB3FFCnIWAUf1xAAQYyIUV2CA39.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>老君山</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/3008.html" target="_blank" title="宝山石头城">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s2/M00/79/CE/wKgBpU44vjbtqiRBAAE-dQmhUyo31.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>宝山石头城</h4>
+        </a>
+
+    </li>
+</ul>
+                	<ul class="scenic-list clearfix">    <li>
+        <a href="/poi/3110.html" target="_blank" title="普达措国家公园">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b4-q.mafengwo.net/s6/M00/44/39/wKgB4lNSe7-AMFj-ACeZW11IlgQ77.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>普达措国家公园</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6327930.html" target="_blank" title="梅里雪山">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n4-q.mafengwo.net/s5/M00/DC/7E/wKgB3FGLd6yAOv6fAAFa2fIseJI42.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>梅里雪山</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/3124.html" target="_blank" title="东川红土地景区">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n3-q.mafengwo.net/s7/M00/26/CB/wKgB6lS_eEqAGrofAArm6iwtAUI885.png?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>东川红土地景区</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/18308.html" target="_blank" title="元阳梯田">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n1-q.mafengwo.net/s7/M00/8A/56/wKgB6lTAafWAbIpZAAuu-WJln-A836.png?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>元阳梯田</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/3004.html" target="_blank" title="长江第一湾">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s7/M00/C0/23/wKgB6lTQlXSABAqmAAefdWVMMJ462.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>长江第一湾</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6326431.html" target="_blank" title="金鸡峰丛">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p4-q.mafengwo.net/s6/M00/0E/DB/wKgB4lKJ-HyAUpooAAqupSN0VhM50.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>金鸡峰丛</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/18550.html" target="_blank" title="元谋土林">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p3-q.mafengwo.net/s5/M00/5C/C0/wKgB3FG9fRyAYnZcAAcL9cx5yJQ89.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>元谋土林</h4>
+        </a>
+
+    </li>
+</ul>
+               		<ul class="scenic-list clearfix">    <li>
+        <a href="/poi/5430915.html" target="_blank" title="丽江古城">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://b1-q.mafengwo.net/s5/M00/BF/3B/wKgB3FFuGt2AaZkbAAa9V_96uas42.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>丽江古城</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/2628.html" target="_blank" title="虎跳峡">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s5/M00/2A/15/wKgB3FEGB7CAEl14AAGFgPtr5sU63.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>虎跳峡</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6327930.html" target="_blank" title="梅里雪山">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n4-q.mafengwo.net/s5/M00/DC/7E/wKgB3FGLd6yAOv6fAAFa2fIseJI42.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>梅里雪山</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/6326432.html" target="_blank" title="九龙瀑布群">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s7/M00/88/86/wKgB6lT1oC-ASweLAAgphPEcM6Q04.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>九龙瀑布群</h4>
+        </a>
+
+    </li>
+    <li>
+        <a href="/poi/5429869.html" target="_blank" title="怒江大峡谷">
+            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://n1-q.mafengwo.net/s5/M00/D9/F7/wKgB3FEu0MGAMHhEAAfk2JmDtoo73.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+            <h4>怒江大峡谷</h4>
+        </a>
+
+    </li>
+				    <li>
+				        <a href="/poi/6407632.html" target="_blank" title="白马雪山高山杜鹃林">
+				            <div class="img"><img src="img/lazyload.gif"class="lazy" data-original="http://p2-q.mafengwo.net/s5/M00/78/3C/wKgB3FIMoC6AbWPeAAKGwg3RlWw75.jpeg?imageMogr2%2Fthumbnail%2F%21192x130r%2Fgravity%2FCenter%2Fcrop%2F%21192x130%2Fquality%2F100" width="192" height="130"></div>
+				            <h4>白马雪山高山杜鹃林</h4>
+				        </a>
+				
+				    </li>
+				</ul>
+	<div style="width: 1000px; background:#E6E6E6  ;padding-bottom: 30px;" class="clearfix">
+		
+	
+		<h2 style="text-align: center; color: #A6A6A6;">云南风光</h2>
+		<div class="gallery" id="gallery" style="margin: 10px auto;">
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=1883094276,3763909423&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=4202582624,122825471&fm=27&gp=0.jpg" alt="" /></div>
+			<div>
+				<img src="http://img1.imgtn.bdimg.com/it/u=3792571150,2922418675&fm=27&gp=0.jpg	" alt="" />
+			</div>
+			<div>
+				<img src="http://img5.imgtn.bdimg.com/it/u=946097757,1281537968&fm=27&gp=0.jpg" alt="" />
+			</div>
+			<div>
+				<img src="http://img4.imgtn.bdimg.com/it/u=724803861,2696598619&fm=27&gp=0.jpg" alt="" />
+				
+			</div>
+			<div><img src="http://img4.imgtn.bdimg.com/it/u=2607363054,776066818&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img5.imgtn.bdimg.com/it/u=362405936,2146417917&fm=27&gp=0.jpg" alt="" /></div>
+			<div>
+				<img src="http://img3.imgtn.bdimg.com/it/u=1141358414,2452065571&fm=27&gp=0.jpg" alt="" />
+				
+			</div>
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=3264978693,788475300&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=1292970263,3421032986&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img4.imgtn.bdimg.com/it/u=1251912236,4120176276&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img5.imgtn.bdimg.com/it/u=4164345500,2090258695&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img0.imgtn.bdimg.com/it/u=3675674922,1438471480&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=501812420,4089766175&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img5.imgtn.bdimg.com/it/u=88361517,4196559902&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img5.imgtn.bdimg.com/it/u=2899349153,2838384370&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img1.imgtn.bdimg.com/it/u=1516447733,3336593568&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img2.imgtn.bdimg.com/it/u=414534608,2187322662&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img2.imgtn.bdimg.com/it/u=757591992,2214386168&fm=27&gp=0.jpg" alt="" /></div>
+			<div><img src="http://img3.imgtn.bdimg.com/it/u=439565537,1364356180&fm=27&gp=0.jpg" alt="" /></div>
+		</div>
+		
+		
+				      </div>              	
+                </div>
+                
+            
+		<!--底部-->
+		<div style="background:#A6A6A6;">	
+			<footer id="footer">
+				<div class="ft-content">
+					<div class="ft-info clearfix">
+					    <dl class="ft-info-col ft-info-intro fl">
+					        <dt>全球旅游消费指南 </dt>
+					        <dd>覆盖全球200多个国家和地区</dd>
+					        <dd><strong>100,000,000</strong> 位旅行者</dd>
+					        <dd><strong>920,000</strong> 家国际酒店</dd>
+					        <dd><strong>21,000,000</strong> 条真实点评</dd>
+					        <dd><strong>382,000,000</strong> 次攻略下载</dd>
+					        <dd><a class="highlight" href="http://www.mafengwo.cn/activity/sales_report2017/index" target="_blank">中国旅游行业第一部“玩法”</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-about fl">
+					        <dt>关于我们</dt>
+					        <dd><a href="http://www.mafengwo.cn/s/about.html" rel="nofollow">关于马蜂窝</a><a href="http://www.mafengwo.cn/s/contact.html" class="m_l_10" rel="nofollow">联系我们</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/private.html" rel="nofollow">隐私政策</a><a href="http://www.mafengwo.cn/s/logo.html" rel="nofollow" class="m_l_10">商标声明</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/agreement.html" rel="nofollow">服务协议</a><a href="http://www.mafengwo.cn/s/rules.html" rel="nofollow" class="m_l_10">游记协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/salesagreement.html" rel="nofollow">商城平台服务协议</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/property.html" rel="nofollow">网络信息侵权通知指引</a></dd>
+					        <dd><a href="http://www.mafengwo.cn/s/sitemap.html" target="_blank">网站地图</a><a class="joinus highlight m_l_10" title="马蜂窝团队招聘" target="_blank" href="http://www.mafengwo.cn/s/hr.html" rel="nofollow">加入马蜂窝</a></dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-service fl" >
+					        <dt>旅行服务</dt>
+					        <dd>
+					            <ul class="clearfix">
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/gonglve/">旅游攻略</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/hotel/">酒店预订</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/sales/">旅游特价</a></li>
+					                <li class="fr"><a target="_blank" href="http://zuche.mafengwo.cn/">国际租车</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/wenda/">旅游问答</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/insure/">旅游保险</a></li>
+					                <li class="fl"><a target="_blank" href="http://z.mafengwo.cn">旅游指南</a></li>
+					                <li class="fr"> <a target="_blank" href="http://huoche.mafengwo.cn">订火车票</a></li>
+					                <li class="fl"><a target="_blank" href="http://www.mafengwo.cn/travel-news/">旅游资讯</a></li>
+					                <li class="fr"><a target="_blank" href="http://www.mafengwo.cn/app/intro/gonglve.php">APP下载</a></li>
+					                <li style="width: 120px;"><a target="_blank" href="http://www.mafengwo.cn/sales/alliance.php" class="highlight">旅行商城全球商家入驻</a></li>
+					            </ul>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-col ft-info-qrcode fl">
+					        <dd class="fl">
+					            <span class="ft-qrcode-tejia"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>诗与远方良品<br>官方服务号</p>
+					        </dd>
+					        <dd class="fl">
+					            <span class="ft-qrcode-weixin"><img src="img/fetch_qrcode_rec.jpg"/></span>
+					            <p>诗与远方旅游<br>订阅号</p>
+					        </dd>
+					    </dl>
+					    <dl class="ft-info-social" >
+					        <dt>向崇尚自由的加勒比海盗致敬！</dt>
+					        <dd>
+					            <a class="ft-social-weibo" target="_blank" href="http://weibo.com/mafengwovip" rel="nofollow"><i class="iconfont icon-xinlang"></i></a>
+					            <a class="ft-social-qqt" target="_blank" href="http://t.qq.com/mafengwovip" rel="nofollow"><i class="iconfont icon-weixin"></i></a>
+					            <a class="ft-social-qzone" target="_blank" href="http://1213600479.qzone.qq.com/" rel="nofollow"><i class="iconfont icon-qq"></i></a>
+					        </dd>
+					    </dl>
+					</div>
+					<div class="ft-copyright">
+					    <div class="ft-safety">
+					        <a class="s-a" target="_blank" href="https://search.szfw.org/cert/l/CX20140627008255008321" id="___szfw_logo___"></a>
+					        <a class="s-b" href="https://ss.knet.cn/verifyseal.dll?sn=e130816110100420286o93000000&amp;ct=df&amp;a=1&amp;pa=787189" target="_blank" rel="nofollow"></a>
+					        <a class="s-c" href="http://www.itrust.org.cn/Home/Index/itrust_certifi/wm/1669928206.html" target="_blank" rel="nofollow"></a>
+					    </div>
+					    <a href="http://www.mafengwo.cn"><i class="ft-mfw-logo"></i></a>
+					    <p>© 2018 Mafengwo.cn <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank"><img src="http://images.mafengwo.net/images/footer/police_record.png" width="12" style="margin:0 2px 4px 0;">京公网安备11010502013401号</a> <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a></p>
+					    <p><a href="http://images.mafengwo.net/images/about/licence_3.jpg" target="_blank" rel="nofollow">营业执照</a><span class="m_l_10"><a href="https://m.mafengwo.cn/im/feedback/" target="_blank" rel="nofollow">帮助中心</a></span><span class="m_l_10">马蜂窝客服：国内</span><span class="highlight">4006-345-678</span><span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		
+		<!--这个置顶是基于jq  写的  所用的话请先引入-->
+		<!--点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fl">
+							<p class="edu-img edu-img1"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step1"></span>
+								<span class="left">登录QQ彩贝<br>返利商城</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img2"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step2"></span>
+								<span class="left">去商家购物，免注册、<br>逾300家认证商家</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img3"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step3"></span>
+								<span class="left">完成交易<br>商家核对订单</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img4"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step4"></span>
+								<span class="left">订单核对有效<br>彩贝到账</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin"></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fr">
+							<img src="img/list_wx_qr_code.jpg" alt="" />
+						</li>
+					</ul>
+				</div>	
+			</span>
+		</div>
+		<script>
+			
+		</script>
+	</body>
+</html>
+<script src="js/ynScene.js"></script>

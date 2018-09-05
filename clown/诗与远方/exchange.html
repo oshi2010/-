@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>社区-问答</title>
+		<link rel="stylesheet" href="css/exchange.css" />
+		
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/1-iconfont/iconfont.css"/>
+		<script src="lib/jquery-1.12.3.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+		<script src="lib/vue.js"></script>
+		<style>
+			.clearfix:after{
+				content:"";
+				float: none;
+				clear: both;
+			}
+		</style>
+	
+	</head>
+	<body>
+		
+		<!--头部开始-->
+		<header id="header">
+			<div class="header-box container">	
+				
+					<a class="fl "><img style="width: 100%;" src="img/login.png" alt="" /></a>
+					<ul class="header-nav fl ">
+						<li><a href="index.html">首页</a></li>
+						<li><a href="exchange.html">问答</a></li>
+						<li><a href="#">周边</a></li>
+						<li><a href="travel.html">结伴</a></li>
+						<li><a href="#">小组</a></li>
+						<li><a href="jub.html">俱乐部</a></li>
+						<li>
+							<a href="#">更多</a>
+							<i class="iconfont icon-xiala">
+								<div class="nav-list">
+									<a href="#" target="_blank">真人兽</a>
+		                            <a href="#" target="_blank">高校</a>
+		                            <a href="detailed.html" target="_blank">照片PK</a>
+		                            <a href="#" target="_blank">拍卖行</a>
+		                            <a href="#" target="_blank">道具商店</a>
+		                            <a href="#" target="_blank">旅行电台</a>
+		                            <a href="#" target="_blank">聚乐部</a>
+		                            <a href="#" target="_blank">VIP</a>
+		                            <a href="#" target="_blank">分歧终端机</a>
+		                        </div>
+							</i>
+						</li>
+						
+					</ul>
+					<div class="header-search fl ">
+						
+						<input  type="text" name="搜索" id="search" value="" />
+						<label for="search" >
+							<i class="iconfont icon-search"></i>
+						</label>
+						
+					</div>
+					<div class="header-login  fr">
+						<a href="login.html">登录</a>
+						<a href="register.html">注册</a>
+						<a href="#"class="iconfont icon-weixin1">
+							<img src="img/fetch_qrcode_rec.jpg" alt="" />
+						</a>
+						<a href="#"class="iconfont icon-qq2"></a>
+						<a href="#" class="iconfont icon-xinlang1"></a>
+					</div>
+				
+			</div>
+		</header>
+		<!--正文开始-->
+		<article id="container" class="container clearfix">
+			<section id="ctn-section" class="fl clearfix" >
+				<nav class="ctn-nav ">
+					<div class="ctn-nav-l fl">
+						<ul>
+							<li class="fl"><a href="#">问答首页</a></li>
+							<li class="fl">
+								<a  href="#">我的问答</a>
+								<i class="iconfont icon-xiala"></i>
+								<div class="nav-list">
+									<a href="#" target="_blank">我的提问</a>
+		                            <a href="#" target="_blank">我的回答</a>
+		                            <a href="#" target="_blank">为我推荐的提问</a>
+								</div>
+							</li>
+							<li class="fl"><a href="#">指路人</a></li>
+							<li class="fl"><a href="#">商店</a></li>
+						</ul>
+					</div>
+					<div class="ctn-nav-r fr">
+						<a class="iconfont icon-wenda" href="#">手机问答</a>
+						<span>|</span>
+						<a class="iconfont icon-wenda1" href="#">查看如何使用</a>
+					</div>
+				</nav>
+				<!--正文搜索栏-->
+				<div class="ctn-search">
+					<input class="" type="text" placeholder="提问前请先搜索，问题是否已被解决"/>
+					<label >
+						<i class="iconfont icon-search "></i>
+					</label>
+				</div>
+				
+				<!--正文选项卡-->
+				<div class="ctn-tab clearfix">
+					<ul>
+						<li class="fl">热点问题</li>
+						<li class="fl">最新问题</li>
+						<li class="fl">待回答</li>
+					</ul>
+					<div class="tab tab-1 clearfix">
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">什么样的肉夹馍算是正宗的肉夹馍？去西安怎么找到正宗肉夹馍？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/20.jpg"/>
+								<h5 class="d-user fl">
+									<a href="">三师弟</a>
+									<a href="">LV.13</a>
+								</h5>
+								<div class="intro fl">
+									<img src="img/10.jpg"  class="fl"/>
+									<p class="fl">当然是充满着入口即化的碎肉块和烤到香脆的馍。肉要用汤煮，陈汤，年代愈久味愈醇色愈佳。白吉馍用半发酵面制成，和面时加些清油，醒面要醒足半小时。陕西人把做饼叫“打馍”，一家正经卖肉夹馍的铺子就是靠师傅手工打馍。这是绝对的功夫活，讲究一气呵成。</p>
+									<div class="intro-mark">
+										<span class="mark">西安</span>
+										<span class="mark">西安美食</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【1】</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">旅行中如何拍出一些超有创意的照片？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/13.png"/>
+								<h5 class="d-user fl">
+									<a href="">Kris陈小瑞</a>
+									<a href="">LV.13</a>
+								</h5>
+								<div class="intro fl">
+									<img src="img/12.jpeg"  class="fl"/>
+									<p class="fl">颜值不够怎么办，道具来凑！技术不够怎么办，审美来凑！我一直相信，摄影拼的不是技术，不是相机和镜头，而且审美和用心。怎么样可以拍出好玩又创新的照片，一直是我不断在追求和学习的。我去俄罗斯看过极光，去埃及的红海深潜过，去印尼爬过火山，去撒哈拉沙漠...</p>
+									<div class="intro-mark">
+										<span class="mark">南京</span>
+										<span class="mark">自驾</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【3】</span>
+									</div>
+								</div>
+							</section>
+						</div>	
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">明天要去天津，请问什么样的煎饼果子最正宗，想问问当地人怎么挑煎饼铺？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/19.png"/>
+								<h5 class="d-user fl">
+									<a href="">路上的少年</a>
+									<a href="">LV.13</a>
+								</h5>
+								<div class="intro fl">
+									<img src="img/69.jpg"  class="fl"/>
+									<p class="fl">「 是时候见识一下最正宗的煎饼果子了！！」煎饼果子发展至今，当然需要结合现代人的口味，那些煎饼果子老店也需要满足顾客多样化的饮食需求，所以卷圈、排叉、青菜、火腿肠这些可以夹在煎饼中的食物也陆续加入进来。但不同于那些非正宗的煎饼果子摊贩，正宗老店...</p>
+									<div class="intro-mark">
+										<span class="mark">煎饼果子</span>
+										<span class="mark"></span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【13】</span>
+									</div>
+								</div>
+							</section>
+						</div>	
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">什么样的肉夹馍算是正宗的肉夹馍？去西安怎么找到正宗肉夹馍？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/诗与远方.jpg"/>
+								<h5 class="d-user fl">
+									<a href="">三师弟</a>
+									<a href="">LV.13</a>
+								</h5>
+								<div class="intro fl">
+									<img src="img/30.jpg"  class="fl"/>
+									<p class="fl">当然是充满着入口即化的碎肉块和烤到香脆的馍。肉要用汤煮，陈汤，年代愈久味愈醇色愈佳。白吉馍用半发酵面制成，和面时加些清油，醒面要醒足半小时。陕西人把做饼叫“打馍”，一家正经卖肉夹馍的铺子就是靠师傅手工打馍。这是绝对的功夫活，讲究一气呵成。</p>
+									<div class="intro-mark">
+										<span class="mark">西安</span>
+										<span class="mark">西安美食</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【1】</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">坐标北京，有哪些周五下班夜生活好地方？求安排的明明白白~</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="https://b4-q.mafengwo.net/s11/M00/D5/1D/wKgBEFr-lkiAecanAAKk1uYf7xQ174.png?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<a href="">好吃不胖</a>
+									<a href="">LV.16</a>
+								</h5>
+								<div class="intro fl">
+									<img src="https://n2-q.mafengwo.net/s11/M00/CE/69/wKgBEFseF3mAdSWZABGtfLC_Y_U167.png?imageMogr2%2Fthumbnail%2F%21140x105r%2Fgravity%2FCenter%2Fcrop%2F%21140x105%2Fquality%2F90"  class="fl"/>
+									<p class="fl">谢谢邀请。从几年前开始工作以来，不胖就开始琢磨周五下班如何潇洒。各位，请先【收藏】一下，接下来，我将从以下六大场景解决您的困惑↓↓↓周五休闲养生系列周五放飞自我系列周五吃饭聚会系列周五情侣约会系列周五单身社交系列周五释放快乐系列6大场景！52个对...	</p>
+									<div class="intro-mark">
+										<span class="mark">北京</span>
+										<span class="mark">去哪玩</span>
+									</div>
+									<div class="grade  fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【29】</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="hot-issue  hot-vue">
+							<h4 class="matter "><a href="#">【怀旧篇】你现在的第N次旅行，和第一次旅行，有什么不一样？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="https://p1-q.mafengwo.net/s11/M00/F7/99/wKgBEFpylFiAMsXSAACOxFQF-3k65.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<a href="">激浪飞哥</a>
+									<a href="">LV.28</a>
+								</h5>
+								<div class="intro fl">
+									<img src="https://b2-q.mafengwo.net/s1/M00/5B/72/wKgIC1uDRz2AA92PAAJqVmBAljk30.jpeg?imageMogr2%2Fthumbnail%2F%21140x105r%2Fgravity%2FCenter%2Fcrop%2F%21140x105%2Fquality%2F90"  class="fl"/>
+									<p class="fl">看到这个话题，尘封的往事一一浮现眼前。走过65年的人生旅程，到过十几个国家，近200多个大大小小的城市，游历了数不清的景点，但几个旅行的第一次，仍记忆犹新。说出来与蜂友们分享吧！我第一次旅游观光才5岁！就是去机场看飞机！那是1958年，5岁的我，在幼儿园...</p>
+									<div class="intro-mark">
+										<span class="mark">中国</span>
+										<span class="mark">去哪玩</span>
+									</div>
+									<div class="grade  fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【5】</span>
+									</div>
+								</div>
+							</section>
+							
+								<div class="pinL fl clearfix">
+									<h3>评论：</h3>
+									<div class="pinT">
+										
+									</div>
+									<div class="pinB">
+										<input type="textarea"  v-model="msg" />
+										<button class="btn" @click="cliB">提交 </button>
+									</div>
+								</div>
+						</div>
+								
+						<!--<div class="hot-issue clearfix">
+							<h4 class="matter "><a href="#">你有哪些无法自控的疯狂购物经历？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="https://p4-q.mafengwo.net/s9/M00/CC/C3/wKgBs1dYQzGAA4ukAAQnX4uHTA024.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<a href="">激浪飞哥</a>
+									<a href="">LV.28</a>
+								</h5>
+								<div class="intro fl">
+									<img src="https://n2-q.mafengwo.net/s11/M00/3C/00/wKgBEFqzu3WAS70bABGY_iewk3Q76.jpeg?imageMogr2%2Fthumbnail%2F%21140x105r%2Fgravity%2FCenter%2Fcrop%2F%21140x105%2Fquality%2F90"  class="fl"/>
+									<p class="fl">在欧洲购物控制起来会比较难，毕竟比国内便宜一大截、款式多很多，何况还退税。在欧美奥莱购物控制起来也很难，毕竟已经比国内便宜了一大截，何况还打折。还有一种情况，就是市场控制了所有人陷入一种疯狂的购物状态时，控制起来更困难——想想每年双十一时你们.../p>
+									<div class="intro-mark">
+										<span class="mark">中国</span>
+										<span class="mark">去哪玩</span>
+									</div>
+									<div class="grade  fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【5】</span>
+									</div>
+								</div>
+							</section>
+						</div>-->
+						
+							
+					</div>
+					<div class="tab tab-2" >
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">在boots买了东西后店员就给了一张抬头是tax free的收据如何退税?</a></h4>
+							<section class="ditail  ">
+								<img class="user-image fl" src="img/32.jpg"/>
+								<h5 class="d-user fl">
+									<!--<a href="">三师弟</a>
+									<a href="">LV.13</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">在boots买东西，结账的时候店员说退税单要去楼上办，然后给我结了帐并给了一张收据。
+										去楼上办退税单，楼上店员就给了我一张抬头打着tax free的收据，上面也有要求填写个人资料的东西，但是没有给我信封，也没有盖章。就有个类似涂鸦的签字应该是。
+									这样能退税吗...</p>
+									<div class="intro-mark">
+										<span class="mark">退税</span>
+										<span class="mark">伦敦</span>
+										<span class="mark">购物</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【1】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue fl">
+							<h4 class="matter "><a href="#">看里约全景的最佳地点和时间</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/17.jpg"/>
+								<h5 class="d-user fl">
+								<!--	<a href="">沙河</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">请问看里约全景的最佳地点有哪些？以及最佳的观看时间?例如，在面包山上，日落；在Vista Chinesa，可以看日出吗？Tijuca是早上8点才开门吗？要如何进入公园，需要买票吗？Mirante Dona Mar，也属于公园的一部分吗？应该怎么到达？是否有公共交通？这里可以看日出...</p>
+									<div class="intro-mark">
+										<span class="mark">里约热内卢</span>	
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【4】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue fl">
+							<h4 class="matter "><a href="#">小朋友去高原发生高原反应几率高吗？需要做的高原反应防范措施有哪些，如果出现高原反应是不...</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://b1-q.mafengwo.net/s10/M00/E4/C3/wKgBZ1l6udWATuj0AADOvEZGfOw26.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">高反的话很正常，一般适当休息一下就可以的，不必惊慌立刻取消行程等。如果实在反应严重可以就近卫生院吸氧缓解一下就可以。 带孩子来青海，有什么需要注意的事项吗？   有没有高反是要看每个人的体质的，一般情况下小孩子适应高原的能力要比大人要好一点，不过...</p>
+									<div class="intro-mark">
+										<span class="mark">高原反应</span>
+										<span class="mark"></span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【18】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">28号凌晨到长水  有一天一夜时间玩 30号早起去到长水机场去丽江 求昆明游完安排</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="https://images.mafengwo.net/mobile/images/omc/coupon-pop/coupon-hx-v2.png"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">28号凌晨到长水  29号有一天一夜时间玩 30号早起到长水机场去丽江 求昆明游完安排   希望住在一个方便早起去机场的地方 ，还有游完攻略 和美食推荐  先谢谢各位大咖推荐</p>
+									<div class="intro-mark">
+										<span class="mark">昆明</span>
+										<span class="mark">机场</span>
+										<span class="mark">丽江</span>
+										<span class="mark">一日行</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【0】</span>
+									</div>
+								</div>
+						</div>
+								
+								<div class="hot-issue ">
+							<h4 class="matter "><a href="#">三清山线路和山上住宿</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://p2-q.mafengwo.net/s1/M00/5F/27/wKgIC1t_uk6AbhtUAAJxN6ja6YI97.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">自驾游去三清山,第一天上午11点左右去到三清山停车场, 打算坐索道上山, 第二天中午左右坐索道下山,第一天晚上在山上住宿,请问坐哪个索道比较方便? 线路怎么走比较适合? 山上在哪住宿合适?由于自驾,上山和下山索道需同一地点, 时间其实只有2个半天(第一天下午,第...</p>
+									<div class="intro-mark">
+										<span class="mark">旅游线路</span>
+										<span class="mark">三清山</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【0】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">10月下旬是亚庇的雨季么？能看到日落么？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://p2-q.mafengwo.net/s1/M00/5F/27/wKgIC1t_uk6AbhtUAAJxN6ja6YI97.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">2日晚上从澳门坐船到香港，住在铜锣湾。3-6日4天时间都在香港，求规划行程~不想去迪士尼、海洋公园和太平山，也不购物。希望去人文和TVB打卡地方，黄大仙祠港大石澳彩虹村这样的地方~住在铜锣湾，不太清楚香港这些地方怎么顺路在一天内~</p>
+									<div class="intro-mark">
+										<span class="mark">日落</span>
+										<span class="mark">看日落</span>
+										<span class="mark">休闲娱乐</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【0】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">4天怎么游吐鲁番和喀纳斯？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://b1-q.mafengwo.net/s10/M00/E4/C3/wKgBZ1l6udWATuj0AADOvEZGfOw26.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">喀纳斯可以玩三天，先在白哈巴住一晚，然后第二天在游客中心那有寄存行李的，存好行李拿票坐车去观鱼台。爬观鱼台休息着爬有一个小时就差不多，然后拍照，下来之后还要排队坐车回去，再到游客中心那取行李，带着行李坐车，可以把行李放在巴车里，然后就转三湾，...</p>
+									<div class="intro-mark">
+										<span class="mark">吐鲁番</span>
+										<span class="mark">戛纳斯</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【2】</span>
+									</div>
+								</div>
+							</div>
+						<div class="hot-issue  ">
+							<h4 class="matter "><a href="#">日本大阪交通求介紹～關西機場-神戶-京都-大阪？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://n1-q.mafengwo.net/s11/M00/A3/18/wKgBEFp9dZeAGy98AAAVdv8Qohg96.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">關西機場 下機就要去：神戶 然後再去京都最後去大阪。
+									9.4關西機場-神戶
+									9.6神戶-京都
+									9.8京都-大阪
+									9.13大阪-關西機場
+									求介紹性價比最高的購買車費的方法～
+									謝謝各位小姊姊小哥哥～😘</p>
+									<div class="intro-mark">
+										<span class="mark">大阪</span>
+										<span class="mark">日本</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【2】</span>
+									</div>
+								</div>
+								
+							</div>
+				</div>
+					<div class="tab tab-3 clearfix" style="background:white;">
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">在boots买了东西后店员就给了一张抬头是tax free的收据如何退税?</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/32.jpg"/>
+								<h5 class="d-user fl">
+									<!--<a href="">三师弟</a>
+									<a href="">LV.13</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">在boots买东西，结账的时候店员说退税单要去楼上办，然后给我结了帐并给了一张收据。
+										去楼上办退税单，楼上店员就给了我一张抬头打着tax free的收据，上面也有要求填写个人资料的东西，但是没有给我信封，也没有盖章。就有个类似涂鸦的签字应该是。
+									这样能退税吗...</p>
+									<div class="intro-mark">
+										<span class="mark">退税</span>
+										<span class="mark">伦敦</span>
+										<span class="mark">购物</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【1】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">看里约全景的最佳地点和时间</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="img/17.jpg"/>
+								<h5 class="d-user fl">
+								<!--	<a href="">沙河</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">请问看里约全景的最佳地点有哪些？以及最佳的观看时间?例如，在面包山上，日落；在Vista Chinesa，可以看日出吗？Tijuca是早上8点才开门吗？要如何进入公园，需要买票吗？Mirante Dona Mar，也属于公园的一部分吗？应该怎么到达？是否有公共交通？这里可以看日出...</p>
+									<div class="intro-mark">
+										<span class="mark">里约热内卢</span>	
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【4】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">小朋友去高原发生高原反应几率高吗？需要做的高原反应防范措施有哪些，如果出现高原反应是不...</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://b1-q.mafengwo.net/s10/M00/E4/C3/wKgBZ1l6udWATuj0AADOvEZGfOw26.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">高反的话很正常，一般适当休息一下就可以的，不必惊慌立刻取消行程等。如果实在反应严重可以就近卫生院吸氧缓解一下就可以。 带孩子来青海，有什么需要注意的事项吗？   有没有高反是要看每个人的体质的，一般情况下小孩子适应高原的能力要比大人要好一点，不过...</p>
+									<div class="intro-mark">
+										<span class="mark">高原反应</span>
+										<span class="mark"></span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【18】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">28号凌晨到长水  有一天一夜时间玩 30号早起去到长水机场去丽江 求昆明游完安排</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="https://images.mafengwo.net/mobile/images/omc/coupon-pop/coupon-hx-v2.png"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">28号凌晨到长水  29号有一天一夜时间玩 30号早起到长水机场去丽江 求昆明游完安排   希望住在一个方便早起去机场的地方 ，还有游完攻略 和美食推荐  先谢谢各位大咖推荐</p>
+									<div class="intro-mark">
+										<span class="mark">昆明</span>
+										<span class="mark">机场</span>
+										<span class="mark">丽江</span>
+										<span class="mark">一日行</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【0】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">三清山线路和山上住宿</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://p2-q.mafengwo.net/s1/M00/5F/27/wKgIC1t_uk6AbhtUAAJxN6ja6YI97.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">自驾游去三清山,第一天上午11点左右去到三清山停车场, 打算坐索道上山, 第二天中午左右坐索道下山,第一天晚上在山上住宿,请问坐哪个索道比较方便? 线路怎么走比较适合? 山上在哪住宿合适?由于自驾,上山和下山索道需同一地点, 时间其实只有2个半天(第一天下午,第...</p>
+									<div class="intro-mark">
+										<span class="mark">旅游线路</span>
+										<span class="mark">三清山</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【0】</span>
+									</div>
+								</div>
+						</div>
+						
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">4天怎么游吐鲁番和喀纳斯？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://b1-q.mafengwo.net/s10/M00/E4/C3/wKgBZ1l6udWATuj0AADOvEZGfOw26.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">喀纳斯可以玩三天，先在白哈巴住一晚，然后第二天在游客中心那有寄存行李的，存好行李拿票坐车去观鱼台。爬观鱼台休息着爬有一个小时就差不多，然后拍照，下来之后还要排队坐车回去，再到游客中心那取行李，带着行李坐车，可以把行李放在巴车里，然后就转三湾，...</p>
+									<div class="intro-mark">
+										<span class="mark">吐鲁番</span>
+										<span class="mark">戛纳斯</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【2】</span>
+									</div>
+								</div>
+						</div>
+						<div class="hot-issue ">
+							<h4 class="matter "><a href="#">日本大阪交通求介紹～關西機場-神戶-京都-大阪？</a></h4>
+							<section class="ditail  clearfix">
+								<img class="user-image fl" src="http://n1-q.mafengwo.net/s11/M00/A3/18/wKgBEFp9dZeAGy98AAAVdv8Qohg96.jpeg?imageMogr2%2Fthumbnail%2F%2190x90r%2Fgravity%2FCenter%2Fcrop%2F%2190x90%2Fquality%2F90"/>
+								<h5 class="d-user fl">
+									<!--<a href="">sowm</a>
+									<a href="">LV.15</a>-->
+								</h5>
+								<div class="intro fl">
+									<p class="intro-p ">關西機場 下機就要去：神戶 然後再去京都最後去大阪。
+									9.4關西機場-神戶
+									9.6神戶-京都
+									9.8京都-大阪
+									9.13大阪-關西機場
+									求介紹性價比最高的購買車費的方法～
+									謝謝各位小姊姊小哥哥～😘</p>
+									<div class="intro-mark">
+										<span class="mark">大阪</span>
+										<span class="mark">日本</span>
+									</div>
+									<div class="grade fr">
+										<span class="iconfont icon-dingbu">顶</span>
+										<span class="">【2】</span>
+									</div>
+								</div>
+							</div>
+					</div>
+					<!--<style type="text/css">
+						.discuss{
+							background: yellow;
+							width: 100%;
+							height: 200px;
+						}
+					</style>-->
+					<!--<div class="discuss fl">
+						
+					</div>-->
+				
+			</section>
+			<aside id="ctn-aside" class="fr clearfix " style="height: 2100px;">
+				<button class="ctn-quiz" data-target="#mymodal" data-toggle="modal">+提出问题</button>
+				<div class="slideshow">
+					<ul class="sli-img">
+						<li class="fl "><img src="img/1.jpg"/></li>
+						<li class="fl"><img src="img/10.jpg"/></li>
+						<li class="fl"><img src="img/20.jpg"/></li>
+						
+					</ul>
+					<ol  class="sli-btn">
+						<li class="fl active"></li>
+						<li class="fl"></li>
+						<li class="fl"></li>
+					</ol>
+				</div>
+			
+				<dl class="i-tags tag-area _j_tags">
+   					<dt class="">问答热门地区</dt>
+                    <dd class="clearfix fl">
+		                <div class="label">境外</div>
+		                <ul class="_j_open_mdd_list">
+                            <li><a class="_j_change_mdd" data-mddid="10189" data-cs-p="index_foreign_mdd" title="香港" data-mddname="香港">香港<em>48600</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="12684" data-cs-p="index_foreign_mdd" title="台湾" data-mddname="台湾">台湾<em>27050</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10180" data-cs-p="index_foreign_mdd" title="越南" data-mddname="越南">越南<em>10174</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10083" data-cs-p="index_foreign_mdd" title="泰国" data-mddname="泰国">泰国<em>29297</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10206" data-cs-p="index_foreign_mdd" title="澳门" data-mddname="澳门">澳门<em>14358</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10460" data-cs-p="index_foreign_mdd" title="巴厘岛" data-mddname="巴厘岛">巴厘岛<em>23310</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="11049" data-cs-p="index_foreign_mdd" title="吉隆坡" data-mddname="吉隆坡">吉隆坡<em>14524</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10202" data-cs-p="index_foreign_mdd" title="澳大利亚" data-mddname="澳大利亚">澳大利亚<em>5857</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="11045" data-cs-p="index_foreign_mdd" title="曼谷" data-mddname="曼谷">曼谷<em>38122</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10070" data-cs-p="index_foreign_mdd" title="柬埔寨" data-mddname="柬埔寨">柬埔寨<em>3145</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10222" data-cs-p="index_foreign_mdd" title="东京" data-mddname="东京">东京<em>28317</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="10183" data-cs-p="index_foreign_mdd" title="日本" data-mddname="日本">日本<em>34350</em></a></li>
+                            <li><a class="_j_change_mdd" data-mddid="11047" data-cs-p="index_foreign_mdd" title="普吉岛" data-mddname="普吉岛">普吉岛<em>32533</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10579" data-cs-p="index_foreign_mdd" title="纽约" data-mddname="纽约">纽约<em>2726</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10069" data-cs-p="index_foreign_mdd" title="尼泊尔" data-mddname="尼泊尔">尼泊尔<em>3687</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10097" data-cs-p="index_foreign_mdd" title="马来西亚" data-mddname="马来西亚">马来西亚<em>9162</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10053" data-cs-p="index_foreign_mdd" title="土耳其" data-mddname="土耳其">土耳其<em>6943</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10063" data-cs-p="index_foreign_mdd" title="罗马" data-mddname="罗马">罗马<em>3208</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10062" data-cs-p="index_foreign_mdd" title="美国" data-mddname="美国">美国<em>5124</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15284" data-cs-p="index_foreign_mdd" title="清迈" data-mddname="清迈">清迈<em>18050</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10184" data-cs-p="index_foreign_mdd" title="韩国" data-mddname="韩国">韩国<em>8656</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10130" data-cs-p="index_foreign_mdd" title="首尔" data-mddname="首尔">首尔<em>23625</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10168" data-cs-p="index_foreign_mdd" title="希腊" data-mddname="希腊">希腊<em>2554</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10819" data-cs-p="index_foreign_mdd" title="台北" data-mddname="台北">台北<em>15722</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10101" data-cs-p="index_foreign_mdd" title="马尔代夫" data-mddname="马尔代夫">马尔代夫<em>9014</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10544" data-cs-p="index_foreign_mdd" title="新西兰" data-mddname="新西兰">新西兰<em>5003</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10176" data-cs-p="index_foreign_mdd" title="德国" data-mddname="德国">德国<em>2511</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10051" data-cs-p="index_foreign_mdd" title="意大利" data-mddname="意大利">意大利<em>4331</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10169" data-cs-p="index_foreign_mdd" title="瑞士" data-mddname="瑞士">瑞士<em>3501</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11065" data-cs-p="index_foreign_mdd" title="高雄" data-mddname="高雄">高雄<em>1687</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10754" data-cs-p="index_foreign_mdd" title="新加坡" data-mddname="新加坡">新加坡<em>22214</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10760" data-cs-p="index_foreign_mdd" title="沙巴" data-mddname="沙巴">沙巴<em>5884</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10175" data-cs-p="index_foreign_mdd" title="奥地利" data-mddname="奥地利">奥地利<em>1216</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10737" data-cs-p="index_foreign_mdd" title="长滩岛" data-mddname="长滩岛">长滩岛<em>6765</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11058" data-cs-p="index_foreign_mdd" title="斯里兰卡" data-mddname="斯里兰卡">斯里兰卡<em>6151</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10077" data-cs-p="index_foreign_mdd" title="塞班岛" data-mddname="塞班岛">塞班岛<em>6167</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10182" data-cs-p="index_foreign_mdd" title="印度" data-mddname="印度">印度<em>1884</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10926" data-cs-p="index_foreign_mdd" title="洛杉矶" data-mddname="洛杉矶">洛杉矶<em>3893</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10573" data-cs-p="index_foreign_mdd" title="巴黎" data-mddname="巴黎">巴黎<em>8654</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10171" data-cs-p="index_foreign_mdd" title="法国" data-mddname="法国">法国<em>3217</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11041" data-cs-p="index_foreign_mdd" title="冲绳" data-mddname="冲绳">冲绳<em>5962</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10122" data-cs-p="index_foreign_mdd" title="英国" data-mddname="英国">英国<em>3869</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="16115" data-cs-p="index_foreign_mdd" title="薄荷岛" data-mddname="薄荷岛">薄荷岛<em>2103</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11214" data-cs-p="index_foreign_mdd" title="迪拜" data-mddname="迪拜">迪拜<em>6115</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10761" data-cs-p="index_foreign_mdd" title="布拉格" data-mddname="布拉格">布拉格<em>2455</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11030" data-cs-p="index_foreign_mdd" title="济州岛" data-mddname="济州岛">济州岛<em>13146</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10178" data-cs-p="index_foreign_mdd" title="埃及" data-mddname="埃及">埃及<em>1801</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15325" data-cs-p="index_foreign_mdd" title="花莲" data-mddname="花莲">花莲<em>2458</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10746" data-cs-p="index_foreign_mdd" title="北海道" data-mddname="北海道">北海道<em>10631</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11046" data-cs-p="index_foreign_mdd" title="芭提雅" data-mddname="芭提雅">芭提雅<em>6279</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10745" data-cs-p="index_foreign_mdd" title="华盛顿" data-mddname="华盛顿">华盛顿<em>690</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10067" data-cs-p="index_foreign_mdd" title="菲律宾" data-mddname="菲律宾">菲律宾<em>4375</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11275" data-cs-p="index_foreign_mdd" title="加德满都" data-mddname="加德满都">加德满都<em>1378</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11087" data-cs-p="index_foreign_mdd" title="佛罗伦萨" data-mddname="佛罗伦萨">佛罗伦萨<em>1366</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10177" data-cs-p="index_foreign_mdd" title="加拿大" data-mddname="加拿大">加拿大<em>1668</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10765" data-cs-p="index_foreign_mdd" title="大阪" data-mddname="大阪">大阪<em>26719</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10029" data-cs-p="index_foreign_mdd" title="肯尼亚" data-mddname="肯尼亚">肯尼亚<em>477</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11042" data-cs-p="index_foreign_mdd" title="京都" data-mddname="京都">京都<em>12115</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10742" data-cs-p="index_foreign_mdd" title="旧金山" data-mddname="旧金山">旧金山<em>2278</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10300" data-cs-p="index_foreign_mdd" title="俄罗斯" data-mddname="俄罗斯">俄罗斯<em>3571</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="21434" data-cs-p="index_foreign_mdd" title="垦丁" data-mddname="垦丁">垦丁<em>2737</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11228" data-cs-p="index_foreign_mdd" title="伊斯坦布尔" data-mddname="伊斯坦布尔">伊斯坦布<em>2792</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11048" data-cs-p="index_foreign_mdd" title="马六甲" data-mddname="马六甲">马六甲<em>1179</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11044" data-cs-p="index_foreign_mdd" title="斐济" data-mddname="斐济">斐济<em>1958</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11761" data-cs-p="index_foreign_mdd" title="毛里求斯" data-mddname="毛里求斯">毛里求斯<em>4323</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11100" data-cs-p="index_foreign_mdd" title="阿姆斯特丹" data-mddname="阿姆斯特丹">阿姆斯特<em>1243</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10820" data-cs-p="index_foreign_mdd" title="老挝" data-mddname="老挝">老挝<em>907</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="14383" data-cs-p="index_foreign_mdd" title="欧洲" data-mddname="欧洲">欧洲<em>4126</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11124" data-cs-p="index_foreign_mdd" title="伦敦" data-mddname="伦敦">伦敦<em>4456</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11160" data-cs-p="index_foreign_mdd" title="挪威" data-mddname="挪威">挪威<em>1015</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10406" data-cs-p="index_foreign_mdd" title="吴哥窟" data-mddname="吴哥窟">吴哥窟<em>1228</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10923" data-cs-p="index_foreign_mdd" title="拉斯维加斯" data-mddname="拉斯维加斯">拉斯维加<em>1567</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10173" data-cs-p="index_foreign_mdd" title="西班牙" data-mddname="西班牙">西班牙<em>2618</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11051" data-cs-p="index_foreign_mdd" title="兰卡威" data-mddname="兰卡威">兰卡威<em>3479</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10179" data-cs-p="index_foreign_mdd" title="缅甸" data-mddname="缅甸">缅甸<em>1097</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11083" data-cs-p="index_foreign_mdd" title="威尼斯" data-mddname="威尼斯">威尼斯<em>1552</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11052" data-cs-p="index_foreign_mdd" title="热浪岛" data-mddname="热浪岛">热浪岛<em>548</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="19996" data-cs-p="index_foreign_mdd" title="亚庇" data-mddname="亚庇">亚庇<em>5663</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10856" data-cs-p="index_foreign_mdd" title="墨尔本" data-mddname="墨尔本">墨尔本<em>2985</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10855" data-cs-p="index_foreign_mdd" title="悉尼" data-mddname="悉尼">悉尼<em>3837</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10455" data-cs-p="index_foreign_mdd" title="南非" data-mddname="南非">南非<em>574</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11155" data-cs-p="index_foreign_mdd" title="莫斯科" data-mddname="莫斯科">莫斯科<em>2379</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11053" data-cs-p="index_foreign_mdd" title="胡志明市" data-mddname="胡志明市">胡志明市<em>3403</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15308" data-cs-p="index_foreign_mdd" title="暹粒" data-mddname="暹粒">暹粒<em>2868</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10927" data-cs-p="index_foreign_mdd" title="夏威夷" data-mddname="夏威夷">夏威夷<em>2206</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="28411" data-cs-p="index_foreign_mdd" title="仙本那" data-mddname="仙本那">仙本那<em>4011</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15338" data-cs-p="index_foreign_mdd" title="圣彼得堡" data-mddname="圣彼得堡">圣彼得堡<em>1240</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11073" data-cs-p="index_foreign_mdd" title="马尼拉" data-mddname="马尼拉">马尼拉<em>2701</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10174" data-cs-p="index_foreign_mdd" title="捷克" data-mddname="捷克">捷克<em>1230</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10885" data-cs-p="index_foreign_mdd" title="皇后镇" data-mddname="皇后镇">皇后镇<em>979</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11133" data-cs-p="index_foreign_mdd" title="马德里" data-mddname="马德里">马德里<em>1697</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11232" data-cs-p="index_foreign_mdd" title="安塔利亚" data-mddname="安塔利亚">安塔利亚<em>333</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15288" data-cs-p="index_foreign_mdd" title="素可泰" data-mddname="素可泰">素可泰<em>288</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10102" data-cs-p="index_foreign_mdd" title="巴塞罗那" data-mddname="巴塞罗那">巴塞罗那<em>2767</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10172" data-cs-p="index_foreign_mdd" title="葡萄牙" data-mddname="葡萄牙">葡萄牙<em>546</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10214" data-cs-p="index_foreign_mdd" title="瑞典" data-mddname="瑞典">瑞典<em>461</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10181" data-cs-p="index_foreign_mdd" title="印度尼西亚" data-mddname="印度尼西亚">印度尼西<em>1418</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11091" data-cs-p="index_foreign_mdd" title="维也纳" data-mddname="维也纳">维也纳<em>1586</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11157" data-cs-p="index_foreign_mdd" title="丹麦" data-mddname="丹麦">丹麦<em>460</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10958" data-cs-p="index_foreign_mdd" title="法兰克福" data-mddname="法兰克福">法兰克福<em>922</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10929" data-cs-p="index_foreign_mdd" title="西雅图" data-mddname="西雅图">西雅图<em>916</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="16827" data-cs-p="index_foreign_mdd" title="塞舌尔" data-mddname="塞舌尔">塞舌尔<em>1047</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11081" data-cs-p="index_foreign_mdd" title="慕尼黑" data-mddname="慕尼黑">慕尼黑<em>1549</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10755" data-cs-p="index_foreign_mdd" title="柏林" data-mddname="柏林">柏林<em>1375</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10889" data-cs-p="index_foreign_mdd" title="多伦多" data-mddname="多伦多">多伦多<em>743</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11105" data-cs-p="index_foreign_mdd" title="比利时" data-mddname="比利时">比利时<em>329</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10890" data-cs-p="index_foreign_mdd" title="蒙特利尔" data-mddname="蒙特利尔">蒙特利尔<em>171</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="16102" data-cs-p="index_foreign_mdd" title="芽庄" data-mddname="芽庄">芽庄<em>6902</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="16980" data-cs-p="index_foreign_mdd" title="甲米" data-mddname="甲米">甲米<em>6479</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="16105" data-cs-p="index_foreign_mdd" title="美奈" data-mddname="美奈">美奈<em>734</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11143" data-cs-p="index_foreign_mdd" title="雅典" data-mddname="雅典">雅典<em>1583</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11084" data-cs-p="index_foreign_mdd" title="米兰" data-mddname="米兰">米兰<em>1188</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15289" data-cs-p="index_foreign_mdd" title="沙美岛" data-mddname="沙美岛">沙美岛<em>922</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11125" data-cs-p="index_foreign_mdd" title="爱丁堡" data-mddname="爱丁堡">爱丁堡<em>639</em></a></li>
+                            <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="112045" data-cs-p="index_foreign_mdd" title="二世古" data-mddname="二世古">二世古<em>73</em></a></li>
+                            <li class="_j_mdd_see_more"><a class="more_selector" data-cs-p="index_foreign_seemore">更多</a></li>
+                        </ul>
+           			</dd>
+                    <dd class="clearfix">
+		                <div class="label">境内</div>
+		                <ul class="_j_open_mdd_list">
+                             <li><a class="_j_change_mdd" data-mddid="10068" data-cs-p="index_china_mdd" title="哈尔滨" data-mddname="哈尔滨">哈尔滨<em>9931</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10030" data-cs-p="index_china_mdd" title="三亚" data-mddname="三亚">三亚<em>25977</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10099" data-cs-p="index_china_mdd" title="上海" data-mddname="上海">上海<em>25641</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10132" data-cs-p="index_china_mdd" title="厦门" data-mddname="厦门">厦门<em>33132</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="12700" data-cs-p="index_china_mdd" title="西藏" data-mddname="西藏">西藏<em>10998</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10487" data-cs-p="index_china_mdd" title="大理" data-mddname="大理">大理<em>22023</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10035" data-cs-p="index_china_mdd" title="成都" data-mddname="成都">成都<em>25678</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="12711" data-cs-p="index_china_mdd" title="云南" data-mddname="云南">云南<em>21836</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10088" data-cs-p="index_china_mdd" title="广州" data-mddname="广州">广州<em>15160</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10065" data-cs-p="index_china_mdd" title="北京" data-mddname="北京">北京<em>37319</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="12522" data-cs-p="index_china_mdd" title="鼓浪屿" data-mddname="鼓浪屿">鼓浪屿<em>3179</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10136" data-cs-p="index_china_mdd" title="九寨沟" data-mddname="九寨沟">九寨沟<em>8590</em></a></li>
+                                <li><a class="_j_change_mdd" data-mddid="10208" data-cs-p="index_china_mdd" title="重庆" data-mddname="重庆">重庆<em>16126</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10045" data-cs-p="index_china_mdd" title="婺源" data-mddname="婺源">婺源<em>5518</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10195" data-cs-p="index_china_mdd" title="西安" data-mddname="西安">西安<em>18283</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10133" data-cs-p="index_china_mdd" title="武汉" data-mddname="武汉">武汉<em>8680</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10684" data-cs-p="index_china_mdd" title="南京" data-mddname="南京">南京<em>10664</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10267" data-cs-p="index_china_mdd" title="张家界" data-mddname="张家界">张家界<em>13487</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10444" data-cs-p="index_china_mdd" title="青岛" data-mddname="青岛">青岛<em>13475</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10651" data-cs-p="index_china_mdd" title="腾冲" data-mddname="腾冲">腾冲<em>2074</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10482" data-cs-p="index_china_mdd" title="香格里拉" data-mddname="香格里拉">香格里拉<em>4601</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10466" data-cs-p="index_china_mdd" title="长沙" data-mddname="长沙">长沙<em>6329</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="12938" data-cs-p="index_china_mdd" title="海南" data-mddname="海南">海南<em>3175</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10010" data-cs-p="index_china_mdd" title="西塘" data-mddname="西塘">西塘<em>3522</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10442" data-cs-p="index_china_mdd" title="拉萨" data-mddname="拉萨">拉萨<em>11394</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10156" data-cs-p="index_china_mdd" title="杭州" data-mddname="杭州">杭州<em>18547</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="12491" data-cs-p="index_china_mdd" title="霞浦" data-mddname="霞浦">霞浦<em>750</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10186" data-cs-p="index_china_mdd" title="丽江" data-mddname="丽江">丽江<em>26535</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="12141" data-cs-p="index_china_mdd" title="雨崩" data-mddname="雨崩">雨崩<em>1014</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10796" data-cs-p="index_china_mdd" title="北海" data-mddname="北海">北海<em>4285</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10094" data-cs-p="index_china_mdd" title="洛阳" data-mddname="洛阳">洛阳<em>2977</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10440" data-cs-p="index_china_mdd" title="黄山" data-mddname="黄山">黄山<em>9342</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10198" data-cs-p="index_china_mdd" title="深圳" data-mddname="深圳">深圳<em>7767</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10434" data-cs-p="index_china_mdd" title="乌镇" data-mddname="乌镇">乌镇<em>5013</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10095" data-cs-p="index_china_mdd" title="桂林" data-mddname="桂林">桂林<em>11509</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10024" data-cs-p="index_china_mdd" title="凤凰古镇" data-mddname="凤凰古镇">凤凰古镇<em>5126</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10207" data-cs-p="index_china_mdd" title="苏州" data-mddname="苏州">苏州<em>8130</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10140" data-cs-p="index_china_mdd" title="无锡" data-mddname="无锡">无锡<em>2884</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10453" data-cs-p="index_china_mdd" title="涠洲岛" data-mddname="涠洲岛">涠洲岛<em>3066</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10513" data-cs-p="index_china_mdd" title="海口" data-mddname="海口">海口<em>2245</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="15950" data-cs-p="index_china_mdd" title="双廊" data-mddname="双廊">双廊<em>1806</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10308" data-cs-p="index_china_mdd" title="南宁" data-mddname="南宁">南宁<em>1954</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10320" data-cs-p="index_china_mdd" title="天津" data-mddname="天津">天津<em>5531</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10381" data-cs-p="index_china_mdd" title="黔东南" data-mddname="黔东南">黔东南<em>1404</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10121" data-cs-p="index_china_mdd" title="泸沽湖" data-mddname="泸沽湖">泸沽湖<em>6671</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10269" data-cs-p="index_china_mdd" title="珠海" data-mddname="珠海">珠海<em>4111</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10143" data-cs-p="index_china_mdd" title="峨眉山" data-mddname="峨眉山">峨眉山<em>4285</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10027" data-cs-p="index_china_mdd" title="阳朔" data-mddname="阳朔">阳朔<em>5071</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10155" data-cs-p="index_china_mdd" title="绍兴" data-mddname="绍兴">绍兴<em>1431</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10301" data-cs-p="index_china_mdd" title="大连" data-mddname="大连">大连<em>7999</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10577" data-cs-p="index_china_mdd" title="华山" data-mddname="华山">华山<em>4076</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10039" data-cs-p="index_china_mdd" title="武夷山" data-mddname="武夷山">武夷山<em>1611</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10284" data-cs-p="index_china_mdd" title="泰山" data-mddname="泰山">泰山<em>3062</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10072" data-cs-p="index_china_mdd" title="长白山" data-mddname="长白山">长白山<em>6132</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10800" data-cs-p="index_china_mdd" title="西宁" data-mddname="西宁">西宁<em>5115</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10240" data-cs-p="index_china_mdd" title="敦煌" data-mddname="敦煌">敦煌<em>4417</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10427" data-cs-p="index_china_mdd" title="漠河" data-mddname="漠河">漠河<em>2077</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="10128" data-cs-p="index_china_mdd" title="扬州" data-mddname="扬州">扬州<em>2851</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="11681" data-cs-p="index_china_mdd" title="嘉兴" data-mddname="嘉兴">嘉兴<em>453</em></a></li>
+                                <li class="_j_open_mdd_item" style="display: none;"><a class="_j_change_mdd" data-mddid="14575" data-cs-p="index_china_mdd" title="浙江" data-mddname="浙江">浙江<em>1845</em></a></li>
+                                <li class="_j_mdd_see_more"><a class="more_selector" data-cs-p="index_china_seemore">更多</a></li>
+                        </ul>
+	            	</dd>
+	            </dl>
+	       </aside>
+		</article>
+		
+		
+		<!--模态框-->
+		<div class="modal" id="mymodal" tabindex="-1"><!--固定位置，上下左右为0代表满屏-->
+			<div class="modal-dialog"><!--相对适应；自适应宽度大于768时宽度为600-->
+				<div class="modal-content"><!--修饰边框、背景、边距、阴影等效果-->
+					<div class="modal-header"><!--模态头-->
+						<!--data-dismiss="modal"清除modal-->
+						<button class="close" data-dismiss="modal">&times;</button>
+						<input type="text" placeholder="我的问题..." />
+					</div>
+					<div class="modal-body"><!--模态内容-->
+						<p>内容</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button class="btn btn-default" >取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		
+			
+		<!--底部开始-->
+		<footer>
+			<div id="footer">
+			<div class="ft-content">
+				<div class="ft-copyright">
+				    <a href="http://www.mafengwo.cn"><i class="ft-mfw-logo"></i></a>
+				    <p>© 2018 Mafengwo.cn <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank"><img src="http://images.mafengwo.net/images/footer/police_record.png" width="12" style="margin:0 2px 4px 0;">京公网安备11010502013401号</a> <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a><span class="m_l_10">网络出版服务许可证：(总)网出证(京)字第161号</span></p>
+				    <p>增值电信业务经营许可证：京B2-20180228 <a href="http://images.mafengwo.net/images/about/licence_3.jpg" target="_blank" rel="nofollow" class="m_l_10">营业执照</a><a href="/sales/uhelp/doc" target="_blank" rel="nofollow" class="m_l_10">帮助中心</a><span class="m_l_10">诗与远方客服：国内</span><span class="highlight">4006-345-678</span><span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span></p>
+				</div>
+				<div class="ft-safety">
+				    <a class="s-a" target="_blank" href="https://search.szfw.org/cert/l/CX20140627008255008321" id="___szfw_logo___"></a>
+				    <a class="s-b" href="https://ss.knet.cn/verifyseal.dll?sn=e130816110100420286o93000000&amp;ct=df&amp;a=1&amp;pa=787189" target="_blank" rel="nofollow"></a>
+				    <a class="s-c" href="http://www.itrust.org.cn/Home/Index/itrust_certifi/wm/1669928206.html" target="_blank" rel="nofollow"></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+		<!--点击backTop置顶-->
+		<div class="rightMenuBox btn-group-vertical">
+			<a href="javascript:void(0);" class="backTop btn btn-default" title="返回顶部">
+				<i class="iconfont icon-zhiding"></i></a>
+			<span class="rightMenuBtn btn btn-default">
+				<i class="iconfont icon-tuteng "></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fl">
+							<p class="edu-img edu-img1"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step1"></span>
+								<span class="left">登录<br>返利商城</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img2"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step2"></span>
+								<span class="left">去商家购物、<br>逾300家认证商家</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img3"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step3"></span>
+								<span class="left">完成交易<br>商家核对订单</span>
+							</p>
+						</li>
+						<li class="fl">
+							<p class="edu-img edu-img4"></p>
+							<p class="edu-btm fix">
+								<span class="edu-btmImg edu-step4"></span>
+								<span class="left">订单核对有效<br>到账</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</span>
+			<span class=" rightMenuBtn btn btn-default">
+				<i class="iconfont icon-weixin1"></i>
+				<div class="edu-main rightMenuHover" style="display:block">
+					<ul>
+						<li class="fr">
+							<img src="img/list_wx_qr_code.jpg" alt="" />
+						</li>
+					</ul>
+				</div>	
+			</span>
+		</div>
+		
+	</body>
+</html>
+<script src="js/exchange.js"></script>

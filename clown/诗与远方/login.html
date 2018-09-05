@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+				<title></title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box-beijing{
+				background-image: url(img/18.jpg);
+				height: 610px;
+				position: relative;
+				padding-top: 150px;
+				-webkit-display: flex;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#box-denglu{
+				border: 6px solid orange;
+				border-radius: 45px;
+				width: 600px;
+				height: 390px;
+				background-color: white;
+				padding: 53px ;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.denglu{
+				border: 1px solid gray;
+				height: 40px;
+				width: 270px;
+				border-radius: 6px;
+				margin-top: 15px;
+				outline:none;
+				position: relative;
+			}	
+			.shiyuanfang{
+				position: absolute;
+				right: 50px;
+				top: 50px;
+			}
+			#box-denglu form input:hover{
+				border: 2px solid orange;
+				border-radius: 8px;
+			}
+			.text{
+				height:40PX;
+				width: 250PX; 
+				margin-bottom: 5px;
+				text-indent: 1em;
+			}
+			#submitBtn:hover{
+    			background-color: limegreen;
+    			color: white;
+    		}
+			.shiyuanfang>p{
+    			margin-top: 5PX;
+    			text-align: center;
+    			font-size: 18PX;
+    			color: orange;
+    		}
+		</style>
+	</head>
+	<body>
+		<!--模态框-->
+		<div class="modal" id="mymodal" tabindex="-1"><!--固定位置，上下左右为0代表满屏-->
+			<div class="modal-dialog"><!--相对适应；自适应宽度大于768时宽度为600-->
+				<div class="modal-content"><!--修饰边框、背景、边距、阴影等效果-->
+					<div class="modal-header"><!--模态头-->
+						<!--data-dismiss="modal"清除modal-->
+						<button class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<h4>您的账户或密码不正确，请从新输入</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box-beijing">
+			<div id="box-denglu">
+				<div>
+					<form action="index.html" >
+				    <div>
+				    	<input type="text" id="user" class="text" placeholder="请输入您的手机号">
+						<div style="height: 35px;"><p class="message"><i class="active"></i>请输入手机号</p></div>
+				    </div>
+				    <div>
+				    	<input type="password" id="psd" class="text" placeholder="请输入您的密码">
+				    	<div style="height: 35px;"><p class="message"><i class="active"></i>6-25个字符</p></div>
+				    </div>
+				    <div >
+				    	<input  type="button" value="登录" id="submitBtn" style="font-size: 20px ;">
+				    </div>
+				    <div>
+				    	<p style="margin-top: 25px; ">
+				    		<!--<a href="denglu-jun.html" style="color: orange;font-size: 14px;text-decoration: none; margin-left: 1px;">返回登录>>></a>-->
+				    		<a href="index.html" style="color: orange;font-size: 14px;text-decoration: none;margin-left: 70px;">返回首页>>></a>
+				    	</p>
+				    </div>
+				    <div style="margin-top: 22px;">
+				    	<input type="radio" id="lll" />
+				    	<label for="lll" ><span >两周内自动登录</span></label>
+				    </div>
+				    
+			    </form>
+				</div>
+
+			    <div class="shiyuanfang">
+			    	<img src="img/1520878379.jpeg.png" style="height: 180px; width: 180px;"/>
+			    	<p><strong>扫一扫</strong></p>
+			    	<p><strong>下载</strong></p>
+			    	<p><strong>诗与远方app</strong></p>
+			    </div>
+			</div>
+		</div>
+		
+		
+	</body>
+	
+</html>
+<script>
+    var user=document.getElementById("user"),
+    	psd=document.getElementById("psd"),
+    	myp=document.getElementsByTagName("p"),
+    	user_p=myp[0],
+    	psd_p=myp[1],
+    	submitBtn=document.getElementById("submitBtn");
+    user.onfocus=function(){
+    	user_p.style.display="block";
+    	user_p.innerHTML='<i class="ati"></i>请输入手机号'
+    }
+    user.onblur=function(){
+    	reg = /^1[3|4|5|7|8]\d{9}$/;
+    	if(user.value==''){
+            user_p.innerHTML='<i class="err"></i>不能为空';
+            return false;
+       }
+        else if(!reg.test(user.value)){
+            user_p.innerHTML='<i class="err"></i>格式错误，请重新输入'
+            return false;
+        }
+        else{
+            user_p.innerHTML='<i class="ok"></i>正确'
+            return true
+        }
+    }
+    psd.onfocus=function(){
+        psd_p.style.display='block'; 
+        psd_p.innerHTML='<i class="ati"></i>长度在6-12个字符'
+    }
+    psd.onblur=function(){
+        var reg=/^\w{6,12}$/;
+        var reg1=/[^0-9]/;
+        var reg2=/[^a-zA-Z]/;
+        if(psd.value==''){
+            psd_p.innerHTML='<i class="err"></i>不能为空';
+            return false;
+        }
+        else if(!reg.test(psd.value)){
+            psd_p.innerHTML='<i class="err"></i>长度不在范围内或者存在非法字符'
+            return false;
+        } 
+        else if(!reg1.test(psd.value))
+        {
+            psd_p.innerHTML='<i class="err"></i>不能全是数字'
+            return false;
+        }
+        else if(!reg2.test(psd.value)){
+            psd_p.innerHTML='<i class="err"></i>不能全是字母'
+            return false;
+        }
+		else{
+            psd.innerHTML='<i class="ok"></i>正确'
+            return true
+        }
+    }
+
+	submitBtn.onclick=function(){
+		var sto = window.localStorage;
+//		console.log(111)	
+		if(sto.user==user.value && psd.value==sto.psd){
+			document.getElementsByTagName("form")[0].submit();
+//			return false;
+		}else if(sto.user!=user.value || psd.value!=sto.psd){
+		$("#mymodal").modal({
+//				show:false,//初始化时是否显示
+//				keyboard:true,//按esc键关闭  在modal上写tabindex="-1"
+//				backdrop:"static",//设置为"static"点击不关闭
+			})
+			
+			
+		}
+	}
+	
+</script>

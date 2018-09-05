@@ -1,0 +1,21 @@
+login           登录页面
+
+register      注册页面
+
+index          首页页面
+
+detailed     照片PK页面
+北海页面：  beiHai.html
+俱乐部:     jbu.html
+当地游：    localtion.html
+结伴：      travel.html
+云南首页：  YN.html
+strategy    		旅游攻略
+insurance   		保险
+travelCustomize   	定制
+reserve           丽江客栈预定
+ynScene           云南景点（接在云南主页后面）
+liberty		自由行
+exchange	问答页面
+cruise		游轮页面 （攻略-游轮）
+bhReserve 	北海预定
